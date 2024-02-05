@@ -1,0 +1,18 @@
+@import "../../index.scss";
+
+.button {
+  @extend .font-16-21-500;
+  display: flex;
+  gap: 8px;
+  border: none;
+  background-color: $pink;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: $white;
+  width: fit-content;
+  
+  .buttonIcon {
+    line-height: 0;
+  }
+}

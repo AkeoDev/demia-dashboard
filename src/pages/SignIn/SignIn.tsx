@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { logo, signIn, signInBtnIcon } from "../../assets";
 import classes from "./SignIn.module.scss";
-import { ReactSVG } from "react-svg";
+import { Button } from "../../components/Buttons/Button";
 
 export const SignIn = () => {
   return (
@@ -13,10 +13,14 @@ export const SignIn = () => {
         <section className={classes.signInContainer}>
           <div className={classes.innerContent}>
             <h1 className={classes.title}>Sign in to access the dashboard</h1>
-            <Link to="#" className={classes.button}>
-              <ReactSVG src={signInBtnIcon} className={classes.buttonIcon}></ReactSVG>
+            <Button
+              isLink
+              href={`#`}
+              icon={signInBtnIcon}
+              className={classes.button}
+            >
               Sign in with ScribeHub
-            </Link>
+            </Button>
             <p className={classes.text}>Don’t have an account?</p>
             <Link to="#" className={classes.accessText}>
               Request access here
