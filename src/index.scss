@@ -26,14 +26,14 @@
 }
 
 // colors
-$white: #FFFFFF;
-$light-gray: #F7F7F7;
+$white: #ffffff;
+$light-gray: #f7f7f7;
+$gray: #44414d;
 $black: #151221;
-$pink: #FF00A8;
+$pink: #ff00a8;
 
 body {
   margin: 0;
-  background-color: $black;
   box-sizing: border-box;
 }
 * {
@@ -45,9 +45,17 @@ body {
 #root {
   position: relative;
   overflow-x: hidden;
+  line-height: 0;
 }
 
-p, h1, h2, h3, h4, h5, h6, button {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+button {
   margin: 0;
 }
 
@@ -57,8 +65,23 @@ $grid-breakpoints: (
   md: 768px,
   lg: 992px,
   xl: 1200px,
-  xxl: 1440px
+  xxl: 1440px,
 );
+
+.font-14-18-400 {
+  font-family: "SpaceGrotesk";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: 0em;
+}
+.font-14-18-500 {
+  font-family: "SpaceGrotesk";
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: 0em;
+}
 
 @mixin breakpoint($breakpoint, $direction) {
   @if map-has-key($grid-breakpoints, $breakpoint) {
