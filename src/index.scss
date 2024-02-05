@@ -1,0 +1,86 @@
+// SpaceGrotesk
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: url("./assets/fonts/SpaceGrotesk-Light.ttf") format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: url("./assets/fonts/SpaceGrotesk-Regular.ttf") format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: url("./assets/fonts/SpaceGrotesk-Medium.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: url("./assets/fonts/SpaceGrotesk-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: "SpaceGrotesk";
+  src: url("./assets/fonts/SpaceGrotesk-Bold.ttf") format("truetype");
+  font-weight: 700;
+}
+
+// colors
+$white: #FFFFFF;
+$light-gray: #F7F7F7;
+$black: #151221;
+$pink: #FF00A8;
+
+body {
+  margin: 0;
+  background-color: $black;
+  box-sizing: border-box;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  position: relative;
+  overflow-x: hidden;
+}
+
+p, h1, h2, h3, h4, h5, h6, button {
+  margin: 0;
+}
+
+$grid-breakpoints: (
+  sm: 360px,
+  sm2: 480px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px
+);
+
+@mixin breakpoint($breakpoint, $direction) {
+  @if map-has-key($grid-breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($grid-breakpoints, $breakpoint);
+    @if $direction == max {
+      @media (max-width: ($breakpoint-value - 1)) {
+        @content;
+      }
+    } @else if $direction == min {
+      @media (min-width: $breakpoint-value) {
+        @content;
+      }
+    }
+  } @else {
+    @if $direction == max {
+      @media (max-width: $breakpoint) {
+        @content;
+      }
+    } @else if $direction == min {
+      @media (min-width: $breakpoint) {
+        @content;
+      }
+    }
+  }
+}
