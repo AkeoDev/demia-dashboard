@@ -1,0 +1,34 @@
+@import "../../index.scss";
+
+.statistic {
+  border: 1px solid $border-color;
+  background-color: $white;
+  text-align: center;
+  padding: 16px 24px;
+
+  .amount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    p {
+      @extend .font-32-42-500;
+      color: $black;
+      margin-left: 16px;
+    }
+
+    span {
+      @extend .font-12-16-400;
+      padding: 2px 4px;
+      background-color: rgba(50, 255, 194, 0.2);
+      color: $green;
+      border-radius: 4px;
+      margin-left: 6px;
+    }
+  }
+  .text {
+    @extend .font-14-18-400;
+    color: $grey2;
+    margin-top: 12px;
+  }
+}

@@ -1,0 +1,32 @@
+@import "../../index.scss";
+
+.recentActivity {
+  border: 1px solid $border-color;
+  padding: 16px 11px;
+  background-color: $white;
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 12px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid $border-color;
+    
+    h3 {
+      @extend .font-14-18-500;
+      color: $black;
+    }
+    a {
+      @extend .font-14-18-400;
+      text-decoration: none;
+      color: $pink;
+    }
+  }
+
+  .users {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}

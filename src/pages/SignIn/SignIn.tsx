@@ -22,7 +22,7 @@ export const SignIn = () => {
               Sign in with ScribeHub
             </Button>
             <p className={classes.text}>Don’t have an account?</p>
-            <Link to="#" className={classes.accessText}>
+            <Link to="mailto:info@digitalmrv.io" className={classes.accessText}>
               Request access here
             </Link>
           </div>
