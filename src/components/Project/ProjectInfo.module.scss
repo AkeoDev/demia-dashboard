@@ -1,0 +1,28 @@
+@import "../../index.scss";
+
+.projectInfo {
+  display: flex;
+  border: 1px solid $border-color;
+  border-left: 0;
+  background-color: $white;
+
+  .details {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 24px;
+  }
+
+  .item {
+    h6 {
+      @extend .font-12-16-400;
+      color: $grey2;
+      margin-bottom: 4px;
+    }
+
+    p {
+      @extend .font-14-18-400;
+      color: $black;
+    }
+  }
+}

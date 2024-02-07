@@ -1,10 +1,11 @@
-import { FunctionComponent } from "react"
-import { Layout } from "../../components/Layout/Layout"
+import { Layout } from '../../components/Layout/Layout';
+import { Project } from '../../components/Project';
+import classes from './Dashboard.module.scss';
 
-export const Dashboard: FunctionComponent = () => {
-    return (
-        <>
-            <Layout></Layout>
-        </>
-    )
+export const Dashboard = () => {
+  return (
+    <Layout>
+      <Project />
+    </Layout>
+  );
 }

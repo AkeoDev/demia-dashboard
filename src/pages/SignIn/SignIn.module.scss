@@ -4,8 +4,6 @@
   height: 100vh;
   display: grid;
   grid-template-columns: 41.7% 58.3%;
-  max-width: 1440px;
-  margin: 0 auto;
 
   .left {
     padding: 48px 58px;
@@ -19,11 +17,12 @@
   }
 
   .signInContainer {
-    margin: auto 64px auto auto;
+    margin: auto 64px auto 0;
     filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0.10));
   }
 
   .innerContent {
+    max-width: 620px;
     padding: 58px 40px;
     background-color: $white;
     clip-path: polygon(0 0, 87% 0, 100% 17%, 100% 100%, 13% 100%, 0 83%);
@@ -36,7 +35,7 @@
 
   .text {
     @extend .font-14-18-400;
-    color: $gray;
+    color: $grey;
     margin-top: 8px;
     margin-bottom: 2px;
   }

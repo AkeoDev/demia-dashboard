@@ -19,7 +19,9 @@ export const Layout: FunctionComponent<{children?: ReactNode}> = ({ children }) 
             </aside>
             <div className={classes['main__content']}>
                 <Header />
+                <div className={classes['main__content-children']}>
                 {children as React.ReactNode}
+                </div>
                 <Footer />
                 <div className={classes['gradient1']}></div>
                 <div className={classes['gradient2']}></div>
