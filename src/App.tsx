@@ -7,7 +7,8 @@ const router = createBrowserRouter([
   { path: "dashboard", element: <Dashboard /> },
   { path: "projects", element: <AllProjects /> },
   { path: "activity", element: <Activity /> },
-  { path: "projects/:projectSlug", element: <Dashboard />}
+  { path: "projects/:projectSlug", element: <Dashboard />},
+  { path: "", element: <Dashboard />}
 ]);
 
 const App = () => {
