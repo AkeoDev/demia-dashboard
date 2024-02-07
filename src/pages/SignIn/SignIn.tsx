@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import { logo, signIn, signInBtnIcon } from "../../assets";
 import classes from "./SignIn.module.scss";
 import { Button } from "../../components/Buttons/Button";
+import { FunctionComponent } from "react";
 
-export const SignIn = () => {
+export const SignIn: FunctionComponent = () => {
   return (
     <main className={classes.signIn}>
       <article className={classes.left}>
