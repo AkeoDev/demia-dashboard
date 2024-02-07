@@ -6,6 +6,7 @@ const router = createBrowserRouter([
   { path: "sign-in", element: <SignIn /> },
   { path: "dashboard", element: <Dashboard /> },
   { path: "projects", element: <AllProjects /> },
+  { path: "activity", element: <Activity /> },
   { path: "projects/:projectSlug", element: <Dashboard />}
 ]);
 
