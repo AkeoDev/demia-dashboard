@@ -67,8 +67,8 @@ export const SidebarAcccordion: FunctionComponent = () => {
             <NavLink
               key={index}
               to={`/projects/${project.projectSlug}`}
-              className={({ isActive }) =>
-                isActive
+              className={() =>
+                project.projectId === activeProjectId
                   ? `${classes['project-link']} ${classes['active']}`
                   : classes['project-link']
               }
