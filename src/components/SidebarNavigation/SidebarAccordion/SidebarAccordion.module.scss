@@ -1,0 +1,102 @@
+@import '../../../index.scss';
+
+.sidebar-accordion {
+    position: relative;
+    z-index: 1;
+
+    &-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 30px;
+        cursor: pointer;
+        &__info {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            span {
+                color: var(--Pink-500, #F09);
+                font-family: "SpaceGrotesk";
+                font-size: 12px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 16px;
+            }
+            .project-name {
+                color: var(--Secondary-Dark-Blue, #151221);
+                font-family: "SpaceGrotesk";
+                font-size: 14px;
+                font-style: normal;
+                font-weight: 500;
+                line-height: 24px; /* 171.429% */
+            }
+        }
+        img {
+            transition: transform .4s ease;
+            &.rotate {
+                transform: rotate(180deg);
+            }
+        }
+    }
+    &-body {
+        position: absolute;
+        top: 70%;
+        left: 12px;
+        filter: drop-shadow(0px 1.429px 1.429px rgba(0, 0, 0, 0.25));
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity .4s ease, top .4s ease;
+        &.active {
+            opacity: 1;
+            pointer-events: all;
+            top: 80%;
+        }
+        .links {
+            clip-path: polygon(0 0, 87% 0, 100% 17%, 100% 100%, 13% 100%, 0 100%);
+            background-color: $white;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 16px 12px; 
+        }
+        .spacer {
+            height: 1px;
+            margin: 4px 0;
+            width: 100%;
+            background-color: #6F6C82;
+        }
+        a {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 8px;
+            color: var(--Secondary-Purple-Gray, #6F6C82);
+            /* B2 Regular */
+            font-family: "SpaceGrotesk";
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 130%; /* 18.2px */
+            text-decoration: none;
+            &:hover {
+                color: black;
+                svg {
+                    path {
+                        stroke: $pink;
+                    }
+                }
+            }
+                &.active {
+                    color: black;
+                    svg {
+                        path {
+                            stroke: $pink;
+                        }
+                    }
+                }
+        }
+    }
+}
