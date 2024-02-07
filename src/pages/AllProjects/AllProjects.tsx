@@ -2,6 +2,7 @@ import { projectImage } from "../../assets";
 import classes from "./AllProjects.module.scss";
 import { ProjectDetails } from "../../components/Project";
 import { Layout } from "../../components/Layout/Layout";
+import { FunctionComponent } from "react";
 
 const projectsInfo = [
   {
@@ -30,7 +31,7 @@ const projectsInfo = [
   },
 ];
 
-export const AllProjects = () => {
+export const AllProjects: FunctionComponent = () => {
   return (
     <Layout>
       <h1 className={classes.title}>All Projects</h1>

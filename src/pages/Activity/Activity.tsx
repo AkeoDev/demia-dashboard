@@ -1,7 +1,7 @@
 import { Layout } from "../../components/Layout/Layout";
 import classes from "./Activity.module.scss";
 
-export const Activity = () => {
+export const Activity: React.FC = () => {
   return (
     <Layout>
       <h1 className={classes.title}>Activity</h1>
