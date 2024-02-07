@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 24px;
+    padding: 30px;
+    border-bottom: 1px solid var(--Secondary-Blueish-Gray, #D9E1E8);
+    &__icons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 16px;
+    }
+    .notifications {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 24px;
+        width: 24px;
+        span {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 24px;
+            width: 24px;
+        }
+    }
+    .user {
+        background-color: black;
+        color: var(--White, #FFF);
+        text-align: center;
+        font-family: "SpaceGrotesk";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 20px;
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

@@ -1,0 +1,56 @@
+.main {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    .sidebar-container {
+        background-color: #F4F6F8;
+        position: relative;
+        z-index: 2;
+    }
+    &__content {
+        flex-grow: 1;
+        position: relative;
+        background-color: #F4F6F8;
+        overflow: hidden;
+        min-height: 100vh;
+        z-index: 1;
+        &-children {
+            padding: 24px 30px;
+            position: relative;
+            z-index: 3;
+        }
+        .gradient1 {
+            width: 902px;
+            height: 874px;
+            flex-shrink: 0;
+
+            border-radius: 902px;
+            background: #FF00A8;
+
+            mix-blend-mode: color;
+            filter: blur(250px);
+            position: fixed;
+            top: -308px;
+            left: -206px;
+            z-index: 2;
+            pointer-events: none;
+
+        }
+        .gradient2 {
+            width: 932px;
+            height: 1037px;
+            flex-shrink: 0;
+
+            border-radius: 1037px;
+            background: #32FFC2;
+
+            mix-blend-mode: color;
+            filter: blur(250px);
+            position: absolute;
+            bottom: -502px;
+            right: -368px;
+            z-index: 2;
+            pointer-events: none;
+        }
+    }
+}

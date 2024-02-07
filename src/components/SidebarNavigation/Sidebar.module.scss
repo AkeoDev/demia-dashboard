@@ -1,0 +1,79 @@
+.sidebar {
+    background: var(--Gradients-Navigation-Linear, linear-gradient(178deg, rgba(228, 228, 228, 0.51) -11.95%, rgba(242, 242, 242, 0.17) 72.13%));
+
+    /* Blur/Navigation BGD Blur */
+    backdrop-filter: blur(6px);
+    
+    position: sticky;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: auto;
+    display: inline-block;
+    z-index: 1;
+    height: 100vh;
+    .logo {
+        padding: 18px 30px;
+    }
+    .navigation {
+        border-top: 1px solid #D9E1E8;
+        a {
+            display: flex;
+            padding: 24px 30px;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 8px;
+            color: var(--Secondary-Purple-Gray, #6F6C82);
+/* B2 Medium */
+            font-family: "SpaceGrotesk";
+            font-size: 14px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 130%;
+            position: relative;
+            text-decoration: none;
+            transition: background-color .4s ease, color .4s ease;
+            .fill {
+                path {
+                    transform: fill .4s ease;
+                }
+            }
+            .stroke {
+                path, circle {
+                    transform: stroke .4s ease;
+                }     
+            }
+            &::before{
+                content: "";
+                max-width: 0px;
+                width: 100%;
+                transition: max-width .2s ease;
+                background-color: #FF00A8;
+                height: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+            &:hover, &.active {
+                background-color: white;
+                color: black;
+                .fill {
+                    path {
+                        fill: #FF00A8;
+                    }
+                }
+                .stroke {
+                    path {
+                        stroke: #FF00A8;
+                    }
+                    circle {
+                        stroke: #FF00A8;
+                    }
+                }
+                &::before {
+                    max-width: 4px;
+                }
+            }
+        }
+    }
+}

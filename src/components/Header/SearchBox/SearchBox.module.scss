@@ -1,0 +1,50 @@
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    background-color: gray;
+    padding: 6px;
+    padding-right: 0;
+    background-color: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: box-shadow .2s ease;
+    &:hover, &.active {
+        border-radius: 8px;
+        background: var(--Secondary-White, #FFF);
+        box-shadow: 0px 0px 1px 0px rgba(255, 0, 168, 0.31), 0px 2px 8px 0px rgba(255, 0, 168, 0.10);
+    }
+    &.active {
+        svg {
+            path {
+                stroke: gray;
+            }
+        }
+        input {
+            max-width: 150px;
+        }
+    }
+    span {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    input {
+        border: none;
+        overflow: hidden;
+        max-width: 0;
+        transition: max-width .4s ease;
+        color: var(--Secondary-Dark-Blue, #151221);
+        /* B2 Regular */
+        font-family: "SpaceGrotesk";
+        font-size: 14px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 130%;
+        &:focus, &:focus-within, &:focus-visible{
+            border: none;
+            outline: none;
+        }
+    }
+}
