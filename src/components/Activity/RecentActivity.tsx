@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import classes from "./Activity.module.scss";
+import classes from "./RecentActivity.module.scss";
 import { ActiveUser } from ".";
 
 const activityData = [
@@ -33,7 +33,7 @@ const activityData = [
   },
 ];
 
-export const Activity = () => {
+export const RecentActivity = () => {
   return (
     <section className={classes.recentActivity}>
       <div className={classes.title}>

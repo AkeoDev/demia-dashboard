@@ -1,2 +1,2 @@
-export { Activity } from './Activity';
+export { RecentActivity } from './RecentActivity';
 export { ActiveUser } from './ActiveUser';

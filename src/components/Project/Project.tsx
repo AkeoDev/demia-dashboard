@@ -1,6 +1,6 @@
 import { ProjectInfo, ProjectStatistic } from ".";
 import { chart, sustainability } from "../../assets";
-import { Activity } from "../Activity";
+import { RecentActivity } from "../Activity";
 import classes from "./Project.module.scss";
 
 const projectInfo = {
@@ -37,7 +37,7 @@ export const Project = () => {
         <div className={classes.innerContent}>
           <div className={classes.topContent}>
             <ProjectInfo projectInfo={projectInfo} />
-            <Activity />
+            <RecentActivity />
           </div>
           <div className={classes.statisticWrapper}>
             {statisticData.map((i, index) => (
