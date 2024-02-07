@@ -1,28 +1,28 @@
 import { FunctionComponent, useEffect, useState } from 'react';
 import classes from './SidebarAccordion.module.scss';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ReactSVG } from 'react-svg';
 import { allProjectsIcon, arrowIcon, projectIcon } from '../../../assets';
 
 const projects: Array<{
   projectName: string;
-  projectLink: string;
+  projectSlug: string;
   projectId: number;
 }> = [
   {
     projectId: 1,
     projectName: 'Copiulemu LFG site',
-    projectLink: '#'
+    projectSlug: 'copulemu-lfg-site'
   },
   {
     projectId: 2,
     projectName: 'Loma Los Colorado',
-    projectLink: '#'
+    projectSlug: 'loma-los-colorado'
   },
   {
     projectId: 3,
     projectName: 'Santa Marta LFG',
-    projectLink: '#'
+    projectSlug: 'santa-marta-lfg'
   }
 ];
 
@@ -49,18 +49,28 @@ export const SidebarAcccordion: FunctionComponent = () => {
           <span>PROJECTS</span>
           <span className={classes['project-name']}>{activeProjectName}</span>
         </div>
-        <img className={`${isOpen && classes['rotate']}`} src={arrowIcon} alt="" />
+        <img
+          className={`${isOpen && classes['rotate']}`}
+          src={arrowIcon}
+          alt=""
+        />
       </div>
       <div
-        className={classes['sidebar-accordion-body'] + ' ' + (isOpen && classes['active'])}
+        className={
+          classes['sidebar-accordion-body'] +
+          ' ' +
+          (isOpen && classes['active'])
+        }
       >
         <div className={classes['links']}>
           {projects.map((project, index) => (
-            <Link
+            <NavLink
               key={index}
-              to={project.projectLink}
-              className={
-                classes['project-link']
+              to={`/projects/${project.projectSlug}`}
+              className={({ isActive }) =>
+                isActive
+                  ? `${classes['project-link']} ${classes['active']}`
+                  : classes['project-link']
               }
               onClick={() => {
                 closeAccordion();
@@ -70,13 +80,20 @@ export const SidebarAcccordion: FunctionComponent = () => {
             >
               <ReactSVG wrapper="span" src={projectIcon} />
               {project.projectName}
-            </Link>
+            </NavLink>
           ))}
           <div className={classes['spacer']}></div>
-          <Link to="#" className={classes['all-projects']}>
+          <NavLink
+            to="/projects"
+            className={({ isActive }) =>
+            isActive
+              ? `${classes['all-projects']} ${classes['active']}`
+              : classes['all-projects']
+          }
+          >
             <ReactSVG wrapper="span" src={allProjectsIcon}></ReactSVG>
             All Projects
-          </Link>
+          </NavLink>
         </div>
       </div>
     </div>

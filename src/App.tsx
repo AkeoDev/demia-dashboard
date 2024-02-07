@@ -5,7 +5,8 @@ import { AllProjects, Dashboard, SignIn } from "./pages";
 const router = createBrowserRouter([
   { path: "sign-in", element: <SignIn /> },
   { path: "dashboard", element: <Dashboard /> },
-  { path: "all-projects", element: <AllProjects /> },
+  { path: "projects", element: <AllProjects /> },
+  { path: "projects/:projectSlug", element: <Dashboard />}
 ]);
 
 const App = () => {

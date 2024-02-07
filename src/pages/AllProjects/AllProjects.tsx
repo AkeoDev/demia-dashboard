@@ -1,6 +1,7 @@
 import { projectImage } from "../../assets";
 import classes from "./AllProjects.module.scss";
 import { ProjectDetails } from "../../components/Project";
+import { Layout } from "../../components/Layout/Layout";
 
 const projectsInfo = [
   {
@@ -31,7 +32,7 @@ const projectsInfo = [
 
 export const AllProjects = () => {
   return (
-    <main className={classes.allProjects}>
+    <Layout>
       <h1 className={classes.title}>All Projects</h1>
       <div className={classes.content}>
         <div className={classes.innerContent}>
@@ -40,6 +41,6 @@ export const AllProjects = () => {
           ))}
         </div>
       </div>
-    </main>
+    </Layout>
   );
 };
