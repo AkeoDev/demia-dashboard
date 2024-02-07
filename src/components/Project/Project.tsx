@@ -33,7 +33,7 @@ export const Project = () => {
   return (
     <div className={classes.project}>
       <h1 className={classes.title}>Copiulemu LFG Site</h1>
-      <article className={classes.content}>
+      <div className={classes.content}>
         <div className={classes.innerContent}>
           <div className={classes.topContent}>
             <ProjectInfo projectInfo={projectInfo} />
@@ -45,7 +45,7 @@ export const Project = () => {
             ))}
           </div>
         </div>
-      </article>
+      </div>
     </div>
   );
 };

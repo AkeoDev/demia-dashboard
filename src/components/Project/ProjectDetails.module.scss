@@ -1,0 +1,45 @@
+@import "../../index.scss";
+
+.projectDetails {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  padding: 16px;
+  background-color: $white;
+
+  figure {
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .projectName {
+    @extend .font-20-26-400;
+    padding-top: 16px;
+  }
+
+  .projectInfo {
+    margin: 24px 0 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    .info {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      .icon {
+        line-height: 0;
+      }
+
+      p {
+        @extend .font-14-18-400;
+      }
+    }
+  }
+
+  .button {
+    padding: 9.5px 12px;
+  }
+}
