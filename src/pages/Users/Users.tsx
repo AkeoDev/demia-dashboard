@@ -12,10 +12,10 @@ const tableList = [
     role: "Admin",
     lastLogin: "24.01.2022 14:00 cet",
     permissions: [
+      "Santa Maria 1",
       "Santa Maria 2",
-      "Santa Maria 2",
-      "Santa Maria 2",
-      "Santa Maria 2",
+      "Santa Maria 3",
+      "Santa Maria 4",
     ],
   },
   {

@@ -91,7 +91,7 @@ export const SidebarAcccordion: FunctionComponent = () => {
               : classes['all-projects']
           }
           >
-            <ReactSVG wrapper="span" src={allProjectsIcon}></ReactSVG>
+            <ReactSVG wrapper="span" src={allProjectsIcon} className={classes.hamburger}></ReactSVG>
             All Projects
           </NavLink>
         </div>

@@ -11,6 +11,12 @@
   text-decoration: none;
   color: $white;
   width: fit-content;
+  cursor: pointer;
+  transition: ease 0.3s all;
+
+  &:hover {
+    background-color: $hover-pink;
+  }
   
   .buttonIcon {
     line-height: 0;

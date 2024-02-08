@@ -48,6 +48,11 @@
     @extend .font-14-18-500;
     color: $pink;
     text-decoration: none;
+    transition: ease 0.3s all;
+
+    &:hover {
+      color: $hover-pink;
+    }
   }
 
   .right {
