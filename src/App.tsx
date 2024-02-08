@@ -1,5 +1,4 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import { Activity, AllProjects,  Dashboard,  Notifications,  SignIn, Users } from "./pages";
 
 const router = createBrowserRouter([
