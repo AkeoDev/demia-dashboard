@@ -19,6 +19,7 @@ import actionsIcon from './svg/actions-icon.svg';
 import chart from "./svg/chart.svg";
 import sustainability from "./svg/sustainability.svg";
 import clockIcon from "./svg/clock-icon.svg";
+import threeDots from "./svg/three-dots.svg";
 
 //png
 import signIn from "./images/sign-in.png";
@@ -49,7 +50,8 @@ export {
   copiulemu,
   projectImage,
   messageIcon,
-  actionsIcon
+  actionsIcon,
+  threeDots
 };
 
 
