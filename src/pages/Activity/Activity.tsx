@@ -1,14 +1,6 @@
 import { Layout } from "../../components/Layout/Layout";
+import { TableWithoutSorting } from "../../components/Table/Table";
 import classes from "./Activity.module.scss";
-import {
-  Table,
-  Header,
-  HeaderRow,
-  Body,
-  Row,
-  HeaderCell,
-  Cell,
-} from "@table-library/react-table-library/table";
 
 const tableList = [
   {
@@ -49,44 +41,13 @@ const tableList = [
   },
 ];
 
+const fields = ['Timestamp', 'Activity'];
+
 export const Activity: React.FC = () => {
   return (
     <Layout>
       <h1 className={classes.title}>Activity</h1>
-      <div className={classes.content}>
-        <div className={classes.innerContent}>
-          <Table data={{ nodes: tableList }} className={classes.table}>
-            {(tableList: any) => (
-              <>
-                <Header>
-                  <HeaderRow className={classes.tHead}>
-                    <HeaderCell>Timestamp</HeaderCell>
-                    <HeaderCell>Activity</HeaderCell>
-                  </HeaderRow>
-                </Header>
-                <Body>
-                  {tableList.map((item: any, index: number) => (
-                    <Row item={item} key={index} className={classes.tBody}>
-                      <Cell className={classes.date}>{item.date}</Cell>
-                      <Cell>
-                        <div className={classes.user}>
-                          <span className={classes.userIcon}>
-                            {item.initials}
-                          </span>
-                          <div className={classes.userInfo}>
-                            <h4>{item.name}</h4>
-                            <p>{item.text}</p>
-                          </div>
-                        </div>
-                      </Cell>
-                    </Row>
-                  ))}
-                </Body>
-              </>
-            )}
-          </Table>
-        </div>
-      </div>
+      <TableWithoutSorting data={{nodes: tableList}} fields={fields}/>
     </Layout>
   );
 };

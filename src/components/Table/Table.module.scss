@@ -1,0 +1,73 @@
+@import "../../index.scss";
+
+.title {
+  @extend .font-24-31-500;
+  margin-bottom: 40px;
+}
+
+.content {
+  filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0.1));
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.innerContent {
+  padding: 24px;
+  clip-path: polygon(0 0, 98% 0, 100% 3%, 100% 100%, 2% 100%, 0 97%);
+  background-color: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.userIcon {
+  width: 40px;
+  height: 40px;
+  background-color: $green;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  @extend .font-14-18-500;
+  color: $white;
+}
+
+.table {
+  .tBody {
+    background-color: #f9f9f9;
+    td {
+      padding: 16px 24px;
+      border-bottom: 1px solid $border-color;
+    }
+  }
+  
+  .tHead {
+    background-color: #f9f9f9;
+    th {
+      padding: 16px 24px;
+      border-bottom: 1px solid $border-color;
+      @extend .font-14-18-500;
+    }
+  }
+  
+  .date {
+    @extend .font-14-18-400;
+  }
+  
+  .user {
+    display: flex;
+    gap: 8px;
+    align-items: center
+  }
+  
+  .userInfo {
+    h4 {
+      @extend .font-14-18-500;
+      margin-bottom: 2px;
+    }
+    p {
+      @extend .font-14-18-400;
+    }
+  }
+}
