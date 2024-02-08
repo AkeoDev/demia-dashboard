@@ -7,11 +7,19 @@ import { FunctionComponent } from "react";
 const projectsInfo = [
   {
     projectImage: projectImage,
-    projectName: "Santa Marta LFG site",
+    projectName: "Copulemu LFG Site",
     location: "Copiulemu, Chile",
     sensors: "16 sensors connected",
-    notifications: "4 new notifications",
-    link: "#"
+    notifications: "7 new notifications",
+    link: "copulemu-lfg-site"
+  },
+  {
+    projectImage: projectImage,
+    projectName: "Loma Los Colorado",
+    location: "Copiulemu, Chile",
+    sensors: "16 sensors connected",
+    notifications: "3 new notifications",
+    link: "loma-los-colorado"
   },
   {
     projectImage: projectImage,
@@ -19,15 +27,7 @@ const projectsInfo = [
     location: "Copiulemu, Chile",
     sensors: "16 sensors connected",
     notifications: "4 new notifications",
-    link: "#"
-  },
-  {
-    projectImage: projectImage,
-    projectName: "Santa Marta LFG site",
-    location: "Copiulemu, Chile",
-    sensors: "16 sensors connected",
-    notifications: "4 new notifications",
-    link: "#"
+    link: "santa-marta-lfg"
   },
 ];
 
