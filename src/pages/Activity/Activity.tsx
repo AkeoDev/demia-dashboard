@@ -16,36 +16,42 @@ const tableList = [
     name: "John Doe",
     text: "added a new sensor PT5",
     initials: "JD",
+    color: "blue"
   },
   {
     date: "June 12, 09:43 AM",
     name: "Sara Aras",
     text: "added a new sensor PT5",
     initials: "SA",
+    color: "green"
   },
   {
     date: "June 12, 09:43 AM",
     name: "Penelope Johnston",
     text: "calibrated sensor TT2",
     initials: "PJ",
+    color: "rose"
   },
   {
     date: "June 12, 09:43 AM",
     name: "John Doe",
     text: "added a new sensor PT5",
     initials: "JD",
+    color: "purple"
   },
   {
     date: "June 12, 09:43 AM",
     name: "Sara Aras",
     text: "added a new sensor PT5",
     initials: "SA",
+    color: "red"
   },
   {
     date: "June 12, 09:43 AM",
     name: "Penelope Johnston",
     text: "calibrated sensor TT2",
     initials: "PJ",
+    color: "orange"
   },
 ];
 
@@ -70,7 +76,7 @@ export const Activity: React.FC = () => {
                       <Cell className={classes.date}>{item.date}</Cell>
                       <Cell>
                         <div className={classes.user}>
-                          <span className={classes.userIcon}>
+                          <span className={`${classes.userIcon} ${classes[item.color]}`}>
                             {item.initials}
                           </span>
                           <div className={classes.userInfo}>
