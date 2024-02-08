@@ -13,10 +13,10 @@ import documentationIcon from './svg/documentation-icon.svg';
 import dataSourcesIcon from './svg/data-sources-icon.svg'
 import notificationsIcon from './svg/notifications-icon.svg';
 import searchIcon from './svg/search-icon.svg';
-
 import chart from "./svg/chart.svg";
 import sustainability from "./svg/sustainability.svg";
 import clockIcon from "./svg/clock-icon.svg";
+import threeDots from "./svg/three-dots.svg";
 
 //png
 import signIn from "./images/sign-in.png";
@@ -45,7 +45,8 @@ export {
   notificationsIcon,
   searchIcon,
   copiulemu,
-  projectImage
+  projectImage,
+  threeDots
 };
 
 

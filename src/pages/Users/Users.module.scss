@@ -1,0 +1,80 @@
+@import "../../index.scss";
+
+.title {
+  @extend .font-24-31-500;
+  margin-bottom: 40px;
+}
+
+.content {
+  filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0.1));
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.innerContent {
+  padding: 24px;
+  clip-path: polygon(0 0, 98% 0, 100% 3%, 100% 100%, 2% 100%, 0 97%);
+  background-color: $inner-background;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.table {
+  grid-template-columns: calc(25% - 20px) calc(15% - 20px) calc(25% - 20px) calc(35% - 20px) 80px !important;
+  
+  .tHead {
+    background-color: $inner-background;
+    th {
+      padding: 0 0 16px 0;
+      border-bottom: 1px solid $border-color;
+      color: $black;
+      @extend .font-14-18-500;
+    }
+  }
+
+  .tBody {
+    background-color: $inner-background;
+    
+    &:last-of-type {
+      td {
+        border-bottom: none;
+      }
+    }
+
+    td {
+      padding: 16px 0;
+      border-bottom: 1px solid $border-color;
+    }
+
+    .name {
+      @extend .font-14-18-500;
+      color: $black;
+    }
+
+    .role, .lastLogin {
+      @extend .font-14-18-400;
+      color: $grey;
+    }
+  
+    .permissions {
+      div {
+        display: flex;
+        flex-direction: row;
+        gap: 4px;
+      }
+
+      span {
+        @extend .font-12-16-400;
+        color: $pink;
+        background-color: $border-color;
+        padding: 4px 8px;
+      }
+    }
+
+    .icon {
+      text-align: right;
+    }
+  }
+}

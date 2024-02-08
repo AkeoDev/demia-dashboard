@@ -15,7 +15,7 @@
 .innerContent {
   padding: 24px;
   clip-path: polygon(0 0, 98% 0, 100% 3%, 100% 100%, 2% 100%, 0 97%);
-  background-color: #f9f9f9;
+  background-color: $inner-background;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -53,7 +53,7 @@
 
 .table {
   .tBody {
-    background-color: #f9f9f9;
+    background-color: $inner-background;
     td {
       padding: 16px 24px;
       border-bottom: 1px solid $border-color;
@@ -61,7 +61,7 @@
   }
   
   .tHead {
-    background-color: #f9f9f9;
+    background-color: $inner-background;
     th {
       padding: 16px 24px;
       border-bottom: 1px solid $border-color;
