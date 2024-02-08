@@ -1,6 +1,6 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { Activity, AllProjects,  Dashboard,  SignIn, Users } from "./pages";
+import { Activity, AllProjects,  Dashboard,  Notifications,  SignIn, Users } from "./pages";
 
 const router = createBrowserRouter([
   { path: "sign-in", element: <SignIn /> },
@@ -9,6 +9,7 @@ const router = createBrowserRouter([
   { path: "activity", element: <Activity /> },
   { path: "projects/:projectSlug", element: <Dashboard />},
   { path: "users", element: <Users />},
+  { path: "notifications", element: <Notifications /> },
   { path: "", element: <Dashboard />}
 ]);
 
