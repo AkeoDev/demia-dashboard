@@ -5,52 +5,7 @@
   margin-bottom: 40px;
 }
 
-.content {
-  filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0.1));
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.innerContent {
-  padding: 24px;
-  clip-path: polygon(0 0, 98% 0, 100% 3%, 100% 100%, 2% 100%, 0 97%);
-  background-color: $inner-background;
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-}
-
-.userIcon {
-  width: 40px;
-  height: 40px;
-  background-color: $green;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  @extend .font-14-18-500;
-  color: $white;
-}
-
-.table {
-  .tBody {
-    background-color: $inner-background;
-    td {
-      padding: 16px 24px;
-      border-bottom: 1px solid $border-color;
-    }
-  }
-  
-  .tHead {
-    background-color: $inner-background;
-    th {
-      padding: 16px 24px;
-      border-bottom: 1px solid $border-color;
-      @extend .font-14-18-500;
-    }
-  }
-  
+.activity {
   .date {
     @extend .font-14-18-400;
   }
@@ -59,6 +14,37 @@
     display: flex;
     gap: 8px;
     align-items: center
+  }
+
+  .userIcon {
+    width: 40px;
+    height: 40px;
+    background-color: $green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    @extend .font-14-18-500;
+    color: $white;
+  
+    &.green {
+      background-color: $green;
+    }
+    &.blue {
+      background-color: $blue;
+    }
+    &.red {
+      background-color: $red;
+    }
+    &.purple {
+      background-color: $purple;
+    }
+    &.orange {
+      background-color: $orange;
+    }
+    &.rose {
+      background-color: $rose;
+    }
   }
   
   .userInfo {

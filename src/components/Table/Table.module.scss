@@ -34,40 +34,21 @@
 }
 
 .table {
-  .tBody {
-    background-color: #f9f9f9;
-    td {
-      padding: 16px 24px;
-      border-bottom: 1px solid $border-color;
-    }
-  }
-  
   .tHead {
-    background-color: #f9f9f9;
+    background-color: $inner-background;
     th {
-      padding: 16px 24px;
+      padding: 0 0 16px 0;
       border-bottom: 1px solid $border-color;
+      color: $black;
       @extend .font-14-18-500;
     }
   }
-  
-  .date {
-    @extend .font-14-18-400;
-  }
-  
-  .user {
-    display: flex;
-    gap: 8px;
-    align-items: center
-  }
-  
-  .userInfo {
-    h4 {
-      @extend .font-14-18-500;
-      margin-bottom: 2px;
-    }
-    p {
-      @extend .font-14-18-400;
+
+  .tBody {
+    background-color: $inner-background;
+    td {
+      padding: 16px 0;
+      border-bottom: 1px solid $border-color;
     }
   }
 }
