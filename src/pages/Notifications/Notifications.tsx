@@ -3,6 +3,8 @@ import { Layout } from "../../components/Layout/Layout"
 import { TableWithoutSorting } from "../../components/Table/Table"
 import { Cell } from '@table-library/react-table-library/table';
 import classes from './Notifications.module.scss'
+import { ReactSVG } from "react-svg";
+import { actionsIcon, messageIcon } from "../../assets";
 
 const nodes = [
     {
@@ -59,7 +61,8 @@ const nodes = [
 const fields = [
     "Name",
     "Message",
-    "Timestamp"
+    "Timestamp",
+    ""
 ]
 
 const NotificationsRowTemplate: FunctionComponent<{item: any}> = ({item}) => {
@@ -76,6 +79,12 @@ const NotificationsRowTemplate: FunctionComponent<{item: any}> = ({item}) => {
             </Cell>
             <Cell>
                 <span className={classes['text']}>{item.timestamp}</span>
+            </Cell>
+            <Cell>
+                <div className={classes['actions']}>
+                    <ReactSVG src={messageIcon}></ReactSVG>
+                    <ReactSVG src={actionsIcon}></ReactSVG>
+                </div>
             </Cell>
         </>
     )
