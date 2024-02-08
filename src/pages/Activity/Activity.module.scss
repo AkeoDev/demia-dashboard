@@ -24,31 +24,13 @@
 .userIcon {
   width: 40px;
   height: 40px;
+  background-color: $green;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
   @extend .font-14-18-500;
   color: $white;
-
-  &.green {
-    background-color: $green;
-  }
-  &.blue {
-    background-color: $blue;
-  }
-  &.red {
-    background-color: $red;
-  }
-  &.purple {
-    background-color: $purple;
-  }
-  &.orange {
-    background-color: $orange;
-  }
-  &.rose {
-    background-color: $rose;
-  }
 }
 
 .table {
