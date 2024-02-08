@@ -1,14 +1,27 @@
 @import "../../index.scss";
 
-.title {
-  @extend .font-24-31-500;
+
+
+.titleContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 40px;
+
+  .title {
+    @extend .font-24-31-500;
+  }
+  .button {
+    padding: 9.5px 12px;
+  }
 }
+
 .users {
   table {
     grid-template-columns:
       calc(25% - 20px) calc(15% - 20px) calc(25% - 20px) calc(35% - 20px)
       80px !important;
+    overflow: visible !important;
 
     tbody {
       background-color: $inner-background;
@@ -50,5 +63,47 @@
 
   .icon {
     text-align: right;
+    position: relative;
+
+    svg {
+      cursor: pointer;
+    }
+
+    .actionsWrapper {
+      position: absolute;
+      right: 2px;
+      z-index: 1;
+      filter: drop-shadow(0px 1.5px 1.5px rgba(0, 0, 0, 0.25));
+      display: none;
+
+      &.show {
+        display: block;
+      }
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      clip-path: polygon(0 0, 87% 0, 100% 22%, 100% 100%, 13% 100%, 0 100%);
+      background-color: $white;
+      width: 200px;
+    }
+
+    .edit, .remove {
+      @extend .font-14-18-400;
+      padding: 8px 0;
+      width: 100%;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .edit {
+      border-bottom: 1px solid $border-color;
+    }
+
+    .remove {
+      color: $red2;
+    }
   }
 }

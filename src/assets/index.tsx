@@ -15,7 +15,7 @@ import notificationsIcon from './svg/notifications-icon.svg';
 import searchIcon from './svg/search-icon.svg';
 import messageIcon from './svg/message-icon.svg';
 import actionsIcon from './svg/actions-icon.svg';
-
+import plusIcon from './svg/plus-icon.svg';
 import chart from "./svg/chart.svg";
 import sustainability from "./svg/sustainability.svg";
 import clockIcon from "./svg/clock-icon.svg";
@@ -51,7 +51,8 @@ export {
   projectImage,
   messageIcon,
   actionsIcon,
-  threeDots
+  threeDots,
+  plusIcon
 };
 
 
