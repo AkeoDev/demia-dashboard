@@ -3,37 +3,6 @@ import classes from "./RecentActivity.module.scss";
 import { ActiveUser } from ".";
 import { FunctionComponent } from "react";
 
-// const activityData = [
-//   {
-//     initials: "KS",
-//     name: "Kayley",
-//     lastname: "Sheen",
-//     text: "Added a new sensor PT5",
-//     lastseen: "1d",
-//   },
-//   {
-//     initials: "KS",
-//     name: "Kayley",
-//     lastname: "Sheen",
-//     text: "Added a new sensor PT5",
-//     lastseen: "1d",
-//   },
-//   {
-//     initials: "KS",
-//     name: "Kayley",
-//     lastname: "Sheen",
-//     text: "Added a new sensor PT5",
-//     lastseen: "1d",
-//   },
-//   {
-//     initials: "KS",
-//     name: "Kayley",
-//     lastname: "Sheen",
-//     text: "Added a new sensor PT5",
-//     lastseen: "1d",
-//   },
-// ];
-
 export const RecentActivity: FunctionComponent<{activity: any}> = ({activity = []}) => {
   return (
     <section className={classes.recentActivity}>
