@@ -12,7 +12,7 @@ const projects: Array<{
   {
     projectId: 1,
     projectName: 'Copiulemu LFG site',
-    projectSlug: 'copulemu-lfg-site'
+    projectSlug: 'copiulemu-lfg-site'
   },
   {
     projectId: 2,

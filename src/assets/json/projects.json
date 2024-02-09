@@ -1,0 +1,164 @@
+[
+    {
+        "name": "Copiulemu LFG Site",
+        "slug": "copiulemu-lfg-site",
+        "type": "Biogas - Electricity",
+        "methodology": "ACM0001 Flaring or use of landfill gas",
+        "developer": "Consorcio Santa Marta S.A.",
+        "id": "C24FGH",
+        "activity": [
+            {
+                "initials": "KS",
+                "name": "Kayley Sheen",
+                "action": "Added a new sensor PT5",
+                "timestamp": "1d"
+            },
+            {
+                "initials": "KS",
+                "name": "Kayley Sheen",
+                "action": "Added a new sensor PT5",
+                "timestamp": "1d"
+            },
+            {
+                "initials": "KS",
+                "name": "Kayley Sheen",
+                "action": "Added a new sensor PT5",
+                "timestamp": "1d"
+            },
+            {
+                "initials": "KS",
+                "name": "Kayley Sheen",
+                "action": "Added a new sensor PT5",
+                "timestamp": "1d"
+            }
+        ],
+        "emissions": "18463",
+        "confidendce": "92%",
+        "statistics": [
+            {
+                "type": "sustainability",
+                "amount": "18,463",
+                "percentage": "+7%",
+                "text": "GHG emissions last 30 days"
+            },
+            {
+                "type": "sustainability",
+                "amount": "18,463",
+                "text": "GHG emissions last 30 days"
+            },
+            {
+                "type": "chart",
+                "amount": "97%",
+                "text": "Data confidence"
+            }
+        ]
+    },
+    {
+        "name": "Santa Marta LFG",
+        "slug": "santa-marta-lfg",
+        "type": "Biogas - Electricity",
+        "methodology": "ACM0001 Flaring or use of landfill gas",
+        "developer": "Consorcio Santa Marta S.A.",
+        "id": "C24FGH",
+        "activity": [
+            {
+                "initials": "KS",
+                "name": "Kayley Sheen",
+                "action": "Added a new sensor PT5",
+                "timestamp": "1d"
+            },
+            {
+                "initials": "KS",
+                "name": "Kayley Sheen",
+                "action": "Added a new sensor PT5",
+                "timestamp": "1d"
+            },
+            {
+                "initials": "KS",
+                "name": "Kayley Sheen",
+                "action": "Added a new sensor PT5",
+                "timestamp": "1d"
+            },
+            {
+                "initials": "KS",
+                "name": "Kayley Sheen",
+                "action": "Added a new sensor PT5",
+                "timestamp": "1d"
+            }
+        ],
+        "emissions": "18463",
+        "confidendce": "92%",
+        "statistics": [
+            {
+                "type": "sustainability",
+                "amount": "18,463",
+                "percentage": "+7%",
+                "text": "GHG emissions last 30 days"
+            },
+            {
+                "type": "sustainability",
+                "amount": "18,463",
+                "text": "GHG emissions last 30 days"
+            },
+            {
+                "type": "chart",
+                "amount": "97%",
+                "text": "Data confidence"
+            }
+        ]
+    },
+    {
+        "name": "Loma Los Colorado",
+        "slug": "loma-los-colorado",
+        "type": "Biogas - Electricity",
+        "methodology": "ACM0001 Flaring or use of landfill gas",
+        "developer": "Consorcio Santa Marta S.A.",
+        "id": "C24FGH",
+        "activity": [
+            {
+                "initials": "KS",
+                "name": "Kayley Sheen",
+                "action": "Added a new sensor PT5",
+                "timestamp": "1d"
+            },
+            {
+                "initials": "KS",
+                "name": "Kayley Sheen",
+                "action": "Added a new sensor PT5",
+                "timestamp": "1d"
+            },
+            {
+                "initials": "KS",
+                "name": "Kayley Sheen",
+                "action": "Added a new sensor PT5",
+                "timestamp": "1d"
+            },
+            {
+                "initials": "KS",
+                "name": "Kayley Sheen",
+                "action": "Added a new sensor PT5",
+                "timestamp": "1d"
+            }
+        ],
+        "emissions": "18463",
+        "confidendce": "92%",
+        "statistics": [
+            {
+                "type": "sustainability",
+                "amount": "18,463",
+                "percentage": "+7%",
+                "text": "GHG emissions last 30 days"
+            },
+            {
+                "type": "sustainability",
+                "amount": "18,463",
+                "text": "GHG emissions last 30 days"
+            },
+            {
+                "type": "chart",
+                "amount": "97%",
+                "text": "Data confidence"
+            }
+        ]
+    }
+]

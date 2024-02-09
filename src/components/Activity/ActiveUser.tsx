@@ -8,12 +8,12 @@ export const ActiveUser: React.FC<ActivityPropsType> = ({ activity }) => {
         <div className={classes.userIcon}>{activity.initials}</div>
         <div className={classes.userInfo}>
           <h4>
-            {activity.name} {activity.lastname}
+            {activity.name}
           </h4>
-          <p>{activity.text}</p>
+          <p>{activity.action}</p>
         </div>
       </div>
-      <span>{activity.lastseen}</span>
+      <span>{activity.timestamp}</span>
     </div>
   );
 };
