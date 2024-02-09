@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Activity, AllProjects,  Dashboard,  Notifications,  SignIn, Users } from "./pages";
+import { Activity, AllProjects,  CargoSensor,  Dashboard,  Notifications,  Sensors,  SignIn, Users } from "./pages";
 
 const router = createBrowserRouter([
   { path: "sign-in", element: <SignIn /> },
@@ -9,6 +9,8 @@ const router = createBrowserRouter([
   { path: "projects/:projectSlug", element: <Dashboard />},
   { path: "users", element: <Users />},
   { path: "notifications", element: <Notifications /> },
+  { path: "data-sources", element: <Sensors /> },
+  { path: "data-sources/:sensorLink", element: <CargoSensor />},
   { path: "", element: <Dashboard />}
 ]);
 

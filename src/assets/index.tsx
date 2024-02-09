@@ -20,12 +20,17 @@ import chart from "./svg/chart.svg";
 import sustainability from "./svg/sustainability.svg";
 import clockIcon from "./svg/clock-icon.svg";
 import threeDots from "./svg/three-dots.svg";
+import arrowLeft from "./svg/arrow-left.svg";
+import cargoAverage from "./svg/cargo-average-load.svg";
+import cargoCurrent from "./svg/cargo-icon-current.svg";
+import cargoCondidence from "./svg/cargo-confidence.svg";
 
 //png
 import signIn from "./images/sign-in.png";
 import iota from "./images/iota.png";
 import copiulemu from "./images/copiulemu.png";
 import projectImage from "./images/project-image.png";
+import car from "./images/car.png";
 
 export {
   logo,
@@ -52,7 +57,12 @@ export {
   messageIcon,
   actionsIcon,
   threeDots,
-  plusIcon
+  plusIcon,
+  arrowLeft,
+  cargoAverage,
+  cargoCurrent,
+  cargoCondidence,
+  car
 };
 
 
