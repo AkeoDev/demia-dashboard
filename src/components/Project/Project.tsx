@@ -32,7 +32,7 @@ import classes from "./Project.module.scss";
 
 export const Project = () => {
   const loaderData: any = useLoaderData();
-  console.log(loaderData);
+
   const mapDataToProjectInfo = () => {
     const { id, methodology, developer, type } = loaderData;
     return {
@@ -42,6 +42,7 @@ export const Project = () => {
       projectDev: developer
     }
   }
+  
   return (
     <div className={classes.project}>
       <h1 className={classes.title}>{loaderData.name}</h1>
