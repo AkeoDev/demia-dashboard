@@ -2,8 +2,9 @@ import { Link } from "react-router-dom";
 import classes from "./RecentActivity.module.scss";
 import { ActiveUser } from ".";
 import { FunctionComponent } from "react";
+import { IProjectActivity } from "../../utils/types/Project";
 
-export const RecentActivity: FunctionComponent<{activity: any}> = ({activity = []}) => {
+export const RecentActivity: FunctionComponent<{activity: IProjectActivity[]}> = ({activity = []}) => {
   return (
     <section className={classes.recentActivity}>
       <div className={classes.title}>

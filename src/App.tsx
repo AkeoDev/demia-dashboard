@@ -8,20 +8,20 @@ import {
   Users
 } from './pages';
 import products from './assets/json/projects.json';
+import { IProject } from './utils/types/Project';
 
 const router = createBrowserRouter([
   { path: 'sign-in', element: <SignIn /> },
-  { path: 'dashboard', element: <Dashboard /> },
-  { path: 'projects', element: <AllProjects /> },
-  { path: 'activity', element: <Activity /> },
-  { path: 'projects/:slug', element: <Dashboard />,
-    loader: async ({params}) => {
-      let response = products.find((project: any) => project.slug === params.slug)
-      return response
-    }
+  { path: ':slug', element: <Dashboard />,
+  loader: async ({params}) => {
+    return (products as unknown as IProject[]).find((project: IProject) => project.slug === params.slug)
   },
-  { path: 'users', element: <Users /> },
-  { path: 'notifications', element: <Notifications /> },
+  children: [
+        { path: 'activity', element: <Activity /> },
+        { path: 'users', element: <Users /> },
+        { path: 'notifications', element: <Notifications /> },
+  ]
+  },
   { path: '', element: <AllProjects /> }
 ]);
 

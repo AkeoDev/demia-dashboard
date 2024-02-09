@@ -16,12 +16,12 @@ export const SidebarNavigation: FunctionComponent = () => {
             </div>
             <nav className={classes['navigation']}>
                 {/* Link components */}
-                <NavLink to="/dashboard" className={({isActive}) => isActive ? classes['active'] : ''}><ReactSVG wrapper="span" className={classes['fill']} src={dashboardIcon}></ReactSVG> Dashboard</NavLink>
-                <NavLink to="/analytics" className={({isActive}) => isActive ? classes['active'] : ''}><ReactSVG wrapper="span" className={classes['fill']} src={analyticsIcon}></ReactSVG> Analytics</NavLink>
-                <NavLink to="/data-sources" className={({isActive}) => isActive ? classes['active'] : ''}><ReactSVG wrapper="span" className={classes['stroke']} src={dataSourcesIcon}></ReactSVG> Data Sources</NavLink>
-                <NavLink to="/documentation" className={({isActive}) => isActive ? classes['active'] : ''}><ReactSVG wrapper="span" className={classes['stroke']} src={documentationIcon}></ReactSVG> Documentation</NavLink>
-                <NavLink to="/activity" className={({isActive}) => isActive ? classes['active'] : ''}><ReactSVG wrapper="span" className={classes['stroke']} src={activityIcon}></ReactSVG> Activity</NavLink>
-                <NavLink to="/users" className={({isActive}) => isActive ? classes['active'] : ''}><ReactSVG wrapper="span" className={classes['stroke']} src={usersIcon}></ReactSVG> Users</NavLink>
+                <NavLink to="" className={({isActive}) => isActive ? classes['active'] : ''}><ReactSVG wrapper="span" className={classes['fill']} src={dashboardIcon}></ReactSVG> Dashboard</NavLink>
+                <NavLink to="analytics" className={({isActive}) => isActive ? classes['active'] : ''}><ReactSVG wrapper="span" className={classes['fill']} src={analyticsIcon}></ReactSVG> Analytics</NavLink>
+                <NavLink to="data-sources" className={({isActive}) => isActive ? classes['active'] : ''}><ReactSVG wrapper="span" className={classes['stroke']} src={dataSourcesIcon}></ReactSVG> Data Sources</NavLink>
+                <NavLink to="documentation" className={({isActive}) => isActive ? classes['active'] : ''}><ReactSVG wrapper="span" className={classes['stroke']} src={documentationIcon}></ReactSVG> Documentation</NavLink>
+                <NavLink to="activity" className={({isActive}) => isActive ? classes['active'] : ''}><ReactSVG wrapper="span" className={classes['stroke']} src={activityIcon}></ReactSVG> Activity</NavLink>
+                <NavLink to="users" className={({isActive}) => isActive ? classes['active'] : ''}><ReactSVG wrapper="span" className={classes['stroke']} src={usersIcon}></ReactSVG> Users</NavLink>
             </nav>
         </aside>
     )

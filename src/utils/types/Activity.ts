@@ -1,10 +1,5 @@
-export interface ActivityPropsType {
-  activity: ActivityType;
-}
+import { IProjectActivity } from "./Project";
 
-export interface ActivityType {
-  initials: string;
-  name: string;
-  action: string;
-  timestamp: string;
+export interface ActivityPropsType {
+  activity: IProjectActivity;
 }

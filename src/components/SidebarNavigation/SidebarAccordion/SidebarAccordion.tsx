@@ -66,12 +66,20 @@ export const SidebarAcccordion: FunctionComponent = () => {
           {projects.map((project, index) => (
             <NavLink
               key={index}
-              to={`/projects/${project.projectSlug}`}
-              className={() =>
-                project.projectId === activeProjectId
-                  ? `${classes['project-link']} ${classes['active']}`
-                  : classes['project-link']
-              }
+              to={`/${project.projectSlug}`}
+              className={() => {
+
+                if (project.projectId === activeProjectId) {
+                  return `${classes['project-link']} ${classes['active']}`
+                }
+                else {
+                  return classes['project-link'];
+                }
+                
+                // return project.projectId === activeProjectId
+                //   ? `${classes['project-link']} ${classes['active']}`
+                //   : classes['project-link'];
+              }}
               onClick={() => {
                 closeAccordion();
                 setActiveProjectName(project.projectName);
@@ -86,12 +94,16 @@ export const SidebarAcccordion: FunctionComponent = () => {
           <NavLink
             to="/projects"
             className={({ isActive }) =>
-            isActive
-              ? `${classes['all-projects']} ${classes['active']}`
-              : classes['all-projects']
-          }
+              isActive
+                ? `${classes['all-projects']} ${classes['active']}`
+                : classes['all-projects']
+            }
           >
-            <ReactSVG wrapper="span" src={allProjectsIcon} className={classes.hamburger}></ReactSVG>
+            <ReactSVG
+              wrapper="span"
+              src={allProjectsIcon}
+              className={classes.hamburger}
+            ></ReactSVG>
             All Projects
           </NavLink>
         </div>
