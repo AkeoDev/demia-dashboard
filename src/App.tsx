@@ -7,6 +7,7 @@ import {
   SignIn,
   Users
 } from './pages';
+import products from './assets/json/projects.json';
 
 const router = createBrowserRouter([
   { path: 'sign-in', element: <SignIn /> },
@@ -15,8 +16,7 @@ const router = createBrowserRouter([
   { path: 'activity', element: <Activity /> },
   { path: 'projects/:slug', element: <Dashboard />,
     loader: async ({params}) => {
-      let res = await fetch("/src/assets/json/projects.json").then(data => data.json());
-      let response = res.find((project: any) => project.slug === params.slug)
+      let response = products.find((project: any) => project.slug === params.slug)
       return response
     }
   },
