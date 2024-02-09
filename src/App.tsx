@@ -2,8 +2,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import {
   Activity,
   AllProjects,
+  CargoSensor,
   Dashboard,
   Notifications,
+  Sensors,
   SignIn,
   Users
 } from './pages';
@@ -22,6 +24,8 @@ const router = createBrowserRouter([
         { path: 'notifications', element: <Notifications /> },
   ]
   },
+  { path: "data-sources", element: <Sensors /> },
+  { path: "data-sources/:sensorLink", element: <CargoSensor />},
   { path: '', element: <AllProjects /> }
 ]);
 
