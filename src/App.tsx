@@ -1,17 +1,32 @@
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Activity, AllProjects,  CargoSensor,  Dashboard,  Notifications,  Sensors,  SignIn, Users } from "./pages";
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import {
+  Activity,
+  AllProjects,
+  CargoSensor,
+  Dashboard,
+  Notifications,
+  Sensors,
+  SignIn,
+  Users
+} from './pages';
+import products from './assets/json/projects.json';
 
 const router = createBrowserRouter([
-  { path: "sign-in", element: <SignIn /> },
-  { path: "dashboard", element: <Dashboard /> },
-  { path: "projects", element: <AllProjects /> },
-  { path: "activity", element: <Activity /> },
-  { path: "projects/:projectSlug", element: <Dashboard />},
-  { path: "users", element: <Users />},
-  { path: "notifications", element: <Notifications /> },
+  { path: 'sign-in', element: <SignIn /> },
+  { path: 'dashboard', element: <Dashboard /> },
+  { path: 'projects', element: <AllProjects /> },
+  { path: 'activity', element: <Activity /> },
+  { path: 'projects/:slug', element: <Dashboard />,
+    loader: async ({params}) => {
+      let response = products.find((project: any) => project.slug === params.slug)
+      return response
+    }
+  },
+  { path: 'users', element: <Users /> },
   { path: "data-sources", element: <Sensors /> },
   { path: "data-sources/:sensorLink", element: <CargoSensor />},
-  { path: "", element: <Dashboard />}
+  { path: 'notifications', element: <Notifications /> },
+  { path: '', element: <AllProjects /> }
 ]);
 
 const App = () => {

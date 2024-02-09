@@ -5,7 +5,6 @@ export interface ActivityPropsType {
 export interface ActivityType {
   initials: string;
   name: string;
-  lastname: string;
-  text: string;
-  lastseen: string;
+  action: string;
+  timestamp: string;
 }

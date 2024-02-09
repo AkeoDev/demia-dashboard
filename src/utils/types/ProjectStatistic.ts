@@ -3,7 +3,7 @@ export interface ProjectStatisticPropsType {
 }
 
 export interface ProjectStatisticType {
-  icon: string;
+  type: string;
   amount: string;
   percentage?: string;
   text: string;
