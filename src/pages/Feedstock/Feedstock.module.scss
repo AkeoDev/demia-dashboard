@@ -1,6 +1,6 @@
 @import "../../index.scss";
 
-.cargoSensor {
+.feedstock {
   .backLink {
     @extend .font-24-31-500;
     margin-bottom: 16px;
@@ -57,29 +57,20 @@
       }
     }
   }
-  .cargoInfoWrapper {
+  .feedstockWrapper {
     filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0.1));
     margin-top: 32px;
   }
 
-  .cargoInfo {
-    display: grid;
-    grid-template-columns: 300px auto;
-    gap: 16px;
+  .feedstockInfo {
     padding: 24px;
-    clip-path: polygon(0 0, 98% 0, 100% 3%, 100% 100%, 2% 100%, 0 97%);
+    clip-path: polygon(0 0, 98% 0, 100% 10%, 100% 100%, 2% 100%, 0 90%);
     background-color: $inner-background;
   }
 
-  figure {
-    img {
-      height: 100%;
-      width: 100%;
-    }
-  }
   .rightTop {
     display: grid;
-    grid-template-columns: repeat(3, calc(33.33% - 10.6px));
+    grid-template-columns: repeat(3, auto);
     gap: 16px;
   }
 
@@ -87,7 +78,7 @@
     text-align: center;
     border: 1px solid $border-color;
     background-color: $white;
-    padding: 20px 24px;
+    padding: 32px 24px;
 
     p {
       @extend .font-14-18-400;
@@ -102,41 +93,6 @@
       span {
         @extend .font-24-28-400;
         color: $grey2;
-      }
-    }
-  }
-
-  .rightSide {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    justify-content: space-between;
-  }
-
-  .rightBottom {
-    padding: 20px 24px;
-    border: 1px solid $border-color;
-    background-color: $white;
-
-    h4 {
-      @extend .font-20-26-500;
-      margin-bottom: 27px;
-    }
-
-    .loadInfo {
-      display: flex;
-      gap: 32px;
-      align-items: center;
-
-      p {
-        @extend .font-14-18-400;
-        color: $grey2;
-
-        span {
-          @extend .font-14-18-500;
-          margin-left: 8px;
-          color: $black;
-        }
       }
     }
   }

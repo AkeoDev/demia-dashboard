@@ -4,6 +4,8 @@ import {
   AllProjects,
   CargoSensor,
   Dashboard,
+  Feedstock,
+  Flowmeter,
   Notifications,
   Sensors,
   SignIn,
@@ -24,7 +26,9 @@ const router = createBrowserRouter([
   },
   { path: 'users', element: <Users /> },
   { path: "data-sources", element: <Sensors /> },
-  { path: "data-sources/:sensorLink", element: <CargoSensor />},
+  { path: "data-sources/flowmeter-1", element: <Flowmeter />},
+  { path: "data-sources/cargo-sensor", element: <CargoSensor />},
+  { path: "data-sources/feedstock", element: <Feedstock />},
   { path: 'notifications', element: <Notifications /> },
   { path: '', element: <AllProjects /> }
 ]);

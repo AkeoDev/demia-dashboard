@@ -31,6 +31,8 @@ import iota from "./images/iota.png";
 import copiulemu from "./images/copiulemu.png";
 import projectImage from "./images/project-image.png";
 import car from "./images/car.png";
+import flowmeter from './images/flowmeter.png';
+import statusPositive from './images/status-positive.png';
 
 export {
   logo,
@@ -62,7 +64,9 @@ export {
   cargoAverage,
   cargoCurrent,
   cargoCondidence,
-  car
+  car,
+  flowmeter,
+  statusPositive
 };
 
 
