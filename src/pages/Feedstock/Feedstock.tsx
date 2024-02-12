@@ -8,6 +8,7 @@ import {
   cargoCondidence,
   cargoCurrent,
 } from "../../assets";
+import { useState } from "react";
 
 const feedstockData = [
   {
@@ -31,6 +32,13 @@ const feedstockData = [
 ];
 
 export const Feedstock = () => {
+
+  const [activeTab, setActiveTab] = useState(1);
+
+  const handleTabClick = (tabIndex: number) => {
+    setActiveTab(tabIndex);
+  };
+
   return (
     <Layout>
       <div className={classes.feedstock}>
@@ -39,9 +47,10 @@ export const Feedstock = () => {
           Feedstock
         </Link>
         <div className={classes.tabs}>
-          <div className={`${classes.tab} ${classes.active}`}>Overview</div>
-          <div className={classes.tab}>Log</div>
+          <div className={activeTab === 1 ? `${classes.tab} ${classes.active}` : `${classes.tab}`} onClick={() => handleTabClick(1)}>Overview</div>
+          <div className={activeTab === 2 ? `${classes.tab} ${classes.active}` : `${classes.tab}`} onClick={() => handleTabClick(2)}>Log</div>
         </div>
+        {activeTab === 1 && (
         <article className={classes.feedstockWrapper}>
           <div className={classes.feedstockInfo}>
             <div className={classes.rightTop}>
@@ -57,6 +66,8 @@ export const Feedstock = () => {
             </div>
           </div>
         </article>
+        )}
+        {activeTab === 2 && <p>Content of Tab 2</p>}
       </div>
     </Layout>
   );

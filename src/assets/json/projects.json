@@ -63,27 +63,27 @@
         "activity": [
             {
                 "initials": "KS",
-                "name": "Kayley Sheen",
+                "name": "Kayley Sheen SM",
                 "action": "Added a new sensor PT5",
                 "timestamp": "1d"
             },
             {
                 "initials": "KS",
-                "name": "Kayley Sheen",
+                "name": "Kayley Sheen SM",
                 "action": "Added a new sensor PT5",
-                "timestamp": "1d"
+                "timestamp": "2d"
             },
             {
                 "initials": "KS",
-                "name": "Kayley Sheen",
+                "name": "Kayley Sheen SM",
                 "action": "Added a new sensor PT5",
-                "timestamp": "1d"
+                "timestamp": "3d"
             },
             {
                 "initials": "KS",
-                "name": "Kayley Sheen",
+                "name": "Kayley Sheen SM",
                 "action": "Added a new sensor PT5",
-                "timestamp": "1d"
+                "timestamp": "5d"
             }
         ],
         "emissions": "18463",
@@ -91,18 +91,18 @@
         "statistics": [
             {
                 "type": "sustainability",
-                "amount": "18,463",
+                "amount": "12,345",
                 "percentage": "+7%",
                 "text": "GHG emissions last 30 days"
             },
             {
                 "type": "sustainability",
-                "amount": "18,463",
+                "amount": "12,345",
                 "text": "GHG emissions last 30 days"
             },
             {
                 "type": "chart",
-                "amount": "97%",
+                "amount": "27%",
                 "text": "Data confidence"
             }
         ]
@@ -117,25 +117,25 @@
         "activity": [
             {
                 "initials": "KS",
-                "name": "Kayley Sheen",
+                "name": "Kayley Sheen LLC",
                 "action": "Added a new sensor PT5",
                 "timestamp": "1d"
             },
             {
                 "initials": "KS",
-                "name": "Kayley Sheen",
+                "name": "Kayley Sheen LLC",
                 "action": "Added a new sensor PT5",
                 "timestamp": "1d"
             },
             {
                 "initials": "KS",
-                "name": "Kayley Sheen",
+                "name": "Kayley Sheen LLC",
                 "action": "Added a new sensor PT5",
                 "timestamp": "1d"
             },
             {
                 "initials": "KS",
-                "name": "Kayley Sheen",
+                "name": "Kayley Sheen LLC",
                 "action": "Added a new sensor PT5",
                 "timestamp": "1d"
             }
@@ -145,18 +145,18 @@
         "statistics": [
             {
                 "type": "sustainability",
-                "amount": "18,463",
+                "amount": "65,342",
                 "percentage": "+7%",
                 "text": "GHG emissions last 30 days"
             },
             {
                 "type": "sustainability",
-                "amount": "18,463",
+                "amount": "65,342",
                 "text": "GHG emissions last 30 days"
             },
             {
                 "type": "chart",
-                "amount": "97%",
+                "amount": "74%",
                 "text": "Data confidence"
             }
         ]

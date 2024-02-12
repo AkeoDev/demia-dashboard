@@ -3,6 +3,7 @@ import { arrowLeft, flowmeter, statusPositive } from "../../assets";
 import { Layout } from "../../components/Layout/Layout";
 import classes from "./Flowmeter.module.scss";
 import { ReactSVG } from "react-svg";
+import { useState } from "react";
 
 const flowData = {
   image: flowmeter,
@@ -43,6 +44,13 @@ const flowData = {
 };
 
 export const Flowmeter = () => {
+
+  const [activeTab, setActiveTab] = useState(1);
+
+  const handleTabClick = (tabIndex: number) => {
+    setActiveTab(tabIndex);
+  };
+
   return (
     <Layout>
       <div className={classes.flowmeter}>
@@ -51,9 +59,10 @@ export const Flowmeter = () => {
           Flowmeter 1
         </Link>
         <div className={classes.tabs}>
-          <div className={`${classes.tab} ${classes.active}`}>Overview</div>
-          <div className={classes.tab}>Log</div>
+          <div className={activeTab === 1 ? `${classes.tab} ${classes.active}` : `${classes.tab}`} onClick={() => handleTabClick(1)}>Overview</div>
+          <div className={activeTab === 2 ? `${classes.tab} ${classes.active}` : `${classes.tab}`} onClick={() => handleTabClick(2)}>Log</div>
         </div>
+        {activeTab === 1 && (
         <article className={classes.flowmeterWrapper}>
           <div className={classes.flowmeterInfo}>
             <figure className={classes.image}>
@@ -86,6 +95,8 @@ export const Flowmeter = () => {
             </div>
           </div>
         </article>
+        )}
+        {activeTab === 2 && <p>Content of Tab 2</p>}
       </div>
     </Layout>
   );

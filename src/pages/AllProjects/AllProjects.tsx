@@ -7,11 +7,11 @@ import { FunctionComponent } from "react";
 const projectsInfo = [
   {
     projectImage: projectImage,
-    projectName: "Copulemu LFG Site",
+    projectName: "Copiulemu LFG Site",
     location: "Copiulemu, Chile",
     sensors: "16 sensors connected",
     notifications: "7 new notifications",
-    link: "copulemu-lfg-site"
+    link: "copiulemu-lfg-site"
   },
   {
     projectImage: projectImage,
