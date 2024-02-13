@@ -14,18 +14,22 @@ import { IProject } from './utils/types/Project';
 
 const router = createBrowserRouter([
   { path: 'sign-in', element: <SignIn /> },
-  { path: ':slug', element: <Dashboard />,
-  loader: async ({params}) => {
-    return (products as unknown as IProject[]).find((project: IProject) => project.slug === params.slug)
+  {
+    path: ':slug',
+    loader: async ({ params }) => {
+      return (products as unknown as IProject[]).find(
+        (project: IProject) => project.slug === params.slug
+      );
+    },
+    children: [
+      { path: "", element: <Dashboard /> },
+      { path: 'activity', element: <Activity /> },
+      { path: 'users', element: <Users /> },
+      { path: 'notifications', element: <Notifications /> }
+    ]
   },
-  children: [
-        { path: 'activity', element: <Activity /> },
-        { path: 'users', element: <Users /> },
-        { path: 'notifications', element: <Notifications /> },
-  ]
-  },
-  { path: "data-sources", element: <Sensors /> },
-  { path: "data-sources/:sensorLink", element: <CargoSensor />},
+  { path: 'data-sources', element: <Sensors /> },
+  { path: 'data-sources/:sensorLink', element: <CargoSensor /> },
   { path: '', element: <AllProjects /> }
 ]);
 

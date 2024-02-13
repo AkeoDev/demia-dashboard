@@ -1,11 +1,11 @@
-import { useLoaderData } from "react-router-dom";
+import { useMatches } from "react-router-dom";
 import { ProjectInfo, ProjectStatistic } from ".";
 import { RecentActivity } from "../Activity";
 import classes from "./Project.module.scss";
 import { IProject } from "../../utils/types/Project";
 
 export const Project = () => {
-  const loaderData: IProject = useLoaderData() as IProject;
+  const loaderData: IProject = useMatches()[0].data as IProject;
 
   const mapDataToProjectInfo = () => {
     const { id, methodology, developer, type } = loaderData;
