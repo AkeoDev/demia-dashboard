@@ -9,6 +9,7 @@ import {
   cargoCurrent,
 } from "../../assets";
 import { Layout } from "../../components/Layout/Layout";
+import { useState } from "react";
 
 const cargoData = [
   {
@@ -32,6 +33,13 @@ const cargoData = [
 ];
 
 export const CargoSensor = () => {
+
+  const [activeTab, setActiveTab] = useState(1);
+
+  const handleTabClick = (tabIndex: number) => {
+    setActiveTab(tabIndex);
+  };
+
   return (
     <Layout>
       <div className={classes.cargoSensor}>
@@ -40,9 +48,10 @@ export const CargoSensor = () => {
           Cargo sensor
         </Link>
         <div className={classes.tabs}>
-          <div className={`${classes.tab} ${classes.active}`}>Overview</div>
-          <div className={classes.tab}>Log</div>
+          <div className={activeTab === 1 ? `${classes.tab} ${classes.active}` : `${classes.tab}`} onClick={() => handleTabClick(1)}>Overview</div>
+          <div className={activeTab === 2 ? `${classes.tab} ${classes.active}` : `${classes.tab}`} onClick={() => handleTabClick(2)}>Log</div>
         </div>
+        {activeTab === 1 && (
         <article className={classes.cargoInfoWrapper}>
           <div className={classes.cargoInfo}>
             <figure className={classes.image}>
@@ -77,6 +86,8 @@ export const CargoSensor = () => {
             </div>
           </div>
         </article>
+        )}
+        {activeTab === 2 && <p>Content of Tab 2</p>}
       </div>
     </Layout>
   );

@@ -25,6 +25,7 @@ const tableList = [
   },
   {
     source: "Grape Harvest",
+    sensorLink: "grape-harvest",
     inputType: "Nm3/h",
     inputDID: ":demi...25b3",
     dataConfidence: "90%",
@@ -33,6 +34,7 @@ const tableList = [
   },
   {
     source: "Feedstock",
+    sensorLink: "feedstock",
     inputType: "Nm3/h",
     inputDID: ":demi...25b3",
     dataConfidence: "90%",
@@ -41,6 +43,7 @@ const tableList = [
   },
   {
     source: "Flowmeter 1",
+    sensorLink: "flowmeter-1",
     inputType: "Nm3/h",
     inputDID: ":demi...25b3",
     dataConfidence: "90%",
@@ -49,6 +52,7 @@ const tableList = [
   },
   {
     source: "Flowmeter 1",
+    sensorLink: "flowmeter-1",
     inputType: "Nm3/h",
     inputDID: ":demi...25b3",
     dataConfidence: "50%",

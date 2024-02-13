@@ -1,0 +1,29 @@
+@import "../../index.scss";
+
+.modalOverlay {
+  position: absolute;
+  z-index: 10;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: #15122133;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .modal {
+    filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0.1));
+  }
+
+  .modalContent {
+    padding: 46px;
+    clip-path: polygon(0 0, 98% 0, 100% 0, 100% 100%, 15% 100%, 0 85%);
+    background-color: #f9f9f9;
+  }
+
+  .modalInnerContent {
+    border: 1px dotted $grey2;
+  }
+}

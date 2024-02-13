@@ -24,6 +24,7 @@ import arrowLeft from "./svg/arrow-left.svg";
 import cargoAverage from "./svg/cargo-average-load.svg";
 import cargoCurrent from "./svg/cargo-icon-current.svg";
 import cargoCondidence from "./svg/cargo-confidence.svg";
+import fileIconBig from "./svg/file-icon-big.svg";
 
 //png
 import signIn from "./images/sign-in.png";
@@ -31,6 +32,8 @@ import iota from "./images/iota.png";
 import copiulemu from "./images/copiulemu.png";
 import projectImage from "./images/project-image.png";
 import car from "./images/car.png";
+import flowmeter from './images/flowmeter.png';
+import statusPositive from './images/status-positive.png';
 
 export {
   logo,
@@ -62,7 +65,10 @@ export {
   cargoAverage,
   cargoCurrent,
   cargoCondidence,
-  car
+  car,
+  flowmeter,
+  statusPositive, 
+  fileIconBig
 };
 
 

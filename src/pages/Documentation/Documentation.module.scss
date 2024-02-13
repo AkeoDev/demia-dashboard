@@ -1,0 +1,60 @@
+@import "../../index.scss";
+
+.documentation {
+  .titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+  
+    .title {
+      @extend .font-24-31-500;
+    }
+    .button {
+      padding: 9.5px 12px;
+    }
+  }
+
+  .tabs {
+    display: flex;
+    gap: 12px;
+    border-bottom: 1px solid $border-color;
+
+    .tab {
+      @extend .font-14-20-500;
+      cursor: pointer;
+      color: $grey2;
+      min-width: 128px;
+      text-align: center;
+      padding: 26px 0;
+
+      &:hover {
+        border-bottom: 3px solid $pink;
+        color: $black;
+      }
+
+      &.active {
+        border-bottom: 3px solid $pink;
+        color: $black;
+      }
+    }
+  }
+
+  .documentationTable {
+    margin-top: 40px;
+  }
+
+  .noData {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin: 94px auto 110px;
+    align-items: center;
+
+    p {
+      @extend .font-14-20-500;
+      text-align: center;
+      color: $grey2;
+    }
+  }
+}
