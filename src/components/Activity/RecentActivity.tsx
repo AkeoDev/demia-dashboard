@@ -10,7 +10,7 @@ export const RecentActivity: FunctionComponent<{activity: IProjectActivity[]}> =
     <section className={classes.recentActivity}>
       <div className={classes.title}>
         <h3>Recent Activity</h3>
-        <Link to={`/${loaderSlug}/activity`}>View all</Link>
+        <Link to={`/projects/${loaderSlug}/activity`}>View all</Link>
       </div>
       <div className={classes.users}>
         {activity.map((i: any, index: number) => (

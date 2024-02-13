@@ -10,6 +10,7 @@ import {
 } from "../../assets";
 import { Layout } from "../../components/Layout/Layout";
 import { useState } from "react";
+import { BarChart } from "../../components/Graphs/Graphs";
 
 const cargoData = [
   {
@@ -89,6 +90,7 @@ export const CargoSensor = () => {
         )}
         {activeTab === 2 && <p>Content of Tab 2</p>}
       </div>
+      <BarChart />
     </Layout>
   );
 };

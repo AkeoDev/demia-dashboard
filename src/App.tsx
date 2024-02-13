@@ -19,7 +19,7 @@ import { IProject } from './utils/types/Project';
 const router = createBrowserRouter([
   { path: 'sign-in', element: <SignIn /> },
   {
-    path: ':slug',
+    path: 'projects/:slug',
     loader: async ({ params }) => {
       return {
         data: (products as unknown as IProject[]).find(

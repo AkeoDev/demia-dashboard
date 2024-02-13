@@ -26,7 +26,7 @@ export const ProjectDetails: React.FC<ProjectDetailsPropsType> = ({projectDetail
             <p>{projectDetails.notifications}</p>
           </div>
         </div>
-        <Button isLink href={projectDetails.link} className={classes.button}>
+        <Button isLink href={`/projects/${projectDetails.link}`} className={classes.button}>
           View Dashboard
         </Button>
       </section>

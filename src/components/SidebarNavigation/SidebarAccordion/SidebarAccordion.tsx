@@ -92,7 +92,8 @@ export const SidebarAcccordion: FunctionComponent = () => {
           ))}
           <div className={classes['spacer']}></div>
           <NavLink
-            to="/projects"
+            to="/"
+            end
             className={({ isActive }) =>
               isActive
                 ? `${classes['all-projects']} ${classes['active']}`
