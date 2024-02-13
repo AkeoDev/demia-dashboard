@@ -8,3 +8,5 @@ export { Sensors } from "./Sensors/Sensors";
 export { CargoSensor } from "./CargoSensor/CargoSensor";
 export { Flowmeter } from "./Flowmeter/Flowmeter";
 export { Feedstock } from "./Feedstock/Feedstock";
+export { Documentation } from "./Documentation/Documentation";
+export { Analytics } from "./Analytics/Analytics";

@@ -82,7 +82,7 @@ export const TableSorting: FunctionComponent<{
   };
   RowTemplate: FunctionComponent<{item: any}>
 }> = ({ fields, data, RowTemplate }) => {
-  const LIMIT = 5;
+  const LIMIT = 6;
 
   const pagination = usePagination(
     data,
@@ -102,7 +102,7 @@ export const TableSorting: FunctionComponent<{
   return (
     <div className={classes.content}>
       <div className={classes.innerContent}>
-        <Table data={data} className={classes.table}>
+        <Table data={data} className={classes.table} pagination={pagination}>
           {(tableList: any) => (
             <>
               <Header>

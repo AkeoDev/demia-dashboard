@@ -24,6 +24,7 @@ import arrowLeft from "./svg/arrow-left.svg";
 import cargoAverage from "./svg/cargo-average-load.svg";
 import cargoCurrent from "./svg/cargo-icon-current.svg";
 import cargoCondidence from "./svg/cargo-confidence.svg";
+import fileIconBig from "./svg/file-icon-big.svg";
 
 //png
 import signIn from "./images/sign-in.png";
@@ -66,7 +67,8 @@ export {
   cargoCondidence,
   car,
   flowmeter,
-  statusPositive
+  statusPositive, 
+  fileIconBig
 };
 
 

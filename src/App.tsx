@@ -2,8 +2,10 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import {
   Activity,
   AllProjects,
+  Analytics,
   CargoSensor,
   Dashboard,
+  Documentation,
   Feedstock,
   Flowmeter,
   Notifications,
@@ -30,6 +32,8 @@ const router = createBrowserRouter([
   { path: "data-sources/cargo-sensor", element: <CargoSensor />},
   { path: "data-sources/feedstock", element: <Feedstock />},
   { path: 'notifications', element: <Notifications /> },
+  { path: 'documentation', element: <Documentation /> },
+  { path: 'analytics', element: <Analytics /> },
   { path: '', element: <AllProjects /> }
 ]);
 
