@@ -9,6 +9,12 @@ import {
   HeaderCell,
 } from '@table-library/react-table-library/table';
 import { usePagination } from "@table-library/react-table-library/pagination";
+import {
+  useSort,
+  HeaderCellSort,
+  SortIconPositions,
+  SortToggleType,
+} from "@table-library/react-table-library/sort";
 
 export const TableWithoutSorting: FunctionComponent<{
   fields: Array<string>;
@@ -76,12 +82,13 @@ export const TableWithoutSorting: FunctionComponent<{
 };
 
 export const TableSorting: FunctionComponent<{
-  fields: Array<string>;
+  fields: Array<{ name: string, sortKey: string }>;
   data: {
     nodes: Array<any>;
   };
-  RowTemplate: FunctionComponent<{item: any}>
-}> = ({ fields, data, RowTemplate }) => {
+  RowTemplate: FunctionComponent<{item: any}>,
+  sortFns?: any
+}> = ({ fields, data, RowTemplate, sortFns = {} }) => {
   const LIMIT = 6;
 
   const pagination = usePagination(
@@ -95,6 +102,20 @@ export const TableSorting: FunctionComponent<{
     }
   );
 
+  function onSortChange(action: any, state: any) {
+    console.log(action, state);
+  }
+
+  const sort = useSort(
+    data,
+    {
+      onChange: onSortChange,
+    },
+    {
+      sortFns
+    }
+  );
+
   function onPaginationChange(action: any, state: any) {
     console.log(action)
     console.log(state)
@@ -102,13 +123,13 @@ export const TableSorting: FunctionComponent<{
   return (
     <div className={classes.content}>
       <div className={classes.innerContent}>
-        <Table data={data} className={classes.table} pagination={pagination}>
+        <Table sort={sort} data={data} className={classes.table} pagination={pagination}>
           {(tableList: any) => (
             <>
               <Header>
                 <HeaderRow className={classes.tHead}>
                   {fields.map((field, index) => (
-                    <HeaderCell key={index}>{field}</HeaderCell>
+                    <HeaderCellSort sortKey={field.sortKey} key={index}>{field.name}</HeaderCellSort>
                   ))}
                 </HeaderRow>
               </Header>

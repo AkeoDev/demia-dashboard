@@ -5,10 +5,10 @@ import classes from "./Project.module.scss";
 import { IProject } from "../../utils/types/Project";
 
 export const Project = () => {
-  const loaderData: IProject = useMatches()[0].data as IProject;
+  const loaderData: IProject = (useMatches()[0].data as { data: IProject, slug: string}).data;
 
   const mapDataToProjectInfo = () => {
-    const { id, methodology, developer, type } = loaderData;
+    const { id, methodology, developer, type} = loaderData;
     return {
       projectId: id,
       type,

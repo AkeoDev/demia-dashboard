@@ -21,25 +21,28 @@ const router = createBrowserRouter([
   {
     path: ':slug',
     loader: async ({ params }) => {
-      return (products as unknown as IProject[]).find(
-        (project: IProject) => project.slug === params.slug
-      );
+      return {
+        data: (products as unknown as IProject[]).find(
+          (project: IProject) => project.slug === params.slug
+        ),
+        slug: params.slug
+      }
     },
     children: [
       { path: "", element: <Dashboard /> },
       { path: 'activity', element: <Activity /> },
       { path: 'users', element: <Users /> },
-      { path: 'notifications', element: <Notifications /> }
+      { path: 'notifications', element: <Notifications /> },
+      { path: 'documentation', element: <Documentation /> },
+      { path: 'users', element: <Users /> },
+      { path: "data-sources", element: <Sensors /> },
+      { path: "data-sources/flowmeter-1", element: <Flowmeter />},
+      { path: "data-sources/cargo-sensor", element: <CargoSensor />},
+      { path: "data-sources/feedstock", element: <Feedstock />},
+      { path: 'notifications', element: <Notifications /> },
+      { path: 'analytics', element: <Analytics /> },
     ]
   },
-  { path: 'users', element: <Users /> },
-  { path: "data-sources", element: <Sensors /> },
-  { path: "data-sources/flowmeter-1", element: <Flowmeter />},
-  { path: "data-sources/cargo-sensor", element: <CargoSensor />},
-  { path: "data-sources/feedstock", element: <Feedstock />},
-  { path: 'notifications', element: <Notifications /> },
-  { path: 'documentation', element: <Documentation /> },
-  { path: 'analytics', element: <Analytics /> },
   { path: '', element: <AllProjects /> }
 ]);
 

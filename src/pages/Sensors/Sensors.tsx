@@ -61,14 +61,51 @@ const tableList = [
   },
 ];
 
+// const fields = [
+//   "Source",
+//   "Input Type",
+//   "Input DID",
+//   "Data Confidence",
+//   "Data Type",
+//   "Data Entry",
+// ];
+
 const fields = [
-  "Source",
-  "Input Type",
-  "Input DID",
-  "Data Confidence",
-  "Data Type",
-  "Data Entry",
-];
+  {
+    name: "Source",
+    sortKey: "SOURCE"
+  },
+  {
+    name: "Input Type",
+    sortKey: "INPUTTYPE"
+  },
+  {
+    name: "Input DID",
+    sortKey: "INPUTDID"
+  },
+  {
+    name: "Data Confidence",
+    sortKey: "DATACONFIDENCE"
+  },
+  {
+    name: "Data Type",
+    sortKey: "DATATYPE"
+  },
+  {
+    name: "Data Entry",
+    sortKey: "DATAENTRY"
+  },
+  
+]
+
+const sortFns = {
+  SOURCE: (array: Array<any>) => array.sort((a, b) => a.source.localeCompare(b.source)),
+  INPUTTYPE: (array: Array<any>) => array.sort((a, b) => a.inputType.localeCompare(b.inputType)),
+  INPUTDID: (array: Array<any>) => array.sort((a, b) => a.inputDID.localeCompare(b.inputDID)),
+  DATACONFIDENCE: (array: Array<any>) => array.sort((a, b) => a.inputDID.localeCompare(b.inputDID)),
+  DATATYPE: (array: Array<any>) => array.sort((a, b) => a.inputDID.localeCompare(b.inputDID)),
+  DATAENTRY: (array: Array<any>) => array.sort((a, b) => a.inputDID.localeCompare(b.inputDID)),
+}
 
 const ActivityRowTemplate: React.FC<{ item: any }> = ({ item }) => (
   <>
@@ -100,6 +137,7 @@ export const Sensors = () => {
           data={{ nodes: tableList }}
           fields={fields}
           RowTemplate={ActivityRowTemplate}
+          sortFns={sortFns}
         />
       </div>
     </Layout>
