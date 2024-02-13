@@ -2,7 +2,7 @@ import { ReactSVG } from "react-svg";
 import { arrowRight, infoIcon, plusIcon } from "../../assets";
 import { Button } from "../../components/Buttons/Button";
 import { Layout } from "../../components/Layout/Layout";
-// import classes from "./Analytics.module.scss";
+import classes from "./Analytics.module.scss";
 
 const analyticsData = [
   {
