@@ -1,5 +1,5 @@
 import { Layout } from "../../components/Layout/Layout";
-import classes from "./Analytics.module.scss";
+// import classes from "./Analytics.module.scss";
 
 export const Analytics = () => {
   return (
