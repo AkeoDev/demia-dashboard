@@ -11,9 +11,7 @@ import {
 import { usePagination } from "@table-library/react-table-library/pagination";
 import {
   useSort,
-  HeaderCellSort,
-  SortIconPositions,
-  SortToggleType,
+  HeaderCellSort
 } from "@table-library/react-table-library/sort";
 
 export const TableWithoutSorting: FunctionComponent<{
