@@ -1,0 +1,99 @@
+@import "../../index.scss";
+
+.analytics {
+  .titleContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+
+    .title {
+      @extend .font-24-31-500;
+    }
+    .button {
+      padding: 9.5px 12px;
+    }
+  }
+
+  .content {
+    filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0.1));
+  }
+
+  .innerContent {
+    padding: 24px;
+    clip-path: polygon(0 0, 97% 0, 100% 8%, 100% 100%, 3% 100%, 0 92%);
+    background-color: #f9f9f9;
+  }
+
+  .contentTitle {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+
+    .icon {
+      line-height: 0;
+    }
+
+    h3 {
+      @extend .font-14-18-500;
+      color: $black;
+    }
+  }
+
+  .dataContainer {
+    padding: 0 16px;
+  }
+
+  .singleItem {
+    padding: 16px 24px;
+    border-bottom: 1px solid $border-color;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    .left {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+
+      input {
+        width: 24px;
+        height: 24px;
+        accent-color: $green;
+      }
+      p {
+        @extend .font-14-18-400;
+        color: $black;
+      }
+    }
+
+    .right {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+
+      .arrowRight {
+        line-height: 0;
+      }
+
+      p {
+        @extend .font-14-18-400;
+        color: $black;
+      }
+    }
+  }
+  .buttonContainer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+  }
+  .button {
+    padding: 9.5px 12px;
+  }
+}
