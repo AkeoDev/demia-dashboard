@@ -27,6 +27,7 @@ import cargoCondidence from "./svg/cargo-confidence.svg";
 import fileIconBig from "./svg/file-icon-big.svg";
 import infoIcon from "./svg/info-icon.svg";
 import arrowRight from "./svg/arrow-right.svg";
+import uploadIcon from "./svg/upload-icon.svg";
 
 //png
 import signIn from "./images/sign-in.png";
@@ -72,7 +73,8 @@ export {
   statusPositive, 
   fileIconBig,
   infoIcon,
-  arrowRight
+  arrowRight,
+  uploadIcon
 };
 
 

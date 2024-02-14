@@ -18,12 +18,45 @@
   }
 
   .modalContent {
-    padding: 46px;
+    padding: 46px 46px 34px;
     clip-path: polygon(0 0, 98% 0, 100% 0, 100% 100%, 15% 100%, 0 85%);
-    background-color: #f9f9f9;
+    background-color: $inner-background;
+
   }
 
-  .modalInnerContent {
+  .modalClose {
+    @extend .font-14-18-500;
+    margin-top: 12px;
+    padding: 12px;
+    color: $black;
+    border: none;
+    background-color: $inner-background;
+    cursor: pointer;
+  }
+
+  .save {
+    padding: 12px;
+    display: inline;
+    margin-left: 12px;
+  }
+
+  .dropzone {
     border: 1px dotted $grey2;
+    padding: 29px 83px;
+
+    p {
+      @extend .font-14-20-500;
+      margin-top: 12px;
+      color: $grey2;
+      max-width: 165px;
+    }
+
+    ul {
+      margin-top: 12px;
+      @extend .font-14-20-500;
+      li {
+        list-style-type: none;
+      }
+    }
   }
 }

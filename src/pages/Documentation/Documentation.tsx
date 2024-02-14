@@ -52,7 +52,11 @@ export const Documentation = () => {
         <div className={classes.documentation}>
           <div className={classes.titleContainer}>
             <h1 className={classes.title}>Documentation</h1>
-            <Button icon={plusIcon} className={classes.button} onClick={openModal}>
+            <Button
+              icon={plusIcon}
+              className={classes.button}
+              onClick={openModal}
+            >
               Add New
             </Button>
           </div>
@@ -107,7 +111,9 @@ export const Documentation = () => {
           </div>
         </div>
       </Layout>
-      <DocumentationModal isOpen={isModalOpen} onClose={closeModal} />
+      {isModalOpen && (
+        <DocumentationModal onClose={closeModal} />
+      )}
     </>
   );
 };

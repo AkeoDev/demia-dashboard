@@ -12,17 +12,17 @@ const projects: Array<{
   {
     projectId: 1,
     projectName: 'Copiulemu LFG site',
-    projectSlug: 'copiulemu-lfg-site'
+    projectSlug: 'projects/copiulemu-lfg-site'
   },
   {
     projectId: 2,
     projectName: 'Loma Los Colorado',
-    projectSlug: 'loma-los-colorado'
+    projectSlug: 'projects/loma-los-colorado'
   },
   {
     projectId: 3,
     projectName: 'Santa Marta LFG',
-    projectSlug: 'santa-marta-lfg'
+    projectSlug: 'projects/santa-marta-lfg'
   }
 ];
 
