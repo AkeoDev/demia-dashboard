@@ -1,26 +1,30 @@
 import { FunctionComponent, useEffect, useState } from 'react';
 import classes from './SidebarAccordion.module.scss';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { ReactSVG } from 'react-svg';
 import { allProjectsIcon, arrowIcon, projectIcon } from '../../../assets';
 
 const projects: Array<{
   projectName: string;
   projectSlug: string;
+  slug: string;
   projectId: number;
 }> = [
   {
     projectId: 1,
     projectName: 'Copiulemu LFG site',
+    slug: "copiulemu-lfg-site",
     projectSlug: 'projects/copiulemu-lfg-site'
   },
   {
     projectId: 2,
+    slug: "loma-los-colorado",
     projectName: 'Loma Los Colorado',
     projectSlug: 'projects/loma-los-colorado'
   },
   {
     projectId: 3,
+    slug: "santa-marta-lfg",
     projectName: 'Santa Marta LFG',
     projectSlug: 'projects/santa-marta-lfg'
   }
@@ -31,9 +35,15 @@ export const SidebarAcccordion: FunctionComponent = () => {
   const [activeProjectName, setActiveProjectName] = useState<string>('');
   const [activeProjectId, setActiveProjectId] = useState<number>();
 
+  const { slug } = useParams();
+
   useEffect(() => {
-    setActiveProjectName(projects[0].projectName);
-    setActiveProjectId(projects[0].projectId);
+    const activeProject = projects.find((project) => project.slug === slug);
+
+    if (activeProject) {
+      setActiveProjectName(activeProject.projectName);
+      setActiveProjectId(activeProject.projectId);
+    }
   }, []);
 
   const toggleAccordion = () => setIsOpen((prev) => !prev);
