@@ -7,7 +7,8 @@ import { Cell } from "@table-library/react-table-library/table";
 const tableList = [
   {
     source: "Cargo Sensor",
-    sensorLink: "cargo-sensor",
+    url: "cargo-sensor",
+    template: "cargo-sensor",
     inputType: "Nm3/h",
     inputDID: ":demi...25b3",
     dataConfidence: "90%",
@@ -16,7 +17,8 @@ const tableList = [
   },
   {
     source: "Flowmeter 1",
-    sensorLink: "flowmeter-1",
+    url: "flowmeter-1",
+    template: "flowmeter",
     inputType: "Nm3/h",
     inputDID: ":demi...25b3",
     dataConfidence: "70%",
@@ -25,7 +27,8 @@ const tableList = [
   },
   {
     source: "Grape Harvest",
-    sensorLink: "grape-harvest",
+    url: "grape-harvest",
+    template: "cargo-sensor",
     inputType: "Nm3/h",
     inputDID: ":demi...25b3",
     dataConfidence: "90%",
@@ -34,7 +37,8 @@ const tableList = [
   },
   {
     source: "Feedstock",
-    sensorLink: "feedstock",
+    url: "feedstock",
+    template: "feedstock",
     inputType: "Nm3/h",
     inputDID: ":demi...25b3",
     dataConfidence: "90%",
@@ -43,7 +47,7 @@ const tableList = [
   },
   {
     source: "Flowmeter 1",
-    sensorLink: "flowmeter-1",
+    url: "flowmeter-1",
     inputType: "Nm3/h",
     inputDID: ":demi...25b3",
     dataConfidence: "90%",
@@ -52,7 +56,7 @@ const tableList = [
   },
   {
     source: "Flowmeter 1",
-    sensorLink: "flowmeter-1",
+    url: "flowmeter",
     inputType: "Nm3/h",
     inputDID: ":demi...25b3",
     dataConfidence: "50%",
@@ -60,15 +64,6 @@ const tableList = [
     dataEntry: "Automatic",
   },
 ];
-
-// const fields = [
-//   "Source",
-//   "Input Type",
-//   "Input DID",
-//   "Data Confidence",
-//   "Data Type",
-//   "Data Entry",
-// ];
 
 const fields = [
   {
@@ -109,7 +104,7 @@ const sortFns = {
 
 const ActivityRowTemplate: React.FC<{ item: any }> = ({ item }) => (
   <>
-    <Cell className={classes.source}><Link to={item.sensorLink}>{item.source}</Link></Cell>
+    <Cell className={classes.source}><Link to={item.url}>{item.source}</Link></Cell>
     <Cell className={classes.inputType}>{item.inputType}</Cell>
     <Cell className={classes.inputDID}>{item.inputDID}</Cell>
     <Cell className={classes.dataConfidence}>

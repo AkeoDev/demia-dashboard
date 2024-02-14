@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import classes from "./CargoSensor.module.scss";
 import { ReactSVG } from "react-svg";
 import {
@@ -41,10 +41,13 @@ export const CargoSensor = () => {
     setActiveTab(tabIndex);
   };
 
+  const { slug } = useParams();
+  const url = `/projects/${slug}/data-sources`;
+
   return (
     <Layout>
       <div className={classes.cargoSensor}>
-        <Link to="/data-sources" className={classes.backLink}>
+        <Link to={url} className={classes.backLink}>
           <ReactSVG src={arrowLeft} className={classes.arrowIcon}></ReactSVG>
           Cargo sensor
         </Link>

@@ -35,7 +35,7 @@ const router = createBrowserRouter([
       { path: 'notifications', element: <Notifications /> },
       { path: 'documentation', element: <Documentation /> },
       { path: 'users', element: <Users /> },
-      { path: "data-sources", element: <Sensors /> },
+      { path: "data-sources/", element: <Sensors /> },
       { path: "data-sources/flowmeter-1", element: <Flowmeter />},
       { path: "data-sources/cargo-sensor", element: <CargoSensor />},
       { path: "data-sources/feedstock", element: <Feedstock />},

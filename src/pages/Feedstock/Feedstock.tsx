@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Layout } from "../../components/Layout/Layout";
 import { ReactSVG } from "react-svg";
 import classes from "./Feedstock.module.scss";
@@ -39,10 +39,13 @@ export const Feedstock = () => {
     setActiveTab(tabIndex);
   };
 
+  const { slug } = useParams();
+  const url = `/projects/${slug}/data-sources`;
+
   return (
     <Layout>
       <div className={classes.feedstock}>
-        <Link to="/data-sources" className={classes.backLink}>
+        <Link to={url} className={classes.backLink}>
           <ReactSVG src={arrowLeft} className={classes.arrowIcon}></ReactSVG>
           Feedstock
         </Link>

@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { arrowLeft, flowmeter, statusPositive } from "../../assets";
 import { Layout } from "../../components/Layout/Layout";
 import classes from "./Flowmeter.module.scss";
@@ -51,10 +51,13 @@ export const Flowmeter = () => {
     setActiveTab(tabIndex);
   };
 
+  const { slug } = useParams();
+  const url = `/projects/${slug}/data-sources`;
+
   return (
     <Layout>
       <div className={classes.flowmeter}>
-        <Link to="/data-sources" className={classes.backLink}>
+        <Link to={url} className={classes.backLink}>
           <ReactSVG src={arrowLeft} className={classes.arrowIcon}></ReactSVG>
           Flowmeter 1
         </Link>
