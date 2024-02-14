@@ -13,6 +13,7 @@ import {
   useSort,
   HeaderCellSort
 } from "@table-library/react-table-library/sort";
+import { smallArrowDown, smallArrowUp, sortIconDefault } from '../../assets';
 
 export const TableWithoutSorting: FunctionComponent<{
   fields: Array<string>;
@@ -110,6 +111,12 @@ export const TableSorting: FunctionComponent<{
       onChange: onSortChange,
     },
     {
+      sortIcon: {
+        margin: "12px",
+        iconDefault: <img src={sortIconDefault} />,
+        iconUp: <img src={smallArrowUp} />,
+        iconDown: <img src={smallArrowDown} />
+      },
       sortFns
     }
   );

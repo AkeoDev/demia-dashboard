@@ -28,6 +28,9 @@ import fileIconBig from "./svg/file-icon-big.svg";
 import infoIcon from "./svg/info-icon.svg";
 import arrowRight from "./svg/arrow-right.svg";
 import uploadIcon from "./svg/upload-icon.svg";
+import smallArrowUp from "./svg/small-arrow-up.svg";
+import smallArrowDown from "./svg/small-arrow-down.svg";
+import sortIconDefault from "./svg/sort-icon-default.svg";
 
 //png
 import signIn from "./images/sign-in.png";
@@ -74,7 +77,10 @@ export {
   fileIconBig,
   infoIcon,
   arrowRight,
-  uploadIcon
+  uploadIcon,
+  smallArrowUp,
+  smallArrowDown,
+  sortIconDefault
 };
 
 

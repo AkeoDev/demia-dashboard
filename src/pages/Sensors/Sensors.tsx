@@ -97,9 +97,9 @@ const sortFns = {
   SOURCE: (array: Array<any>) => array.sort((a, b) => a.source.localeCompare(b.source)),
   INPUTTYPE: (array: Array<any>) => array.sort((a, b) => a.inputType.localeCompare(b.inputType)),
   INPUTDID: (array: Array<any>) => array.sort((a, b) => a.inputDID.localeCompare(b.inputDID)),
-  DATACONFIDENCE: (array: Array<any>) => array.sort((a, b) => a.inputDID.localeCompare(b.inputDID)),
-  DATATYPE: (array: Array<any>) => array.sort((a, b) => a.inputDID.localeCompare(b.inputDID)),
-  DATAENTRY: (array: Array<any>) => array.sort((a, b) => a.inputDID.localeCompare(b.inputDID)),
+  DATACONFIDENCE: (array: Array<any>) => array.sort((a, b) => a.dataConfidence.localeCompare(b.dataConfidence)),
+  DATATYPE: (array: Array<any>) => array.sort((a, b) => a.dataType.localeCompare(b.dataType)),
+  DATAENTRY: (array: Array<any>) => array.sort((a, b) => a.dataEntry.localeCompare(b.dataEntry)),
 }
 
 const ActivityRowTemplate: React.FC<{ item: any }> = ({ item }) => (
