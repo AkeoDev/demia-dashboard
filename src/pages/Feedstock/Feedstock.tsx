@@ -9,6 +9,52 @@ import {
   cargoCurrent,
 } from "../../assets";
 import { useState } from "react";
+import { BarChart } from "../../components/Graphs/Graphs";
+
+const graphData = [
+  {
+    name: '',
+    uv: 0,
+    pv: 0,
+    amt: 0,
+  },
+  {
+    name: 'Oct 21',
+    uv: 3000,
+    pv: 1398,
+    amt: 2210,
+  },
+  {
+    name: 'Oct 22',
+    uv: 2000,
+    pv: 9800,
+    amt: 2290,
+  },
+  {
+    name: 'Oct 23',
+    uv: 2780,
+    pv: 3908,
+    amt: 2000,
+  },
+  {
+    name: 'Oct 24',
+    uv: 1890,
+    pv: 4800,
+    amt: 2181,
+  },
+  {
+    name: 'Oct 25',
+    uv: 2390,
+    pv: 3800,
+    amt: 2500,
+  },
+  {
+    name: 'Oct 26',
+    uv: 3490,
+    pv: 4300,
+    amt: 2100,
+  },
+];
 
 const feedstockData = [
   {
@@ -67,6 +113,12 @@ export const Feedstock = () => {
                 </div>
               ))}
             </div>
+          </div>
+          <div className={`${classes.feedstockInfo} ${classes.df}`}>
+          <BarChart graphData={graphData}/>
+          </div>
+          <div className={`${classes.feedstockInfo} ${classes.df}`}>
+          <BarChart graphData={graphData}/>
           </div>
         </article>
         )}

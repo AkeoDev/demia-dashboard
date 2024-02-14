@@ -6,8 +6,6 @@ import {
     XAxis,
     YAxis,
     CartesianGrid,
-    Tooltip,
-    Legend,
     ResponsiveContainer,
     Customized,
     Rectangle,
@@ -15,43 +13,43 @@ import {
 
   const data = [
     {
-      name: 'Page A',
-      uv: 4000,
-      pv: 2400,
-      amt: 2400,
+      name: '',
+      uv: 0,
+      pv: 0,
+      amt: 0,
     },
     {
-      name: 'Page B',
+      name: 'Oct 21',
       uv: 3000,
       pv: 1398,
       amt: 2210,
     },
     {
-      name: 'Page C',
+      name: 'Oct 22',
       uv: 2000,
       pv: 9800,
       amt: 2290,
     },
     {
-      name: 'Page D',
+      name: 'Oct 23',
       uv: 2780,
       pv: 3908,
       amt: 2000,
     },
     {
-      name: 'Page E',
+      name: 'Oct 24',
       uv: 1890,
       pv: 4800,
       amt: 2181,
     },
     {
-      name: 'Page F',
+      name: 'Oct 25',
       uv: 2390,
       pv: 3800,
       amt: 2500,
     },
     {
-      name: 'Page G',
+      name: 'Oct 26',
       uv: 3490,
       pv: 4300,
       amt: 2100,
@@ -82,7 +80,7 @@ import {
     })
   };
 
-export const BarChart: FunctionComponent = () => {
+export const BarChart: FunctionComponent<{graphData?: Array<{name: string, pv: number, uv: number, amt: number}>}> = ({graphData = data}) => {
     return (
         <div className={classes['sensor-load-container']}>
             <div className={classes['heading']}>
@@ -93,19 +91,11 @@ export const BarChart: FunctionComponent = () => {
             <LineChart
                 width={500}
                 height={300}
-                data={data}
-                margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
-                }}
+                data={graphData}
             >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis dataKey="name" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
+                <XAxis dataKey="name" fontFamily='SpaceGrotesk'/>
+                <YAxis fontFamily='SpaceGrotesk'/>
                 <Line type="monotone" dataKey="pv" stroke="transparent" />
                 <Line type="monotone" dataKey="uv" stroke="transparent" />
                 <Customized component={CustomizedRectangle} />

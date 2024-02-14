@@ -1,10 +1,21 @@
 .sensor-load-container {
     padding: 24px;
+    background-color: white;
+    border: 1px solid #d9e1e8;
     .heading {
         margin-bottom: 40px;
         display: flex;
         justify-content: space-between;
         align-items: center;
-    }
+        h3 {
+            color: var(--Dark-Blue, #151221);
+/* H3 */
+            font-family: "SpaceGrotesk";
+            font-size: 20px;
+            font-style: normal;
+            font-weight: 500;
+            line-height: 130%;
+        }
 
+    }
 }
