@@ -4,7 +4,7 @@ import { Layout } from "../../components/Layout/Layout";
 import classes from "./Flowmeter.module.scss";
 import { ReactSVG } from "react-svg";
 import { useState } from "react";
-import { BarChart } from "../../components/Graphs/Graphs";
+import { BarChart, GreenAreaChart, PrupleLineChart } from "../../components/Graphs/Graphs";
 
 const graphData = [
   {
@@ -144,7 +144,7 @@ export const Flowmeter = () => {
             </div>
           </div>
           <div className={`${classes.flowmeterInfo} ${classes.df}`}>
-          <BarChart graphData={graphData}/>
+          <PrupleLineChart graphData={graphData}/>
           </div>
         </article>
         )}
