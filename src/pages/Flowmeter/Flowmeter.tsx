@@ -4,7 +4,7 @@ import { Layout } from "../../components/Layout/Layout";
 import classes from "./Flowmeter.module.scss";
 import { ReactSVG } from "react-svg";
 import { useState } from "react";
-import { BarChart, GreenAreaChart, PrupleLineChart } from "../../components/Graphs/Graphs";
+import { PrupleLineChart } from "../../components/Graphs/Graphs";
 
 const graphData = [
   {
