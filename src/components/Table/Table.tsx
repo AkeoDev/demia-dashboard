@@ -21,8 +21,9 @@ export const TableWithoutSorting: FunctionComponent<{
     nodes: Array<any>;
   };
   RowTemplate: FunctionComponent<{item: any}>
-}> = ({ fields, data, RowTemplate }) => {
-  const LIMIT = 5;
+  limit?: number
+}> = ({ fields, data, RowTemplate, limit = 6 }) => {
+  const LIMIT = limit;
 
   const pagination = usePagination(
     data,

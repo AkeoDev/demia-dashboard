@@ -95,6 +95,7 @@ export const Notifications = () => {
         data={{ nodes }}
         fields={fields}
         RowTemplate={NotificationsRowTemplate}
+        limit={10}
       />
     </Layout>
   );

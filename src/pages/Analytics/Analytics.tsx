@@ -18,7 +18,7 @@ const analyticsData = [
   },
   {
     active: false,
-    slug: "GHG",
+    slug: "HGH",
     text: "Baseline scenario GHG emissions",
   },
   {
@@ -71,6 +71,7 @@ export const Analytics = () => {
                       type="checkbox"
                       name={`checkbox-${index}`}
                       id={`checkbox-${index}`}
+                      defaultChecked={item.active}
                     />
                     <p>{item.text}</p>
                   </div>

@@ -1,5 +1,5 @@
 import { Link, useParams } from "react-router-dom";
-import { arrowLeft, flowmeter, statusPositive } from "../../assets";
+import { arrowLeft, flowmeter, statusConnected } from "../../assets";
 import { Layout } from "../../components/Layout/Layout";
 import classes from "./Flowmeter.module.scss";
 import { ReactSVG } from "react-svg";
@@ -118,7 +118,7 @@ export const Flowmeter = () => {
               <img src={flowData.image} alt="Flow Image" />
             </figure>
             <div className={classes.rightSide}>
-              <img src={statusPositive} className={classes.status} alt="Status Positive" />
+              <img src={statusConnected} className={classes.status} alt="Status Positive" />
               <div className={classes.data}>
                 {flowData.infoData.map((data, index) => (
                   <div className={classes.item} key={index}>

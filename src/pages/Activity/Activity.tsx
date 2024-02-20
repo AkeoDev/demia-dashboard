@@ -77,6 +77,7 @@ export const Activity: FunctionComponent = () => {
           data={{ nodes: tableList }}
           fields={fields}
           RowTemplate={ActivityRowTemplate}
+          limit={10}
         />
       </div>
     </Layout>
