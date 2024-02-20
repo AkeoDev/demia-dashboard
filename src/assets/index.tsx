@@ -42,6 +42,7 @@ import projectImage from "./images/project-image.png";
 import car from "./images/car.png";
 import flowmeter from './images/flowmeter.png';
 import statusPositive from './images/status-positive.png';
+import formula from './images/formula.png';
 
 export {
   logo,
@@ -84,7 +85,8 @@ export {
   smallArrowDown,
   sortIconDefault,
   exportIcon,
-  exportIconBlack
+  exportIconBlack,
+  formula
 };
 
 

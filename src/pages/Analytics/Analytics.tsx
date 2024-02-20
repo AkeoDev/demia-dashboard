@@ -3,39 +3,51 @@ import { arrowRight, infoIcon, plusIcon } from "../../assets";
 import { Button } from "../../components/Buttons/Button";
 import { Layout } from "../../components/Layout/Layout";
 import classes from "./Analytics.module.scss";
+import { Link, useParams } from "react-router-dom";
 
 const analyticsData = [
   {
     active: true,
+    slug: "GHG",
     text: "Baseline scenario GHG emissions",
   },
   {
     active: true,
+    slug: "GHG",
     text: "Baseline scenario GHG emissions",
   },
   {
     active: false,
+    slug: "GHG",
     text: "Baseline scenario GHG emissions",
   },
   {
     active: true,
+    slug: "GHG",
     text: "Baseline scenario GHG emissions",
   },
   {
     active: true,
+    slug: "GHG",
     text: "Baseline scenario GHG emissions",
   },
   {
     active: false,
+    slug: "GHG",
     text: "Baseline scenario GHG emissions",
   },
   {
     active: false,
+    slug: "GHG",
     text: "Baseline scenario GHG emissions",
   },
 ];
 
 export const Analytics = () => {
+
+  const { slug } = useParams();
+  const url = `/projects/${slug}/analytics/`;
+  
   return (
     <Layout>
       <div className={classes.analytics}>
@@ -62,17 +74,17 @@ export const Analytics = () => {
                     />
                     <p>{item.text}</p>
                   </div>
-                  <div className={classes.right}>
+                  <Link to={`${url}${item.slug}`} className={classes.right}>
                     {item.active ? (
-                      <p>Edit parameters</p>
+                      "Edit parameters"
                     ) : (
-                      <p>Set up parameters</p>
+                      "Set up parameters"
                     )}
                     <ReactSVG
                       src={arrowRight}
                       className={classes.arrowRight}
                     ></ReactSVG>
-                  </div>
+                  </Link>
                 </div>
               ))}
             </div>

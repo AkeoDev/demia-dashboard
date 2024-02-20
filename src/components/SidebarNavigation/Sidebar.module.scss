@@ -1,9 +1,10 @@
+@import "../../index.scss";
+
 .sidebar {
     background: var(--Gradients-Navigation-Linear, linear-gradient(178deg, rgba(228, 228, 228, 0.51) -11.95%, rgba(242, 242, 242, 0.17) 72.13%));
 
     /* Blur/Navigation BGD Blur */
     backdrop-filter: blur(6px);
-    
     position: sticky;
     top: 0;
     left: 0;
@@ -24,12 +25,7 @@
             align-items: center;
             gap: 8px;
             color: var(--Secondary-Purple-Gray, #6F6C82);
-/* B2 Medium */
-            font-family: "SpaceGrotesk";
-            font-size: 14px;
-            font-style: normal;
-            font-weight: 500;
-            line-height: 130%;
+            @extend .font-14-18-500;
             position: relative;
             text-decoration: none;
             transition: background-color .4s ease, color .4s ease;
@@ -39,6 +35,7 @@
                 }
             }
             .stroke {
+                line-height: 0;
                 path, circle {
                     transform: stroke .4s ease;
                 }     

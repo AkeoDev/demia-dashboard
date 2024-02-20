@@ -1,4 +1,4 @@
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import {
   Activity,
   AllProjects,
@@ -9,41 +9,43 @@ import {
   Feedstock,
   Flowmeter,
   Notifications,
+  Parameters,
   Sensors,
   SignIn,
-  Users
-} from './pages';
-import products from './assets/json/projects.json';
-import { IProject } from './utils/types/Project';
+  Users,
+} from "./pages";
+import products from "./assets/json/projects.json";
+import { IProject } from "./utils/types/Project";
 
 const router = createBrowserRouter([
-  { path: 'sign-in', element: <SignIn /> },
+  { path: "sign-in", element: <SignIn /> },
   {
-    path: 'projects/:slug',
+    path: "projects/:slug",
     loader: async ({ params }) => {
       return {
         data: (products as unknown as IProject[]).find(
           (project: IProject) => project.slug === params.slug
         ),
-        slug: params.slug
-      }
+        slug: params.slug,
+      };
     },
     children: [
       { path: "", element: <Dashboard /> },
-      { path: 'activity', element: <Activity /> },
-      { path: 'users', element: <Users /> },
-      { path: 'notifications', element: <Notifications /> },
-      { path: 'documentation', element: <Documentation /> },
-      { path: 'users', element: <Users /> },
+      { path: "activity", element: <Activity /> },
+      { path: "users", element: <Users /> },
+      { path: "notifications", element: <Notifications /> },
+      { path: "documentation", element: <Documentation /> },
+      { path: "users", element: <Users /> },
       { path: "data-sources/", element: <Sensors /> },
-      { path: "data-sources/flowmeter-1", element: <Flowmeter />},
-      { path: "data-sources/cargo-sensor", element: <CargoSensor />},
-      { path: "data-sources/feedstock", element: <Feedstock />},
-      { path: 'notifications', element: <Notifications /> },
-      { path: 'analytics', element: <Analytics /> },
-    ]
+      { path: "data-sources/flowmeter-1", element: <Flowmeter /> },
+      { path: "data-sources/cargo-sensor", element: <CargoSensor /> },
+      { path: "data-sources/feedstock", element: <Feedstock /> },
+      { path: "notifications", element: <Notifications /> },
+      { path: "analytics", element: <Analytics /> },
+      { path: "analytics/:analyticsSlug", element: <Parameters /> },
+    ],
   },
-  { path: '', element: <AllProjects /> }
+  { path: "", element: <AllProjects /> },
 ]);
 
 const App = () => {

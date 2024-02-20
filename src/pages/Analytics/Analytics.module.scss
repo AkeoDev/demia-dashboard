@@ -73,18 +73,16 @@
     }
 
     .right {
+      @extend .font-14-18-400;
+      color: $black;
       display: flex;
       align-items: center;
       gap: 12px;
       cursor: pointer;
+      text-decoration: none;
 
       .arrowRight {
         line-height: 0;
-      }
-
-      p {
-        @extend .font-14-18-400;
-        color: $black;
       }
     }
   }
