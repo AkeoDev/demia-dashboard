@@ -21,6 +21,12 @@
   gap: 24px;
 }
 
+.tableTitle {
+  @extend .font-24-31-500;
+  color: $black;
+  margin-bottom: 8px;
+}
+
 .userIcon {
   width: 40px;
   height: 40px;

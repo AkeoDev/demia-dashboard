@@ -3,7 +3,7 @@ import { Layout } from "../../components/Layout/Layout";
 import classes from "./Users.module.scss";
 import { Cell } from "@table-library/react-table-library/table";
 import { plusIcon, threeDots } from "../../assets";
-import { TableWithoutSorting } from "../../components/Table/Table";
+import { TableSorting } from "../../components/Table/Table";
 import { Button } from "../../components/Buttons/Button";
 
 const tableList = [
@@ -44,30 +44,64 @@ const tableList = [
   },
 ];
 
-const fields = ["Name", "Role", "Last Login", "Permissions", ""];
+const fields = [
+  {
+    name: "Name",
+    sortKey: "NAME",
+  },
+  {
+    name: "Role",
+    sortKey: "ROLE",
+  },
+  {
+    name: "Last Login",
+    sortKey: "LASTLOGIN",
+  },
+  {
+    name: "Permissions",
+    sortKey: "PERMISSIONS",
+  },
+  {
+    name: "Action",
+    sortKey: "",
+  },
+];
+
+const sortFns = {
+  NAME: (array: Array<any>) =>
+    array.sort((a, b) => a.name.localeCompare(b.name)),
+  ROLE: (array: Array<any>) =>
+    array.sort((a, b) => a.role.localeCompare(b.role)),
+  LASTLOGIN: (array: Array<any>) =>
+    array.sort((a, b) => a.lastLogin.localeCompare(b.lastLogin)),
+  PERMISSIONS: (array: Array<any>) =>
+    array.sort((a, b) => a.role.localeCompare(b.role)),
+};
 
 const ActivityRowTemplate: React.FC<{ item: any }> = ({ item }) => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
 
   const toggleVisibility = () => {
-    setIsVisible(prev => !prev);
+    setIsVisible((prev) => !prev);
   };
 
   const contextRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
-    window.addEventListener('click', (event: MouseEvent) => {
-      if (!(contextRef && contextRef?.current?.contains(event.target as Node))) {
-        setIsVisible(false)
+    window.addEventListener("click", (event: MouseEvent) => {
+      if (
+        !(contextRef && contextRef?.current?.contains(event.target as Node))
+      ) {
+        setIsVisible(false);
       }
-    })
-    return (
-      window.removeEventListener('click', (event: MouseEvent) => {
-        if (!(contextRef && contextRef?.current?.contains(event.target as Node))) {
-          setIsVisible(false)
-        }
-      })
-    )
+    });
+    return window.removeEventListener("click", (event: MouseEvent) => {
+      if (
+        !(contextRef && contextRef?.current?.contains(event.target as Node))
+      ) {
+        setIsVisible(false);
+      }
+    });
   }, []);
 
   return (
@@ -81,7 +115,12 @@ const ActivityRowTemplate: React.FC<{ item: any }> = ({ item }) => {
         ))}
       </Cell>
       <Cell className={classes.icon}>
-        <img className={"actionsButton"} ref={contextRef} src={threeDots} onClick={toggleVisibility} />
+        <img
+          className={"actionsButton"}
+          ref={contextRef}
+          src={threeDots}
+          onClick={toggleVisibility}
+        />
         <div
           className={`${classes.actionsWrapper} ${
             isVisible ? classes.show : ""
@@ -107,9 +146,10 @@ export const Users = () => {
         </Button>
       </div>
       <div className={classes.users}>
-        <TableWithoutSorting
+        <TableSorting
           data={{ nodes: tableList }}
           fields={fields}
+          sortFns={sortFns}
           RowTemplate={ActivityRowTemplate}
         />
       </div>

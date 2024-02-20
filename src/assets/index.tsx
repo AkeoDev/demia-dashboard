@@ -31,6 +31,8 @@ import uploadIcon from "./svg/upload-icon.svg";
 import smallArrowUp from "./svg/small-arrow-up.svg";
 import smallArrowDown from "./svg/small-arrow-down.svg";
 import sortIconDefault from "./svg/sort-icon-default.svg";
+import exportIcon from "./svg/export-icon.svg";
+import exportIconBlack from "./svg/export-icon-black.svg";
 
 //png
 import signIn from "./images/sign-in.png";
@@ -80,7 +82,9 @@ export {
   uploadIcon,
   smallArrowUp,
   smallArrowDown,
-  sortIconDefault
+  sortIconDefault,
+  exportIcon,
+  exportIconBlack
 };
 
 

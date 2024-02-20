@@ -90,7 +90,6 @@ const fields = [
     name: "Data Entry",
     sortKey: "DATAENTRY"
   },
-  
 ]
 
 const sortFns = {

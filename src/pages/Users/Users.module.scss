@@ -21,6 +21,20 @@
       80px !important;
     overflow: visible !important;
 
+    thead {
+      tr {
+        th {
+          &:last-of-type {
+            div {
+              opacity: 0;
+              visibility: hidden;
+              pointer-events: none;
+            }
+          }
+        }
+      }
+    }
+
     tbody {
       background-color: $inner-background;
 
