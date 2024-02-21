@@ -149,4 +149,31 @@
       }
     }
   }
+
+  .log {
+    margin-top: 32px;
+
+    table {
+      thead {
+        tr {
+          th {
+            padding: 16px 24px;
+          }
+        }
+      }
+      tbody {
+        background-color: $inner-background;
+        tr {
+          td {
+            padding: 27px 24px;
+          }
+        }
+      }
+    }
+    .timestamp,
+    .quality {
+      @extend .font-14-18-400;
+      color: $black;
+    }
+  }
 }

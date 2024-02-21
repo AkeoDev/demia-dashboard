@@ -102,18 +102,21 @@ export const Documentation = () => {
               Certification
             </div>
           </div>
-          <div className={classes.documentationTable}>
-            <TableWithoutSorting
-              data={{ nodes: tableList }}
-              fields={fields}
-              RowTemplate={DocumentationRowTemplate}
-            />
-          </div>
+          {activeTab === 1 && (
+            <div className={classes.documentationTable}>
+              <TableWithoutSorting
+                data={{ nodes: tableList }}
+                fields={fields}
+                RowTemplate={DocumentationRowTemplate}
+              />
+            </div>
+          )}
+          {activeTab === 2 && <>tab2</>}
+          {activeTab === 3 && <>tab3</>}
+          {activeTab === 4 && <>tab4</>}
         </div>
       </Layout>
-      {isModalOpen && (
-        <DocumentationModal onClose={closeModal} />
-      )}
+      {isModalOpen && <DocumentationModal onClose={closeModal} />}
     </>
   );
 };

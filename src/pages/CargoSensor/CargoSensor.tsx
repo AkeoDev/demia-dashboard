@@ -147,6 +147,12 @@ const ActivityRowTemplate: React.FC<{ item: any }> = ({ item }) => (
   </>
 );
 
+const loadInfo = {
+  source: "2023 Ford Transit Van #13",
+  lastUpdate: "10/11/2023",
+  unit: "2,4 kg",
+};
+
 export const CargoSensor = () => {
   const [activeTab, setActiveTab] = useState(1);
 
@@ -243,13 +249,13 @@ export const CargoSensor = () => {
                   <h4>Cargo load</h4>
                   <div className={classes.loadInfo}>
                     <p>
-                      Source <span>2023 Ford Transit Van #13</span>
+                      Source <span>{loadInfo.source}</span>
                     </p>
                     <p>
-                      Last update <span>10/11/2023</span>
+                      Last update <span>{loadInfo.lastUpdate}</span>
                     </p>
                     <p>
-                      Unit <span>2,4 kg</span>
+                      Unit <span>{loadInfo.unit}</span>
                     </p>
                   </div>
                 </div>
@@ -261,7 +267,7 @@ export const CargoSensor = () => {
           </article>
         )}
         {activeTab === 2 && (
-          <div className={classes.cargoLog}>
+          <div className={classes.log}>
             <TableSorting
               title="2326 Records"
               data={{ nodes: tableList }}
