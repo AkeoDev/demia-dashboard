@@ -35,7 +35,7 @@ const parametersData = [
 export const Parameters = () => {
 
   const { slug } = useParams();
-  const url = `/projects/${slug}/analytics`;
+  const url = `/projects/${slug}/analytics-setup`;
 
   return (
     <Layout>

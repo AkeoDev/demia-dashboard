@@ -9,6 +9,7 @@ export { CargoSensor } from "./CargoSensor/CargoSensor";
 export { Flowmeter } from "./Flowmeter/Flowmeter";
 export { Feedstock } from "./Feedstock/Feedstock";
 export { Documentation } from "./Documentation/Documentation";
+export { AnalyticsSetup } from "./AnalyticsSetup/AnalyticsSetup";
 export { Analytics } from "./Analytics/Analytics";
 export { Parameters } from "./Parameters/Parameters";
 export { SensorTemplates } from "./SensorTemplates/SensorTemplates";

@@ -1,0 +1,36 @@
+@import "../../index.scss";
+
+.statistic {
+  padding: 16px 24px;
+  display: flex;
+  gap: 12px;
+  box-shadow: 0px 2px 4px 0px rgba(35, 54, 58, 0.08);
+  background-color: $white;
+}
+
+.icon {
+  line-height: 0;
+}
+
+.topData {
+  display: flex;
+
+  h4 {
+    @extend .font-16-21-500;
+    color: $black;
+  }
+
+  span {
+    @extend .font-12-16-400;
+    padding: 2px 4px;
+    background-color: rgba(50, 255, 194, 0.2);
+    color: $green;
+    border-radius: 4px;
+    margin-left: 4px;
+  }
+}
+.text {
+  @extend .font-14-18-400;
+  color: $black;
+  margin-top: 4px;
+}

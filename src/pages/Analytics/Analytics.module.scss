@@ -11,7 +11,25 @@
       @extend .font-24-31-500;
     }
     .button {
-      padding: 9.5px 12px;
+      @extend .font-16-21-500;
+      color: $black;
+      background-color: $white;
+      text-decoration: none;
+      display: flex;
+      padding: 8px 12px;
+      gap: 8px;
+      border: none;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      width: fit-content;
+      cursor: pointer;
+      transition: ease 0.3s all;
+      box-shadow: 0px 0px 1px 0px rgba(9, 30, 66, 0.31);
+
+      .icon {
+        line-height: 0;
+      }
     }
   }
 
@@ -25,73 +43,9 @@
     background-color: #f9f9f9;
   }
 
-  .contentTitle {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    margin-bottom: 40px;
-
-    .icon {
-      line-height: 0;
-    }
-
-    h3 {
-      @extend .font-14-18-500;
-      color: $black;
-    }
-  }
-
-  .dataContainer {
-    padding: 0 16px;
-  }
-
-  .singleItem {
-    padding: 16px 24px;
-    border-bottom: 1px solid $border-color;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    &:last-of-type {
-      border-bottom: none;
-    }
-
-    .left {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-
-      input {
-        width: 24px;
-        height: 24px;
-        accent-color: $pink;
-      }
-      p {
-        @extend .font-14-18-400;
-        color: $black;
-      }
-    }
-
-    .right {
-      @extend .font-14-18-400;
-      color: $black;
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      cursor: pointer;
-      text-decoration: none;
-
-      .arrowRight {
-        line-height: 0;
-      }
-    }
-  }
-  .buttonContainer {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 40px;
-  }
-  .button {
-    padding: 9.5px 12px;
+  .statisticWrapper {
+    display: grid;
+    gap: 40px;
+    grid-template-columns: repeat(3, calc(33.33% - 26.66px));
   }
 }
