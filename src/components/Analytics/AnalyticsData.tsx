@@ -1,17 +1,8 @@
 import { ReactSVG } from "react-svg";
 import classes from "./AnalyticsData.module.scss";
+import { AnalyticsDataPropsType } from "../../utils/types";
 
-interface ProjectStatisticType {
-  icon: string;
-  value: string;
-  percentage?: string;
-  text: string;
-}
-interface ProjectStatisticPropsType {
-  data: ProjectStatisticType;
-}
-
-export const AnalyticsData: React.FC<ProjectStatisticPropsType> = ({data}) => {
+export const AnalyticsData: React.FC<AnalyticsDataPropsType> = ({data}) => {
   return (
     <div className={classes.statistic}>
       <ReactSVG src={data.icon}></ReactSVG>

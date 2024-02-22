@@ -39,7 +39,7 @@
 
   .innerContent {
     padding: 24px;
-    clip-path: polygon(0 0, 97% 0, 100% 8%, 100% 100%, 3% 100%, 0 92%);
+    clip-path: polygon(0 0, 98% 0, 100% 2%, 100% 100%, 2% 100%, 0 98%);
     background-color: #f9f9f9;
   }
 
@@ -47,5 +47,47 @@
     display: grid;
     gap: 40px;
     grid-template-columns: repeat(3, calc(33.33% - 26.66px));
+    margin: 30px 0 24px;
   }
+}
+
+.analyticsGreenChart {
+  background-color: $white;
+  border: 1px solid $border-color;
+  box-shadow: 0px 4px 12px 0px rgba(9, 30, 66, 0.1);
+
+  .heading {
+    padding: 19px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $light-gray;
+    h3 {
+      color: $black;
+      max-width: 300px;
+      @extend .font-16-21-500;
+    }
+    div {
+      display: flex;
+      align-items: baseline;
+      gap: 12px;
+      color: $black;
+
+      h2 {
+        @extend .font-24-31-500;
+      }
+
+      span {
+        @extend .font-16-21-500;
+      }
+    }
+  }
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  column-gap: 40px;
+  row-gap: 30px;
+  margin-top: 30px;
 }

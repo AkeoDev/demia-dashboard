@@ -10,7 +10,9 @@ import {
   Customized,
   Rectangle,
   AreaChart,
-  Area
+  Area, 
+  Tooltip,
+  ReferenceLine
 } from 'recharts';
 
 const data = [
@@ -58,6 +60,31 @@ const data = [
   }
 ];
 
+function CustomTooltipGreen({ payload, label, active } : any) {
+  if (active) {
+    return (
+      <div className={classes.customTooltip}>
+        <p>{label}</p>
+        <h4>{payload[0].value}</h4>
+      </div>
+    );
+  }
+  return null;
+}
+
+function CustomTooltipBar({ payload, label, active } : any) {
+  if (active) {
+    return (
+      <div className={classes.customTooltip}>
+        <p>{label}</p>
+        {payload[0].value ? <h4>{payload[0].value}</h4> : ""}
+        <h4>{payload[1].value}</h4>
+      </div>
+    );
+  }
+  return null;
+}
+
 const CustomizedRectangle: FunctionComponent<any> = ({
   formattedGraphicalItems
 }) => {
@@ -93,13 +120,17 @@ export const BarChart: FunctionComponent<{
         <h3>Load</h3>
       </div>
       <ResponsiveContainer width="100%" height={500}>
-        <LineChart width={500} height={300} data={graphData}>
+        <LineChart width={500} height={300} data={graphData} margin={{
+            top: 10,
+            right: 30,
+          }}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="name" fontFamily="SpaceGrotesk" />
           <YAxis fontFamily="SpaceGrotesk" />
           <Line type="monotone" dataKey="pv" stroke="transparent" />
           <Line type="monotone" dataKey="uv" stroke="transparent" />
           <Customized component={CustomizedRectangle} />
+          <Tooltip content={<CustomTooltipBar />} />
         </LineChart>
       </ResponsiveContainer>
     </div>
@@ -123,31 +154,66 @@ export const GreenAreaChart: FunctionComponent<{
           <XAxis dataKey="name" fontFamily="SpaceGrotesk" />
           <YAxis fontFamily="SpaceGrotesk" />
           <Area type="monotone" dataKey="uv" stroke="#32FFC2" fill="#32FFC21A" />
+          <Tooltip content={<CustomTooltipGreen />}/>
         </AreaChart>
       </ResponsiveContainer>
     </div>
   );
 };
-export const PrupleLineChart: FunctionComponent<{
+export const PinkLineChart: FunctionComponent<{
   graphData?: Array<{ name: string; pv: number; uv: number; amt: number }>;
-}> = ({ graphData = data }) => {
+  height?: number
+}> = ({ graphData = data, height = 500 }) => {
   return (
     <div className={classes['sensor-load-container']}>
       <div className={classes['heading']}>
         <h3>Load</h3>
       </div>
-      <ResponsiveContainer width="100%" height={500}>
+      <ResponsiveContainer width="100%" height={height}>
         <LineChart
           width={500}
           height={300}
           data={graphData}
+          margin={{
+            top: 10,
+            right: 30,
+          }}
         >
           <CartesianGrid strokeDasharray="3 3"/>
           <XAxis dataKey="name" fontFamily="SpaceGrotesk" />
           <YAxis fontFamily="SpaceGrotesk" />
-          <Line type="monotone" dataKey="pv" stroke="#8884d8" />
+          <ReferenceLine y={7000} label={{ value: 'Baseline', fill: '#0DCE95', fontFamily: "SpaceGrotesk", dy: 15 }} stroke="#0DCE95" strokeWidth={2} strokeDasharray="10"/>
+          <Line type="monotone" dataKey="pv" stroke="#FF00A8" strokeWidth={2} />
+          <Tooltip content={<CustomTooltipGreen />}/>
         </LineChart>
       </ResponsiveContainer>
     </div>
+  );
+};
+
+export const GreenAreaAnalyticsChart: FunctionComponent<{
+  graphData?: Array<{ name: string; pv: number; uv: number; amt: number }>;
+  height?: number
+}> = ({ graphData = data, height = 500 }) => {
+  return (
+      <div className={classes.chartContainer}>
+        <ResponsiveContainer width="100%" height={height}>
+          <AreaChart
+            data={graphData}
+            width={500} height={300}
+            margin={{
+              top: 10,
+              right: 30,
+              left: 10
+            }}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" fontFamily="SpaceGrotesk" />
+            <YAxis fontFamily="SpaceGrotesk" />
+            <Area type="monotone" dataKey="uv" stroke="#32FFC2" fill="#32FFC21A" strokeWidth={2} />
+            <Tooltip content={<CustomTooltipGreen />}/>
+          </AreaChart>
+        </ResponsiveContainer>
+      </div>
   );
 };

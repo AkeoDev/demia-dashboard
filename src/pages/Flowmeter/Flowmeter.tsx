@@ -9,7 +9,7 @@ import { Layout } from "../../components/Layout/Layout";
 import classes from "./Flowmeter.module.scss";
 import { ReactSVG } from "react-svg";
 import { useState } from "react";
-import { PrupleLineChart } from "../../components/Graphs/Graphs";
+import { GreenAreaChart } from "../../components/Graphs/Graphs";
 import { TableSorting } from "../../components/Table/Table";
 import { Cell } from "@table-library/react-table-library/table";
 
@@ -243,7 +243,7 @@ export const Flowmeter = () => {
               </div>
             </div>
             <div className={`${classes.flowmeterInfo} ${classes.df}`}>
-              <PrupleLineChart graphData={graphData} />
+              <GreenAreaChart graphData={graphData} />
             </div>
           </article>
         )}
