@@ -4,7 +4,10 @@ import classes from "./Analytics.module.scss";
 import { ReactSVG } from "react-svg";
 import { settingsIcon, sustainability } from "../../assets";
 import { AnalyticsData } from "../../components/Analytics";
-import { GreenAreaAnalyticsChart, PinkLineChart } from "../../components/Graphs/Graphs";
+import {
+  GreenAreaAnalyticsChart,
+  PinkLineChart,
+} from "../../components/Graphs/Graphs";
 
 const graphDataFirst = [
   {
@@ -69,7 +72,7 @@ const graphDataFirst = [
   },
 ];
 
-const graphData = [
+const secondGraphData = [
   {
     name: "Oct 20",
     uv: 20000,
@@ -114,38 +117,314 @@ const graphData = [
   },
 ];
 
+const firstChartData = {
+  title: "Total Project GHG emissions",
+  value: "172,642",
+  unit: "t CH4",
+};
+
+const secondChartData = {
+  title: "Total methane emissions destroyed",
+  value: "172,642",
+  unit: "t CH4",
+};
+
 const chartsData = [
   {
     title: "Net methane destroyed by flare",
     value: "134,538",
-    unit: "m3 CH4"
+    unit: "m3 CH4",
+    data: [
+      {
+        name: "Oct 20",
+        uv: 8000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 21",
+        uv: 4500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 22",
+        uv: 6500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 23",
+        uv: 9800,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 24",
+        uv: 1000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 25",
+        uv: 14500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 26",
+        uv: 16000,
+        pv: 0,
+        amt: 0,
+      },
+    ],
   },
   {
     title: "Net methane destroyed by flare",
     value: "126,841",
-    unit: "m3 CH4"
+    unit: "m3 CH4",
+    data: [
+      {
+        name: "Oct 20",
+        uv: 4000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 21",
+        uv: 5500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 22",
+        uv: 6500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 23",
+        uv: 2800,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 24",
+        uv: 12000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 25",
+        uv: 14500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 26",
+        uv: 19000,
+        pv: 0,
+        amt: 0,
+      },
+    ],
   },
   {
     title: "Total methane sent to flare",
     value: "126,841",
-    unit: "m3 CH4"
+    unit: "m3 CH4",
+    data: [
+      {
+        name: "Oct 20",
+        uv: 2000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 21",
+        uv: 4500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 22",
+        uv: 6500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 23",
+        uv: 9800,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 24",
+        uv: 12000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 25",
+        uv: 14500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 26",
+        uv: 16000,
+        pv: 0,
+        amt: 0,
+      },
+    ],
   },
   {
     title: "Total methane sent to flare",
     value: "134,538",
-    unit: "m3 CH4"
+    unit: "m3 CH4",
+    data: [
+      {
+        name: "Oct 20",
+        uv: 2000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 21",
+        uv: 4500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 22",
+        uv: 6500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 23",
+        uv: 9800,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 24",
+        uv: 12000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 25",
+        uv: 14500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 26",
+        uv: 16000,
+        pv: 0,
+        amt: 0,
+      },
+    ],
   },
   {
     title: "Total GHG emissions from electricity generation and delivery",
     value: "112,5388",
-    unit: "t CO2e"
+    unit: "t CO2e",
+    data: [
+      {
+        name: "Oct 20",
+        uv: 1000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 21",
+        uv: 1500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 22",
+        uv: 6500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 23",
+        uv: 9800,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 24",
+        uv: 7000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 25",
+        uv: 14500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 26",
+        uv: 16000,
+        pv: 0,
+        amt: 0,
+      },
+    ],
   },
   {
     title: "Total GHG emissions from supplemental fossil fuel",
     value: "96,841",
-    unit: "t CO2e"
+    unit: "t CO2e",
+    data: [
+      {
+        name: "Oct 20",
+        uv: 2000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 21",
+        uv: 4500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 22",
+        uv: 6500,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 23",
+        uv: 9800,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 24",
+        uv: 12000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 25",
+        uv: 1400,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "Oct 26",
+        uv: 16000,
+        pv: 0,
+        amt: 0,
+      },
+    ],
   },
-]
+];
 
 const statisticsData = [
   {
@@ -187,13 +466,13 @@ export const Analytics = () => {
             {/* first main chart here */}
             <div className={classes.analyticsGreenChart}>
               <div className={classes.heading}>
-                <h3>Total Project GHG emissions</h3>
+                <h3>{firstChartData.title}</h3>
                 <div>
-                  <h2>172,642</h2>
-                  <span>t CH4</span>
+                  <h2>{firstChartData.value}</h2>
+                  <span>{firstChartData.unit}</span>
                 </div>
               </div>
-              <PinkLineChart graphData={graphDataFirst} height={245}/>
+              <PinkLineChart graphData={graphDataFirst} height={245} />
             </div>
             {/* 3 elements */}
             <div className={classes.statisticWrapper}>
@@ -204,13 +483,13 @@ export const Analytics = () => {
             {/* second big chart */}
             <div className={classes.analyticsGreenChart}>
               <div className={classes.heading}>
-                <h3>Total methane emissions destroyed</h3>
+                <h3>{secondChartData.title}</h3>
                 <div>
-                  <h2>172,642</h2>
-                  <span>t CH4</span>
+                  <h2>{secondChartData.value}</h2>
+                  <span>{secondChartData.unit}</span>
                 </div>
               </div>
-              <GreenAreaAnalyticsChart graphData={graphData} height={245} />
+              <GreenAreaAnalyticsChart graphData={secondGraphData} height={245} />
             </div>
             {/* chart grid */}
             <div className={classes.grid}>
@@ -223,7 +502,7 @@ export const Analytics = () => {
                       <span>{item.unit}</span>
                     </div>
                   </div>
-                  <GreenAreaAnalyticsChart graphData={graphData} height={197} />
+                  <GreenAreaAnalyticsChart graphData={item.data} height={197} />
                 </div>
               ))}
             </div>
