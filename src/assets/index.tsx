@@ -34,6 +34,8 @@ import sortIconDefault from "./svg/sort-icon-default.svg";
 import exportIcon from "./svg/export-icon.svg";
 import exportIconBlack from "./svg/export-icon-black.svg";
 import settingsIcon from "./svg/settings-icon.svg";
+import hamburgerIcon from "./svg/hamburger-icon.svg";
+import arrowRightIcon from "./svg/arrow-right-icon.svg";
 
 //png
 import signIn from "./images/sign-in.png";
@@ -91,4 +93,6 @@ export {
   exportIconBlack,
   formula,
   settingsIcon,
+  hamburgerIcon,
+  arrowRightIcon
 };

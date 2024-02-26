@@ -6,10 +6,72 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 40px;
+    position: relative;
 
     .title {
       @extend .font-24-31-500;
     }
+    .rightButtons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .moreOptions {
+      padding: 8px 12px;
+      color: $black;
+      background-color: $white;
+      box-shadow: 0px 0px 1px 0px rgba(9, 30, 66, 0.31);
+      cursor: pointer;
+    }
+
+    .hamburgerIcon {
+      line-height: 0;
+    }
+
+    .export {
+      filter: drop-shadow(0px 1.5px 1.5px rgba(0, 0, 0, 0.25));
+      position: absolute;
+      right: 0;
+      bottom: -157px;
+      z-index: 1;
+    }
+
+    .exportWrapper {
+      clip-path: polygon(0 0, 87% 0, 100% 17%, 100% 100%, 13% 100%, 0 100%);
+      background-color: $white;
+      padding: 16px 12px;
+      width: 312px;
+
+      h4 {
+        @extend .font-14-18-400;
+        margin-bottom: 12px;
+      }
+      button {
+        @extend .font-16-21-500;
+        color: $black;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: $white;
+        border: 1px solid $border-color;
+        margin: auto 0 8px auto;
+        padding: 8px 12px;
+        gap: 7px;
+        width: 62%;
+        text-decoration: none;
+        cursor: pointer;
+
+        .icon {
+          line-height: 0;
+        }
+
+        &:last-of-type {
+          margin: auto 0 0 auto;
+        }
+      }
+    }
+
     .button {
       @extend .font-16-21-500;
       color: $black;
@@ -62,11 +124,41 @@
     justify-content: space-between;
     align-items: center;
     background-color: $light-gray;
-    h3 {
-      color: $black;
-      max-width: 300px;
-      @extend .font-16-21-500;
+
+    .projectLink {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: ease 0.3s all;
+
+      .icon {
+        line-height: 0;
+        path {
+          transition: ease 0.3s all;
+        }
+      }
+
+      &:hover {
+        a {
+          color: $pink;
+        }
+        .icon {
+          path {
+            stroke: $pink;
+          }
+        }
+      }
     }
+
+    a {
+      @extend .font-16-21-500;
+      text-decoration: none;
+      color: $black;
+      max-width: 305px;
+      transition: ease 0.3s all;
+    }
+
     div {
       display: flex;
       align-items: baseline;

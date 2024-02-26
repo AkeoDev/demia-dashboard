@@ -2,12 +2,19 @@ import { Link, useParams } from "react-router-dom";
 import { Layout } from "../../components/Layout/Layout";
 import classes from "./Analytics.module.scss";
 import { ReactSVG } from "react-svg";
-import { settingsIcon, sustainability } from "../../assets";
+import {
+  arrowRightIcon,
+  exportIconBlack,
+  hamburgerIcon,
+  settingsIcon,
+  sustainability,
+} from "../../assets";
 import { AnalyticsData } from "../../components/Analytics";
 import {
   GreenAreaAnalyticsChart,
   PinkLineChart,
 } from "../../components/Graphs/Graphs";
+import { useState } from "react";
 
 const graphDataFirst = [
   {
@@ -121,12 +128,14 @@ const firstChartData = {
   title: "Total Project GHG emissions",
   value: "172,642",
   unit: "t CH4",
+  url: "total-ghg-emission",
 };
 
 const secondChartData = {
   title: "Total methane emissions destroyed",
   value: "172,642",
   unit: "t CH4",
+  url: "total-methane-emission",
 };
 
 const chartsData = [
@@ -134,6 +143,7 @@ const chartsData = [
     title: "Net methane destroyed by flare",
     value: "134,538",
     unit: "m3 CH4",
+    url: "total-methane-destroyed",
     data: [
       {
         name: "Oct 20",
@@ -183,6 +193,7 @@ const chartsData = [
     title: "Net methane destroyed by flare",
     value: "126,841",
     unit: "m3 CH4",
+    url: "net-methane-destroyed",
     data: [
       {
         name: "Oct 20",
@@ -232,6 +243,7 @@ const chartsData = [
     title: "Total methane sent to flare",
     value: "126,841",
     unit: "m3 CH4",
+    url: "total-methane-destroyed",
     data: [
       {
         name: "Oct 20",
@@ -281,6 +293,7 @@ const chartsData = [
     title: "Total methane sent to flare",
     value: "134,538",
     unit: "m3 CH4",
+    url: "total-methane-sent",
     data: [
       {
         name: "Oct 20",
@@ -330,6 +343,7 @@ const chartsData = [
     title: "Total GHG emissions from electricity generation and delivery",
     value: "112,5388",
     unit: "t CO2e",
+    url: "total-ghg-emission",
     data: [
       {
         name: "Oct 20",
@@ -379,6 +393,7 @@ const chartsData = [
     title: "Total GHG emissions from supplemental fossil fuel",
     value: "96,841",
     unit: "t CO2e",
+    url: "total-methane-destroyed",
     data: [
       {
         name: "Oct 20",
@@ -451,22 +466,60 @@ export const Analytics = () => {
   const { slug } = useParams();
   const url = `/projects/${slug}/analytics-setup/`;
 
+  const [isVisible, setIsVisible] = useState(false);
+
+  const exportButtonHandler = () => {
+    setIsVisible((prev) => !prev);
+  };
+
   return (
     <Layout>
       <div className={classes.analytics}>
         <div className={classes.titleContainer}>
           <h1 className={classes.title}>Analytics</h1>
-          <Link to={url} className={classes.button}>
-            <ReactSVG src={settingsIcon} className={classes.icon}></ReactSVG>
-            Settings
-          </Link>
+          <div className={classes.rightButtons}>
+            <Link to={url} className={classes.button}>
+              <ReactSVG src={settingsIcon} className={classes.icon}></ReactSVG>
+              Settings
+            </Link>
+            <div className={classes.moreOptions} onClick={exportButtonHandler}>
+              <ReactSVG
+                src={hamburgerIcon}
+                className={classes.hamburgerIcon}
+              ></ReactSVG>
+            </div>
+          </div>
+          {isVisible && (
+            <div className={classes.export}>
+              <div className={classes.exportWrapper}>
+                <h4>Export</h4>
+                <button type="button">
+                  <ReactSVG
+                    src={exportIconBlack}
+                    className={classes.icon}
+                  ></ReactSVG>
+                  Export to CSV
+                </button>
+                <button type="button">
+                  <ReactSVG
+                    src={exportIconBlack}
+                    className={classes.icon}
+                  ></ReactSVG>
+                  Export to XLSV
+                </button>
+              </div>
+            </div>
+          )}
         </div>
         <div className={classes.content}>
           <div className={classes.innerContent}>
             {/* first main chart here */}
             <div className={classes.analyticsGreenChart}>
               <div className={classes.heading}>
-                <h3>{firstChartData.title}</h3>
+                <div className={classes.projectLink}>
+                  <Link to={firstChartData.title}>{firstChartData.title}</Link>
+                  <ReactSVG src={arrowRightIcon} className={classes.icon} />
+                </div>
                 <div>
                   <h2>{firstChartData.value}</h2>
                   <span>{firstChartData.unit}</span>
@@ -483,20 +536,31 @@ export const Analytics = () => {
             {/* second big chart */}
             <div className={classes.analyticsGreenChart}>
               <div className={classes.heading}>
-                <h3>{secondChartData.title}</h3>
+                <div className={classes.projectLink}>
+                  <Link to={secondChartData.title}>{secondChartData.title}</Link>
+                  <ReactSVG src={arrowRightIcon} className={classes.icon} />
+                </div>
                 <div>
                   <h2>{secondChartData.value}</h2>
                   <span>{secondChartData.unit}</span>
                 </div>
               </div>
-              <GreenAreaAnalyticsChart graphData={secondGraphData} height={245} />
+              <GreenAreaAnalyticsChart
+                graphData={secondGraphData}
+                height={245}
+              />
             </div>
             {/* chart grid */}
             <div className={classes.grid}>
               {chartsData.map((item, index) => (
                 <div className={classes.analyticsGreenChart} key={index}>
                   <div className={classes.heading}>
-                    <h3>{item.title}</h3>
+                    <div className={classes.projectLink}>
+                      <Link to={item.title}>
+                        {item.title}
+                      </Link>
+                      <ReactSVG src={arrowRightIcon} className={classes.icon} />
+                    </div>
                     <div>
                       <h2>{item.value}</h2>
                       <span>{item.unit}</span>

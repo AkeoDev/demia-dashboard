@@ -13,3 +13,4 @@ export { AnalyticsSetup } from "./AnalyticsSetup/AnalyticsSetup";
 export { Analytics } from "./Analytics/Analytics";
 export { Parameters } from "./Parameters/Parameters";
 export { SensorTemplates } from "./SensorTemplates/SensorTemplates";
+export { AnalyticsDetails } from "./AnalyticsDetails/AnalyticsDetails";
