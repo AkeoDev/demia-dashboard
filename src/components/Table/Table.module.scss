@@ -15,7 +15,7 @@
 .innerContent {
   padding: 24px;
   clip-path: polygon(0 0, 98% 0, 100% 3%, 100% 100%, 2% 100%, 0 97%);
-  background-color: #f9f9f9;
+  background-color: $inner-background;
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -64,7 +64,7 @@
   justify-content: space-between;
   align-items: flex-end;
   .num-of-items {
-    color: var(--Secondary-Dark-Blue, #151221);
+    color: $black;
     /* B2 Regular */
     font-family: "SpaceGrotesk";
     font-size: 14px;
@@ -78,22 +78,16 @@
     align-items: center;
     gap: 6px;
     button {
-      color: var(--Secondary-Purple-Gray, #6F6C82);
-      /* B3 Regular */
-      font-family: "SpaceGrotesk";
-      font-size: 12px;
-      font-style: normal;
-      font-weight: 400;
-      line-height: 130%; /* 15.6px */
-      letter-spacing: 0.42px;
+      @extend .font-12-16-400;
+      color: $grey2;
       padding: 5px 10px;
-      background-color: #D9E1E8;
-      border: 1px solid var(--Secondary-Blueish-Gray, #D9E1E8);
+      background-color: transparent;
+      border: 1px solid $border-color;
       transition: background-color .4s ease, color .4s ease;
       cursor: pointer;
       &:hover, &.active {
-        background-color: #0DCE95;
-        color: #FFFFFF;
+        background-color: $green;
+        color: $white;
       }
     }
   }

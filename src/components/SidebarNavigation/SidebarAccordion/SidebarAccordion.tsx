@@ -80,15 +80,8 @@ export const SidebarAcccordion: FunctionComponent = () => {
               className={() => {
 
                 if (project.projectId === activeProjectId) {
-                  return `${classes['project-link']} ${classes['active']}`
+                  return `${classes['active']}`
                 }
-                else {
-                  return classes['project-link'];
-                }
-                
-                // return project.projectId === activeProjectId
-                //   ? `${classes['project-link']} ${classes['active']}`
-                //   : classes['project-link'];
               }}
               onClick={() => {
                 closeAccordion();
@@ -96,7 +89,7 @@ export const SidebarAcccordion: FunctionComponent = () => {
                 setActiveProjectId(project.projectId);
               }}
             >
-              <ReactSVG wrapper="span" src={projectIcon} />
+              <ReactSVG wrapper="span" src={projectIcon} className={classes.projectIcon}/>
               {project.projectName}
             </NavLink>
           ))}

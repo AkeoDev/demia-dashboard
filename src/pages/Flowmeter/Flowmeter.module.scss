@@ -97,7 +97,7 @@
     .status {
       position: absolute;
       right: -1px;
-      top: 0px;
+      top: -1px;
     }
 
     .data {
@@ -134,7 +134,7 @@
 
     .info {
       display: flex;
-      gap: 32px;
+      gap: 64px;
       align-items: center;
 
       p {

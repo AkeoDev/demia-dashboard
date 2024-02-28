@@ -130,8 +130,8 @@ export const BarChart: FunctionComponent<{
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" fontFamily="SpaceGrotesk" />
-          <YAxis fontFamily="SpaceGrotesk" />
+          <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10}/>
+          <YAxis fontFamily="SpaceGrotesk" dx={-5}/>
           <Line type="monotone" dataKey="pv" stroke="transparent" />
           <Line type="monotone" dataKey="uv" stroke="transparent" />
           <Customized component={CustomizedRectangle} />
@@ -151,15 +151,16 @@ export const GreenAreaChart: FunctionComponent<{
         <h3>Load</h3>
       </div>
       <ResponsiveContainer width="100%" height={500}>
-        <AreaChart data={graphData} width={500} height={300}>
+        <AreaChart data={graphData} width={500} height={300} margin={{ right: 30}}>
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" fontFamily="SpaceGrotesk" />
-          <YAxis fontFamily="SpaceGrotesk" />
+          <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10}/>
+          <YAxis fontFamily="SpaceGrotesk" dx={-5}/>
           <Area
             type="monotone"
             dataKey="uv"
             stroke="#32FFC2"
             fill="#32FFC21A"
+            strokeWidth={2}
           />
           <Tooltip content={<CustomTooltipGreen />} />
         </AreaChart>
@@ -187,22 +188,24 @@ export const PinkLineChart: FunctionComponent<{
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" fontFamily="SpaceGrotesk" />
-          <YAxis fontFamily="SpaceGrotesk" />
+          <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10}/>
+          <YAxis fontFamily="SpaceGrotesk" dx={-5}/>
           <ReferenceLine
             y={7000}
             label={{
+              position: "left",
               value: "Baseline",
               fill: "#0DCE95",
               fontFamily: "SpaceGrotesk",
               dy: 15,
+              dx: 90,
               fontSize: 12,
             }}
             stroke="#0DCE95"
             strokeWidth={2}
             strokeDasharray="10"
           />
-          <Line type="monotone" dataKey="pv" stroke="#FF00A8" strokeWidth={2} />
+          <Line type="monotone" dataKey="pv" stroke="#FF00A8" strokeWidth={2} activeDot={{ r: 6 }} />
           <Tooltip content={<CustomTooltipGreen />} />
         </LineChart>
       </ResponsiveContainer>
@@ -228,14 +231,15 @@ export const GreenAreaAnalyticsChart: FunctionComponent<{
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" fontFamily="SpaceGrotesk" />
-          <YAxis fontFamily="SpaceGrotesk" />
+          <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10}/>
+          <YAxis fontFamily="SpaceGrotesk" dx={-5}/>
           <Area
             type="monotone"
             dataKey="uv"
             stroke="#32FFC2"
             fill="#32FFC21A"
             strokeWidth={2}
+            activeDot={{ r: 6 }}
           />
           <Tooltip content={<CustomTooltipGreen />} />
         </AreaChart>

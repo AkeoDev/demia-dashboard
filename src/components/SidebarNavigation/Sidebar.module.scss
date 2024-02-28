@@ -1,10 +1,8 @@
 @import "../../index.scss";
 
 .sidebar {
-    background: var(--Gradients-Navigation-Linear, linear-gradient(178deg, rgba(228, 228, 228, 0.51) -11.95%, rgba(242, 242, 242, 0.17) 72.13%));
-
-    /* Blur/Navigation BGD Blur */
-    backdrop-filter: blur(6px);
+    background: linear-gradient(177.83deg, rgba(228, 228, 228, 0.51) -11.95%, rgba(242, 242, 242, 0.168) 22.13%);
+    // backdrop-filter: blur(6px);
     position: sticky;
     top: 0;
     left: 0;
@@ -17,26 +15,29 @@
         padding: 18px 30px;
     }
     .navigation {
-        border-top: 1px solid #D9E1E8;
+        border-top: 1px solid $border-color;
         a {
             display: flex;
             padding: 24px 30px;
             justify-content: flex-start;
             align-items: center;
             gap: 8px;
-            color: var(--Secondary-Purple-Gray, #6F6C82);
+            color: $grey2;
             @extend .font-14-18-500;
             position: relative;
             text-decoration: none;
             transition: background-color .4s ease, color .4s ease;
             .fill {
+                line-height: 0;
                 path {
+                    transition: all .4s ease;
                     transform: fill .4s ease;
                 }
             }
             .stroke {
                 line-height: 0;
                 path, circle {
+                    transition: all .4s ease;
                     transform: stroke .4s ease;
                 }     
             }
@@ -45,26 +46,26 @@
                 max-width: 0px;
                 width: 100%;
                 transition: max-width .2s ease;
-                background-color: #FF00A8;
+                background-color: $pink;
                 height: 100%;
                 position: absolute;
                 left: 0;
                 top: 0;
             }
             &:hover, &.active {
-                background-color: white;
-                color: black;
+                background-color: $white;
+                color: $pink;
                 .fill {
                     path {
-                        fill: #FF00A8;
+                        fill: $pink;
                     }
                 }
                 .stroke {
                     path {
-                        stroke: #FF00A8;
+                        stroke: $pink;
                     }
                     circle {
-                        stroke: #FF00A8;
+                        stroke: $pink;
                     }
                 }
                 &::before {
