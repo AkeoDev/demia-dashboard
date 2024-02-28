@@ -6,38 +6,33 @@
 }
 
 .name-cell {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    gap: 8px;
-    .bullet {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background-color: #FF5050;
-    }
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  .bullet {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: $orange2;
+  }
 }
 
 .text {
-    color: var(--Secondary-Dark-Blue, #151221);
-/* B2 Regular */
-    font-family: "SpaceGrotesk";
-    font-size: 14px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 130%;
+  color: $black;
+  @extend .font-14-18-400;
 }
 
 .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  div {
+    height: 24px;
+    width: 24px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    div {
-        height: 24px;
-        width: 24px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer
-    }
+    cursor: pointer;
+  }
 }
