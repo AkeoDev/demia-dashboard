@@ -42,6 +42,12 @@ const tableList = [
     lastLogin: "24.01.2022 14:00 cet",
     permissions: ["Santa Maria 2"],
   },
+  {
+    name: "Lisa Mustermann",
+    role: "Viewer",
+    lastLogin: "24.01.2022 14:00 cet",
+    permissions: ["Santa Maria 2", "Santa Maria"],
+  },
 ];
 
 const fields = [
@@ -147,6 +153,7 @@ export const Users = () => {
       </div>
       <div className={classes.users}>
         <TableSorting
+          className={classes.table}
           data={{ nodes: tableList }}
           fields={fields}
           sortFns={sortFns}

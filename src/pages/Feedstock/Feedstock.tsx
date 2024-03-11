@@ -215,10 +215,10 @@ export const Feedstock = () => {
                 ))}
               </div>
             </div>
-            <div className={`${classes.feedstockInfo} ${classes.df}`}>
+            <div className={`${classes.graph}`}>
               <BarChart graphData={graphData} />
             </div>
-            <div className={`${classes.feedstockInfo} ${classes.df}`}>
+            <div className={`${classes.graph}`}>
               <BarChart graphData={graphData} />
             </div>
           </article>
@@ -226,6 +226,7 @@ export const Feedstock = () => {
         {activeTab === 2 && (
           <div className={classes.log}>
             <TableSorting
+              className={classes.table}
               title="427 Records"
               data={{ nodes: tableList }}
               fields={fields}

@@ -36,7 +36,6 @@ import exportIconBlack from "./svg/export-icon-black.svg";
 import settingsIcon from "./svg/settings-icon.svg";
 import hamburgerIcon from "./svg/hamburger-icon.svg";
 import arrowRightIcon from "./svg/arrow-right-icon.svg";
-import contentBackground from "./svg/content-background.svg";
 
 //png
 import signIn from "./images/sign-in.png";
@@ -96,5 +95,4 @@ export {
   settingsIcon,
   hamburgerIcon,
   arrowRightIcon,
-  contentBackground
 };

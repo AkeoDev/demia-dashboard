@@ -96,13 +96,85 @@
   }
 
   .content {
-    filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0));
+
+    &::before {
+      z-index: -1;
+      --stopPercentY: 1%;
+      --stopDiag: 1%;
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: transparent;
+      clip-path: polygon(0 0, 97.5% 0, 100% 1.5%, 100% 100%, 2.5% 100%, 0 98.5%);
+      background-image: linear-gradient(
+          90deg,
+          $border-color 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          47.5deg,
+          $border-color var(--stopDiag),
+          transparent var(--stopDiag)
+        ),
+        linear-gradient(180deg, $border-color 1px, transparent 1px),
+        linear-gradient(
+          227.5deg,
+          $border-color var(--stopDiag),
+          transparent var(--stopDiag)
+        ),
+        linear-gradient(270deg, $border-color 1px, transparent 1px),
+        linear-gradient(0deg, $border-color 1px, transparent 4px);
+
+      @media screen and (min-width: 1920px) {
+        background-image: linear-gradient(
+            90deg,
+            $border-color 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            38deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(180deg, $border-color 1px, transparent 1px),
+          linear-gradient(
+            218deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(270deg, $border-color 1px, transparent 1px),
+          linear-gradient(0deg, $border-color 1px, transparent 4px);
+      }
+      @media screen and (min-width: 2560px) {
+        --stopDiag: 1.05%;
+        clip-path: polygon(0 0, 98% 0, 100% 2%, 100% 100%, 2% 100%, 0 98%);
+        background-image: linear-gradient(
+            90deg,
+            $border-color 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            42.5deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(180deg, $border-color 1px, transparent 1px),
+          linear-gradient(
+            222.5deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(270deg, $border-color 1px, transparent 1px),
+          linear-gradient(0deg, $border-color 1px, transparent 4px);
+      }
+    }
   }
 
   .innerContent {
     padding: 24px;
-    clip-path: polygon(0 0, 98% 0, 100% 2%, 100% 100%, 2% 100%, 0 98%);
-    background-color: $inner-background;
   }
 
   .statisticWrapper {

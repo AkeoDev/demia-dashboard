@@ -261,7 +261,7 @@ export const CargoSensor = () => {
                 </div>
               </div>
             </div>
-            <div className={`${classes.cargoInfo} ${classes.df}`}>
+            <div className={`${classes.graph}`}>
               <BarChart graphData={graphData} />
             </div>
           </article>
@@ -269,6 +269,7 @@ export const CargoSensor = () => {
         {activeTab === 2 && (
           <div className={classes.log}>
             <TableSorting
+              className={classes.table}
               title="2326 Records"
               data={{ nodes: tableList }}
               fields={fields}

@@ -105,6 +105,7 @@ export const Documentation = () => {
           {activeTab === 1 && (
             <div className={classes.documentationTable}>
               <TableWithoutSorting
+                className={classes.table}
                 data={{ nodes: tableList }}
                 fields={fields}
                 RowTemplate={DocumentationRowTemplate}

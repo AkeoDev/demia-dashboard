@@ -242,7 +242,7 @@ export const Flowmeter = () => {
                 </div>
               </div>
             </div>
-            <div className={`${classes.flowmeterInfo} ${classes.df}`}>
+            <div className={`${classes.chart}`}>
               <BarChart graphData={graphData} />
             </div>
           </article>
@@ -250,6 +250,7 @@ export const Flowmeter = () => {
         {activeTab === 2 && (
           <div className={classes.log}>
             <TableSorting
+              className={classes.table}
               title="212 Records"
               data={{ nodes: tableList }}
               fields={fields}

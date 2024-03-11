@@ -47,6 +47,34 @@ const tableList = [
     initials: "PJ",
     color: "orange",
   },
+  {
+    date: "June 12, 09:43 AM",
+    name: "Penelope Johnston",
+    text: "calibrated sensor TT2",
+    initials: "PJ",
+    color: "orange",
+  },
+  {
+    date: "June 12, 09:43 AM",
+    name: "Sara Aras",
+    text: "added a new sensor PT5",
+    initials: "SA",
+    color: "red",
+  },
+  {
+    date: "June 12, 09:43 AM",
+    name: "Penelope Johnston",
+    text: "calibrated sensor TT2",
+    initials: "PJ",
+    color: "orange",
+  },
+  {
+    date: "June 12, 09:43 AM",
+    name: "Penelope Johnston",
+    text: "calibrated sensor TT2",
+    initials: "PJ",
+    color: "orange",
+  },
 ];
 
 const fields = ["Timestamp", "Activity"];
@@ -74,6 +102,7 @@ export const Activity: FunctionComponent = () => {
       <h1 className={classes.title}>Activity</h1>
       <div className={classes.activity}>
         <TableWithoutSorting
+          className={classes.table}
           data={{ nodes: tableList }}
           fields={fields}
           RowTemplate={ActivityRowTemplate}

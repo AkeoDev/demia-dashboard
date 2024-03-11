@@ -22,7 +22,8 @@ export const TableWithoutSorting: FunctionComponent<{
   };
   RowTemplate: FunctionComponent<{item: any}>
   limit?: number
-}> = ({ fields, data, RowTemplate, limit = 6 }) => {
+  className?: string
+}> = ({ fields, data, RowTemplate, limit = 6, className = "" }) => {
   const LIMIT = limit;
 
   const pagination = usePagination(
@@ -41,7 +42,7 @@ export const TableWithoutSorting: FunctionComponent<{
     console.log(state)
   }
   return (
-    <div className={classes.content}>
+    <div className={`${classes.content} ${className}`}>
       <div className={classes.innerContent}>
         <Table data={data} className={classes.table} pagination={pagination}>
           {(tableList: any) => (
@@ -90,7 +91,8 @@ export const TableSorting: FunctionComponent<{
   RowTemplate: FunctionComponent<{item: any}>,
   sortFns?: any
   limit?: number
-}> = ({ title, fields, data, RowTemplate, sortFns = {}, limit = 6 }) => {
+  className?: string
+}> = ({ title, fields, data, RowTemplate, sortFns = {}, limit = 6, className = "" }) => {
   const LIMIT = limit;
 
   const pagination = usePagination(
@@ -129,7 +131,7 @@ export const TableSorting: FunctionComponent<{
     console.log(state)
   }
   return (
-    <div className={classes.content}>
+    <div className={`${classes.content} ${className}`}>
       <div className={classes.innerContent}>
         {title ? <h2 className={classes.tableTitle}>{title}</h2> : ""}
         <Table sort={sort} data={data} className={classes.table} pagination={pagination}>

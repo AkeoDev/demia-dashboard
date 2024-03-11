@@ -7,29 +7,83 @@
   }
 
   .content {
-    filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0));
+
+    &::before {
+      z-index: -1;
+      --stopPercentY: 1%;
+      --stopDiag: 1.6%;
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: transparent;
+      clip-path: polygon(0 0, 98% 0, 100% 6%, 100% 100%, 2% 100%, 0 94%);
+      background-image: linear-gradient(
+          90deg,
+          $border-color 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          50deg,
+          $border-color var(--stopDiag),
+          transparent var(--stopDiag)
+        ),
+        linear-gradient(180deg, $border-color 1px, transparent 1px),
+        linear-gradient(
+          229deg,
+          $border-color var(--stopDiag),
+          transparent var(--stopDiag)
+        ),
+        linear-gradient(270deg, $border-color 1px, transparent 1px),
+        linear-gradient(0deg, $border-color 1px, transparent 4px);
+
+        @media screen and (min-width: 1920px) {
+          background-image: linear-gradient(
+              90deg,
+              $border-color 1px,
+              transparent 1px
+            ),
+            linear-gradient(
+              40deg,
+              $border-color var(--stopDiag),
+              transparent var(--stopDiag)
+            ),
+            linear-gradient(180deg, $border-color 1px, transparent 1px),
+            linear-gradient(
+              220deg,
+              $border-color var(--stopDiag),
+              transparent var(--stopDiag)
+            ),
+            linear-gradient(270deg, $border-color 1px, transparent 1px),
+            linear-gradient(0deg, $border-color 1px, transparent 4px);
+        }
+        @media screen and (min-width: 2560px) {
+          background-image: linear-gradient(
+              90deg,
+              $border-color 1px,
+              transparent 1px
+            ),
+            linear-gradient(
+              31deg,
+              $border-color var(--stopDiag),
+              transparent var(--stopDiag)
+            ),
+            linear-gradient(180deg, $border-color 1px, transparent 1px),
+            linear-gradient(
+              211deg,
+              $border-color var(--stopDiag),
+              transparent var(--stopDiag)
+            ),
+            linear-gradient(270deg, $border-color 1px, transparent 1px),
+            linear-gradient(0deg, $border-color 1px, transparent 4px);
+        }
+    }
   }
 
   .innerContent {
     padding: 24px;
-    clip-path: polygon(0 0, 98% 0, 100% 6%, 100% 100%, 2% 100%, 0 94%);
-    background-color: $inner-background;
-    // border: 1px solid $border-color;
-    position: relative;
-
-    // &::before {
-    //   width: 50px;
-    //   height: 50px;
-    //   content: "";
-    //   display: block;
-    //   position: absolute;
-    //   right: -30px;
-    //   top: -30px;
-    //   background-color: transparent;
-    //   border-bottom: 1px solid $border-color;
-    //   z-index: 10;
-    //   transform: rotate(45deg);
-    // }
   }
 
   .topContent {

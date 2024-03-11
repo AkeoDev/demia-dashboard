@@ -58,15 +58,170 @@
     }
   }
   .feedstockWrapper {
-    filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0.1));
+    filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0));
     margin-top: 32px;
   }
 
   .feedstockInfo {
     padding: 24px;
-    clip-path: polygon(0 0, 98% 0, 100% 10%, 100% 100%, 2% 100%, 0 90%);
-    background-color: $inner-background;
     margin-bottom: 24px;
+    position: relative;
+
+    &::before {
+      --stopPercentY: 1%;
+      --stopDiag: 1.78%;
+      content: "";
+      left: 0;
+      top: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: transparent;
+      clip-path: polygon(0 0, 98% 0, 100% 10%, 100% 100%, 2% 100%, 0 90%);
+      background-image: linear-gradient(
+          90deg,
+          $border-color 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          47deg,
+          $border-color var(--stopDiag),
+          transparent var(--stopDiag)
+        ),
+        linear-gradient(180deg, $border-color 1px, transparent 1px),
+        linear-gradient(
+          226deg,
+          $border-color var(--stopDiag),
+          transparent var(--stopDiag)
+        ),
+        linear-gradient(270deg, $border-color 1px, transparent 1px),
+        linear-gradient(0deg, $border-color 1px, transparent 4px);
+
+      @media screen and (min-width: 1920px) {
+        background-image: linear-gradient(
+            90deg,
+            $border-color 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            37deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(180deg, $border-color 1px, transparent 1px),
+          linear-gradient(
+            217deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(270deg, $border-color 1px, transparent 1px),
+          linear-gradient(0deg, $border-color 1px, transparent 4px);
+      }
+      @media screen and (min-width: 2560px) {
+        background-image: linear-gradient(
+            90deg,
+            $border-color 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            28deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(180deg, $border-color 1px, transparent 1px),
+          linear-gradient(
+            208deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(270deg, $border-color 1px, transparent 1px),
+          linear-gradient(0deg, $border-color 1px, transparent 4px);
+      }
+    }
+  }
+
+  .graph {
+    padding: 24px;
+    position: relative;
+    margin-bottom: 24px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+
+    &::before {
+      --stopPercentY: 1%;
+      --stopDiag: 1.56%;
+      content: "";
+      left: 0;
+      top: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: transparent;
+      clip-path: polygon(0 0, 98% 0, 100% 5%, 100% 100%, 2% 100%, 0 95%);
+      background-image: linear-gradient(
+          90deg,
+          $border-color 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          55deg,
+          $border-color var(--stopDiag),
+          transparent var(--stopDiag)
+        ),
+        linear-gradient(180deg, $border-color 1px, transparent 1px),
+        linear-gradient(
+          235deg,
+          $border-color var(--stopDiag),
+          transparent var(--stopDiag)
+        ),
+        linear-gradient(270deg, $border-color 1px, transparent 1px),
+        linear-gradient(0deg, $border-color 1px, transparent 4px);
+
+      @media screen and (min-width: 1920px) {
+        background-image: linear-gradient(
+            90deg,
+            $border-color 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            46deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(180deg, $border-color 1px, transparent 1px),
+          linear-gradient(
+            226deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(270deg, $border-color 1px, transparent 1px),
+          linear-gradient(0deg, $border-color 1px, transparent 4px);
+      }
+      @media screen and (min-width: 2560px) {
+        background-image: linear-gradient(
+            90deg,
+            $border-color 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            37deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(180deg, $border-color 1px, transparent 1px),
+          linear-gradient(
+            216deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(270deg, $border-color 1px, transparent 1px),
+          linear-gradient(0deg, $border-color 1px, transparent 4px);
+      }
+    }
   }
 
   .rightTop {
@@ -100,6 +255,70 @@
 
   .log {
     margin-top: 32px;
+
+    .table {
+      &::before {
+        background-image: linear-gradient(
+            90deg,
+            $border-color 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            63deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(180deg, $border-color 1px, transparent 1px),
+          linear-gradient(
+            243deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(270deg, $border-color 1px, transparent 1px),
+          linear-gradient(0deg, $border-color 1px, transparent 4px);
+
+        @media screen and (min-width: 1920px) {
+          background-image: linear-gradient(
+              90deg,
+              $border-color 1px,
+              transparent 1px
+            ),
+            linear-gradient(
+              53deg,
+              $border-color var(--stopDiag),
+              transparent var(--stopDiag)
+            ),
+            linear-gradient(180deg, $border-color 1px, transparent 1px),
+            linear-gradient(
+              233deg,
+              $border-color var(--stopDiag),
+              transparent var(--stopDiag)
+            ),
+            linear-gradient(270deg, $border-color 1px, transparent 1px),
+            linear-gradient(0deg, $border-color 1px, transparent 4px);
+        }
+        @media screen and (min-width: 2560px) {
+          background-image: linear-gradient(
+              90deg,
+              $border-color 1px,
+              transparent 1px
+            ),
+            linear-gradient(
+              43deg,
+              $border-color var(--stopDiag),
+              transparent var(--stopDiag)
+            ),
+            linear-gradient(180deg, $border-color 1px, transparent 1px),
+            linear-gradient(
+              223deg,
+              $border-color var(--stopDiag),
+              transparent var(--stopDiag)
+            ),
+            linear-gradient(270deg, $border-color 1px, transparent 1px),
+            linear-gradient(0deg, $border-color 1px, transparent 4px);
+        }
+      }
+    }
 
     table {
       thead {
