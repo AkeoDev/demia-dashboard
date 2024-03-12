@@ -64,7 +64,7 @@
         linear-gradient(0deg, $border-color 1px, transparent 4px);
     }
     @media screen and (min-width: 2560px) {
-      --stopDiag: 1.05%;
+      --stopDiag: 1.25%;
       clip-path: polygon(0 0, 98% 0, 100% 2%, 100% 100%, 2% 100%, 0 98%);
       background-image: linear-gradient(
           90deg,
@@ -72,13 +72,13 @@
           transparent 1px
         ),
         linear-gradient(
-          24deg,
+          32deg,
           $border-color var(--stopDiag),
           transparent var(--stopDiag)
         ),
         linear-gradient(180deg, $border-color 1px, transparent 1px),
         linear-gradient(
-          203deg,
+          212deg,
           $border-color var(--stopDiag),
           transparent var(--stopDiag)
         ),
