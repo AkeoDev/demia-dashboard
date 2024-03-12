@@ -188,6 +188,10 @@
       rgba(255, 255, 255, 0.51) 0%,
       rgba(255, 255, 255, 0) 100%
     );
+
+    @media screen and (min-width: 2560px) {
+      clip-path: polygon(0 0, 98% 0, 100% 2%, 100% 100%, 2% 100%, 0 98%);
+    }
   }
 
   .statisticWrapper {
