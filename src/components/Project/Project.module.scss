@@ -84,6 +84,8 @@
 
   .innerContent {
     padding: 24px;
+    clip-path: polygon(0 0, 98% 0, 100% 6%, 100% 100%, 2% 100%, 0 94%);
+    background: radial-gradient(88.23% 576.81% at 9.31% 19.67%, rgba(255, 255, 255, 0.51) 0%, rgba(255, 255, 255, 0.252) 100%);
   }
 
   .topContent {

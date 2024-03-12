@@ -10,6 +10,12 @@
   display: flex;
   flex-direction: column;
   gap: 24px;
+  clip-path: polygon(0 0, 98% 0, 100% 3%, 100% 100%, 2% 100%, 0 97%);
+  background: radial-gradient(
+    88.23% 576.81% at 9.31% 19.67%,
+    rgba(255, 255, 255, 0.51) 0%,
+    rgba(255, 255, 255, 0) 100%
+  );
 
   &::before {
     z-index: -1;
@@ -21,7 +27,7 @@
     height: 100%;
     position: absolute;
     background: transparent;
-    clip-path: polygon(0 0, 98% 0, 100% 3%, 100% 100%, 2% 100%, 0 97%); 
+    clip-path: polygon(0 0, 98% 0, 100% 3%, 100% 100%, 2% 100%, 0 97%);
     background-image: linear-gradient(90deg, $border-color 1px, transparent 1px),
       linear-gradient(
         47.5deg,

@@ -73,6 +73,12 @@
     padding: 24px;
     margin-bottom: 24px;
     position: relative;
+    background: radial-gradient(
+      88.23% 576.81% at 9.31% 19.67%,
+      rgba(255, 255, 255, 0.51) 0%,
+      rgba(255, 255, 255, 0.252) 100%
+    );
+    clip-path: polygon(0 0, 98% 0, 100% 6%, 100% 100%, 2% 100%, 0 94%);
 
     &::before {
       --stopPercentY: 1%;
@@ -151,6 +157,12 @@
   .chart {
     position: relative;
     padding: 24px;
+    background: radial-gradient(
+      88.23% 576.81% at 9.31% 19.67%,
+      rgba(255, 255, 255, 0.51) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    clip-path: polygon(0 0, 98% 0, 100% 5%, 100% 100%, 2% 100%, 0 95%);
 
     &::before {
       --stopPercentY: 1%;

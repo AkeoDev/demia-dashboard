@@ -66,6 +66,12 @@
     padding: 24px;
     margin-bottom: 24px;
     position: relative;
+    background: radial-gradient(
+      88.23% 576.81% at 9.31% 19.67%,
+      rgba(255, 255, 255, 0.51) 0%,
+      rgba(255, 255, 255, 0.252) 100%
+    );
+    clip-path: polygon(0 0, 98% 0, 100% 10%, 100% 100%, 2% 100%, 0 90%);
 
     &::before {
       --stopPercentY: 1%;
@@ -145,6 +151,12 @@
     padding: 24px;
     position: relative;
     margin-bottom: 24px;
+    background: radial-gradient(
+      88.23% 576.81% at 9.31% 19.67%,
+      rgba(255, 255, 255, 0.51) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    clip-path: polygon(0 0, 98% 0, 100% 5%, 100% 100%, 2% 100%, 0 95%);
 
     &:last-of-type {
       margin-bottom: 0;

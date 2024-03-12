@@ -121,6 +121,8 @@
 
 .innerContent {
   padding: 24px;
+  background: radial-gradient(88.23% 576.81% at 9.31% 19.67%, rgba(255, 255, 255, 0.51) 0%, rgba(255, 255, 255, 0.252) 100%);
+  clip-path: polygon(0 0, 97.5% 0, 100% 3%, 100% 100%, 3% 100%, 0 97%);
 }
 
 .analyticsGreenChart {

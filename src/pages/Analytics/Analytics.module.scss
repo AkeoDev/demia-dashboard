@@ -108,7 +108,14 @@
       height: 100%;
       position: absolute;
       background: transparent;
-      clip-path: polygon(0 0, 97.5% 0, 100% 1.5%, 100% 100%, 2.5% 100%, 0 98.5%);
+      clip-path: polygon(
+        0 0,
+        97.5% 0,
+        100% 1.5%,
+        100% 100%,
+        2.5% 100%,
+        0 98.5%
+      );
       background-image: linear-gradient(
           90deg,
           $border-color 1px,
@@ -175,6 +182,12 @@
 
   .innerContent {
     padding: 24px;
+    clip-path: polygon(0 0, 97.5% 0, 100% 1.5%, 100% 100%, 2.5% 100%, 0 98.5%);
+    background: radial-gradient(
+      88.23% 576.81% at 9.31% 19.67%,
+      rgba(255, 255, 255, 0.51) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
   }
 
   .statisticWrapper {
