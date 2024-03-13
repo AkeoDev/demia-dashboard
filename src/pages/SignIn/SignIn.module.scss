@@ -23,7 +23,7 @@
 
   .innerContent {
     max-width: 620px;
-    padding: 58px 40px;
+    padding: 48px;
     background-color: $white;
     clip-path: polygon(0 0, 87% 0, 100% 17%, 100% 100%, 13% 100%, 0 83%);
   }
@@ -41,6 +41,12 @@
   }
 
   .form {
+    .error {
+      @extend .font-14-18-400;
+      color: $red2;
+      margin-top: 16px;
+    }
+
     .input {
       display: flex;
       flex-direction: column;

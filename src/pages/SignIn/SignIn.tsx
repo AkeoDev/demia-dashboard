@@ -37,6 +37,9 @@ export const SignIn: FunctionComponent = () => {
                   onClick={eyeIconClickHandler}
                 />
               </div>
+              {/* <p className={classes.error}>
+                Credentials are not good, please try again.
+              </p> */}
               <button type="submit" className={classes.submitButton}>
                 Log In
               </button>
