@@ -15,6 +15,8 @@ import {
   PinkLineChart,
 } from "../../components/Graphs/Graphs";
 import { useState } from "react";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const graphDataFirst = [
   {
@@ -472,6 +474,12 @@ export const Analytics = () => {
     setIsVisible((prev) => !prev);
   };
 
+  const thirtyDaysAgo = new Date();
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+  const [startDate, setStartDate] = useState(thirtyDaysAgo);
+  const [endDate, setEndDate] = useState(new Date());
+
   return (
     <Layout>
       <div className={classes.analytics}>
@@ -482,11 +490,37 @@ export const Analytics = () => {
               <ReactSVG src={settingsIcon} className={classes.icon}></ReactSVG>
               Settings
             </Link>
-            <div className={classes.moreOptions} onClick={exportButtonHandler}>
-              <ReactSVG
-                src={hamburgerIcon}
-                className={classes.hamburgerIcon}
-              ></ReactSVG>
+            <div className={classes.datePickerContainer}>
+              <div className={classes.datepicker}>
+                <DatePicker
+                  selected={startDate}
+                  onChange={(date) => date && setStartDate(date)}
+                  selectsStart
+                  startDate={startDate}
+                  endDate={endDate}
+                  dateFormat="MMMM d, yyyy"
+                />
+                <span>-</span>
+                <DatePicker
+                  selected={endDate}
+                  onChange={(date) => date && setEndDate(date)}
+                  selectsEnd
+                  startDate={startDate}
+                  endDate={endDate}
+                  minDate={startDate}
+                  dateFormat="MMMM d, yyyy"
+                />
+              </div>
+              <span className={classes.divider}></span>
+              <div
+                className={classes.moreOptions}
+                onClick={exportButtonHandler}
+              >
+                <ReactSVG
+                  src={hamburgerIcon}
+                  className={classes.hamburgerIcon}
+                ></ReactSVG>
+              </div>
             </div>
           </div>
           {isVisible && (
@@ -537,7 +571,9 @@ export const Analytics = () => {
             <div className={classes.analyticsGreenChart}>
               <div className={classes.heading}>
                 <div className={classes.projectLink}>
-                  <Link to={secondChartData.title}>{secondChartData.title}</Link>
+                  <Link to={secondChartData.title}>
+                    {secondChartData.title}
+                  </Link>
                   <ReactSVG src={arrowRightIcon} className={classes.icon} />
                 </div>
                 <div>
@@ -556,9 +592,7 @@ export const Analytics = () => {
                 <div className={classes.analyticsGreenChart} key={index}>
                   <div className={classes.heading}>
                     <div className={classes.projectLink}>
-                      <Link to={item.title}>
-                        {item.title}
-                      </Link>
+                      <Link to={item.title}>{item.title}</Link>
                       <ReactSVG src={arrowRightIcon} className={classes.icon} />
                     </div>
                     <div>

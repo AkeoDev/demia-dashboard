@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
-import { logo, signIn, signInBtnIcon } from "../../assets";
+import { eyeIconOff, eyeIconOn, logo, signIn } from "../../assets";
 import classes from "./SignIn.module.scss";
-import { Button } from "../../components/Buttons/Button";
-import { FunctionComponent } from "react";
+import { FunctionComponent, useState } from "react";
 
 export const SignIn: FunctionComponent = () => {
+  const [isHidden, setIsHidden] = useState<boolean>(true);
+
+  const eyeIconClickHandler = () => {
+    setIsHidden((prevState) => !prevState);
+  };
+
   return (
     <main className={classes.signIn}>
       <article className={classes.left}>
@@ -14,14 +19,28 @@ export const SignIn: FunctionComponent = () => {
         <section className={classes.signInContainer}>
           <div className={classes.innerContent}>
             <h1 className={classes.title}>Sign in to access the dashboard</h1>
-            <Button
-              isLink
-              href={`#`}
-              icon={signInBtnIcon}
-              className={classes.button}
-            >
-              Sign in with ScribeHub
-            </Button>
+            <form action="" className={classes.form}>
+              <div className={classes.input}>
+                <label htmlFor="username">Username</label>
+                <input type="text" name="username" id="username" />
+              </div>
+              <div className={`${classes.input} ${classes.password}`}>
+                <label htmlFor="password">Password</label>
+                <input
+                  type={isHidden ? "password" : "text"}
+                  name="password"
+                  id="password"
+                />
+                <img
+                  src={isHidden ? eyeIconOn : eyeIconOff}
+                  alt="Eye Icon"
+                  onClick={eyeIconClickHandler}
+                />
+              </div>
+              <button type="submit" className={classes.submitButton}>
+                Log In
+              </button>
+            </form>
             <p className={classes.text}>Don’t have an account?</p>
             <Link to="mailto:info@digitalmrv.io" className={classes.accessText}>
               Request access here

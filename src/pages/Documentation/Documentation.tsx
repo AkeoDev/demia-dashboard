@@ -10,21 +10,43 @@ import { DocumentationModal } from "../../components/Modals";
 
 const tableList = [{}];
 
-const fields = ["Name", "Type", "", "Uploaded On", "Size"];
+const fields = ["Name", "Type", "Uploaded On", "Size"];
 
 const DocumentationRowTemplate: React.FC<{ item: any }> = () => {
   return (
     <>
       <Cell></Cell>
       <Cell></Cell>
-      <Cell>
-        <div className={classes.noData}>
-          <ReactSVG src={fileIconBig}></ReactSVG>
-          <p>NO DATA</p>
-        </div>
-      </Cell>
       <Cell></Cell>
       <Cell></Cell>
+      <div className={classes.noData}>
+        <ReactSVG src={fileIconBig}></ReactSVG>
+        <p>NO DATA</p>
+      </div>
+    </>
+  );
+};
+
+const reportsCertificationFields = [
+  "Name",
+  "Entity",
+  "Type",
+  "Uploaded On",
+  "Size",
+];
+
+const reportsCertificationRowTemplate: React.FC<{ item: any }> = () => {
+  return (
+    <>
+      <Cell></Cell>
+      <Cell></Cell>
+      <Cell></Cell>
+      <Cell></Cell>
+      <Cell></Cell>
+      <div className={classes.noData}>
+        <ReactSVG src={fileIconBig}></ReactSVG>
+        <p>NO DATA</p>
+      </div>
     </>
   );
 };
@@ -112,9 +134,36 @@ export const Documentation = () => {
               />
             </div>
           )}
-          {activeTab === 2 && <>tab2</>}
-          {activeTab === 3 && <>tab3</>}
-          {activeTab === 4 && <>tab4</>}
+          {activeTab === 2 && (
+            <div className={classes.documentationTable}>
+              <TableWithoutSorting
+                className={classes.table}
+                data={{ nodes: tableList }}
+                fields={fields}
+                RowTemplate={DocumentationRowTemplate}
+              />
+            </div>
+          )}
+          {activeTab === 3 && (
+            <div className={classes.documentationTable}>
+              <TableWithoutSorting
+                className={classes.table}
+                data={{ nodes: tableList }}
+                fields={reportsCertificationFields}
+                RowTemplate={reportsCertificationRowTemplate}
+              />
+            </div>
+          )}
+          {activeTab === 4 && (
+            <div className={classes.documentationTable}>
+              <TableWithoutSorting
+                className={classes.table}
+                data={{ nodes: tableList }}
+                fields={reportsCertificationFields}
+                RowTemplate={reportsCertificationRowTemplate}
+              />
+            </div>
+          )}
         </div>
       </Layout>
       {isModalOpen && <DocumentationModal onClose={closeModal} />}

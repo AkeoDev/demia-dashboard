@@ -112,14 +112,27 @@
           linear-gradient(0deg, $border-color 1px, transparent 4px);
       }
     }
+
+    table {
+      tbody {
+        td {
+          height: 340px;
+        }
+      }
+    }
   }
 
   .noData {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    margin: 94px auto 110px;
     align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    justify-content: center;
 
     p {
       @extend .font-14-20-500;

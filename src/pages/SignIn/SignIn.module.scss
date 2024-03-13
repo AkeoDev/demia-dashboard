@@ -18,7 +18,7 @@
 
   .signInContainer {
     margin: auto 64px auto 0;
-    filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0.10));
+    filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0.1));
   }
 
   .innerContent {
@@ -30,18 +30,79 @@
 
   .title {
     @extend .font-32-42-500;
-    margin-bottom: 32px;
+    margin-bottom: 24px;
   }
 
   .text {
     @extend .font-14-18-400;
     color: $grey;
-    margin-top: 8px;
+    margin-top: 32px;
     margin-bottom: 2px;
   }
 
-  .button {
-    padding: 12px 16px;
+  .form {
+    .input {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+
+      &.password {
+        position: relative;
+
+        img {
+          position: absolute;
+          cursor: pointer;
+          bottom: 8px;
+          right: 12px;
+        }
+      }
+
+      label {
+        @extend .font-12-16-400;
+        color: $black;
+      }
+
+      input {
+        @extend .font-14-18-400;
+        height: 40px;
+        background-color: $white;
+        padding: 12px;
+        box-shadow: 0px 2px 8px 0px rgba(9, 30, 66, 0.12);
+        border: none;
+        caret-color: $pink;
+
+        &:focus-visible {
+          outline: none;
+          box-shadow: 0px 0px 1px 0px rgba(255, 0, 168, 0.31),
+            0px 2px 8px 0px rgba(255, 0, 168, 0.1);
+        }
+      }
+    }
+    .submitButton {
+      @extend .font-16-21-500;
+      display: flex;
+      gap: 8px;
+      border: none;
+      background-color: $pink;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      color: $white;
+      width: 100%;
+      padding: 9.5px 0;
+      cursor: pointer;
+      transition: ease 0.3s all;
+      margin-top: 24px;
+
+      &:hover {
+        background-color: $hover-pink;
+      }
+    }
   }
 
   .accessText {

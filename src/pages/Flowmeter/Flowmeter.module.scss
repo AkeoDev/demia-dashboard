@@ -66,10 +66,10 @@
     display: grid;
     grid-template-areas:
       "image info"
+      "image rightMiddle"
       "bottom bottom";
-    grid-template-columns: 300px auto;
+    grid-template-columns: 388px auto;
     column-gap: 16px;
-    row-gap: 24px;
     padding: 24px;
     margin-bottom: 24px;
     position: relative;
@@ -81,6 +81,7 @@
     clip-path: polygon(0 0, 98% 0, 100% 6%, 100% 100%, 2% 100%, 0 94%);
 
     &::before {
+      z-index: -1;
       --stopPercentY: 1%;
       --stopDiag: 1.6%;
       content: "";
@@ -98,13 +99,13 @@
           transparent 1px
         ),
         linear-gradient(
-          52deg,
+          56deg,
           $border-color var(--stopDiag),
           transparent var(--stopDiag)
         ),
         linear-gradient(180deg, $border-color 1px, transparent 1px),
         linear-gradient(
-          231deg,
+          235deg,
           $border-color var(--stopDiag),
           transparent var(--stopDiag)
         ),
@@ -118,13 +119,13 @@
             transparent 1px
           ),
           linear-gradient(
-            41deg,
+            46deg,
             $border-color var(--stopDiag),
             transparent var(--stopDiag)
           ),
           linear-gradient(180deg, $border-color 1px, transparent 1px),
           linear-gradient(
-            221deg,
+            226deg,
             $border-color var(--stopDiag),
             transparent var(--stopDiag)
           ),
@@ -138,13 +139,13 @@
             transparent 1px
           ),
           linear-gradient(
-            32deg,
+            36deg,
             $border-color var(--stopDiag),
             transparent var(--stopDiag)
           ),
           linear-gradient(180deg, $border-color 1px, transparent 1px),
           linear-gradient(
-            212deg,
+            216deg,
             $border-color var(--stopDiag),
             transparent var(--stopDiag)
           ),
@@ -252,6 +253,7 @@
     border: 1px solid $border-color;
     background-color: $white;
     padding: 16px;
+    margin-bottom: 16px;
 
     .status {
       position: absolute;
@@ -280,11 +282,42 @@
     }
   }
 
+  .rightMiddle {
+    display: grid;
+    grid-template-columns: repeat(3, calc(33.33% - 10.6px));
+    gap: 16px;
+    grid-area: rightMiddle
+  }
+
+  .singleItem {
+    text-align: center;
+    border: 1px solid $border-color;
+    background-color: $white;
+    padding: 20px 24px;
+
+    p {
+      @extend .font-14-18-400;
+      color: $grey2;
+      margin: 8px 0;
+    }
+
+    h5 {
+      @extend .font-32-28-500;
+      color: $black;
+
+      span {
+        @extend .font-24-28-400;
+        color: $grey2;
+      }
+    }
+  }
+
   .bottom {
     grid-area: bottom;
     padding: 20px 24px;
     border: 1px solid $border-color;
     background-color: $white;
+    margin-top: 24px;
 
     h4 {
       @extend .font-20-26-500;

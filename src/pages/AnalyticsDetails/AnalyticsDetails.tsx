@@ -152,7 +152,7 @@ export const AnalyticsDetails = () => {
                 {item.input ? (
                   <div className={classes.right}>
                     <span>Value</span>
-                    <input type="text" name="value" value={item.value} />
+                    <input type="text" name="value" value={item.value} disabled/>
                   </div>
                 ) : (
                   ""

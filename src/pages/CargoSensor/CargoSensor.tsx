@@ -7,15 +7,16 @@ import {
   cargoAverage,
   cargoCondidence,
   cargoCurrent,
-  exportIcon,
   exportIconBlack,
+  hamburgerIcon,
 } from "../../assets";
 import { Layout } from "../../components/Layout/Layout";
 import { useState } from "react";
 import { BarChart } from "../../components/Graphs/Graphs";
-import { Button } from "../../components/Buttons/Button";
 import { TableSorting } from "../../components/Table/Table";
 import { Cell } from "@table-library/react-table-library/table";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 
 const graphData = [
   {
@@ -172,6 +173,12 @@ export const CargoSensor = () => {
     setIsVisible((prev) => !prev);
   };
 
+  const thirtyDaysAgo = new Date();
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+  const [startDate, setStartDate] = useState(thirtyDaysAgo);
+  const [endDate, setEndDate] = useState(new Date());
+
   return (
     <Layout>
       <div className={classes.cargoSensor}>
@@ -181,24 +188,49 @@ export const CargoSensor = () => {
             Cargo sensor
           </Link>
           {activeTab === 2 && (
-            <Button
-              icon={exportIcon}
-              className={classes.button}
-              onClick={exportButtonHandler}
-            >
-              Export to a File
-            </Button>
+            <div className={classes.datePickerContainer}>
+              <div className={classes.datepicker}>
+                <DatePicker
+                  selected={startDate}
+                  onChange={(date) => date && setStartDate(date)}
+                  selectsStart
+                  startDate={startDate}
+                  endDate={endDate}
+                  dateFormat="MMMM d, yyyy"
+                />
+                <span>-</span>
+                <DatePicker
+                  selected={endDate}
+                  onChange={(date) => date && setEndDate(date)}
+                  selectsEnd
+                  startDate={startDate}
+                  endDate={endDate}
+                  minDate={startDate}
+                  dateFormat="MMMM d, yyyy"
+                />
+              </div>
+              <span className={classes.divider}></span>
+              <div
+                className={classes.moreOptions}
+                onClick={exportButtonHandler}
+              >
+                <ReactSVG
+                  src={hamburgerIcon}
+                  className={classes.hamburgerIcon}
+                ></ReactSVG>
+              </div>
+            </div>
           )}
           {isVisible && (
             <div className={classes.export}>
               <div className={classes.exportWrapper}>
                 <h4>Export</h4>
                 <button type="button">
-                  <ReactSVG src={exportIconBlack}></ReactSVG>
+                  <ReactSVG src={exportIconBlack} className={classes.exportIcon}></ReactSVG>
                   Export to CSV
                 </button>
                 <button type="button">
-                  <ReactSVG src={exportIconBlack}></ReactSVG>
+                  <ReactSVG src={exportIconBlack} className={classes.exportIcon}></ReactSVG>
                   Export to XLSV
                 </button>
               </div>

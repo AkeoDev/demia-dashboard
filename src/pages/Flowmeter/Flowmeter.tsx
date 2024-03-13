@@ -1,6 +1,9 @@
 import { Link, useParams } from "react-router-dom";
 import {
   arrowLeft,
+  cargoAverage,
+  cargoCondidence,
+  cargoCurrent,
   flowmeter,
   statusConnected,
   statusDisconnected,
@@ -167,6 +170,27 @@ const flowInfo = {
   unit: "0.05 Nm3",
 };
 
+const cargoData = [
+  {
+    img: cargoCurrent,
+    text: "Current load",
+    value: 385.71,
+    valueUnit: "lb",
+  },
+  {
+    img: cargoAverage,
+    text: "Daily average load",
+    value: 485.23,
+    valueUnit: "lb",
+  },
+  {
+    img: cargoCondidence,
+    text: "Data confidence",
+    value: 92,
+    valueUnit: "%",
+  },
+];
+
 export const Flowmeter = () => {
   const [activeTab, setActiveTab] = useState(1);
 
@@ -226,6 +250,17 @@ export const Flowmeter = () => {
                     </div>
                   ))}
                 </div>
+              </div>
+              <div className={classes.rightMiddle}>
+                {cargoData.map((data, index) => (
+                  <div className={classes.singleItem} key={index}>
+                    <img src={data.img} alt="Image" />
+                    <p>{data.text}</p>
+                    <h5>
+                      {data.value} <span>{data.valueUnit}</span>
+                    </h5>
+                  </div>
+                ))}
               </div>
               <div className={classes.bottom}>
                 <h4>Biogas Flow</h4>
