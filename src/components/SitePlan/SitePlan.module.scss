@@ -1,0 +1,449 @@
+@import "../../index.scss";
+
+.sitePlan {
+  .content {
+    filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0));
+    margin-top: 32px;
+
+    &::before {
+      z-index: -1;
+      --stopPercentY: 1%;
+      --stopDiag: 1.6%;
+      content: "";
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background: transparent;
+      clip-path: polygon(0 0, 98% 0, 100% 6%, 100% 100%, 2% 100%, 0 94%);
+      background-image: linear-gradient(
+          90deg,
+          $border-color 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          64deg,
+          $border-color var(--stopDiag),
+          transparent var(--stopDiag)
+        ),
+        linear-gradient(180deg, $border-color 1px, transparent 1px),
+        linear-gradient(
+          244deg,
+          $border-color var(--stopDiag),
+          transparent var(--stopDiag)
+        ),
+        linear-gradient(270deg, $border-color 1px, transparent 1px),
+        linear-gradient(0deg, $border-color 1px, transparent 4px);
+
+      @media screen and (min-width: 1920px) {
+        background-image: linear-gradient(
+            90deg,
+            $border-color 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            56deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(180deg, $border-color 1px, transparent 1px),
+          linear-gradient(
+            236deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(270deg, $border-color 1px, transparent 1px),
+          linear-gradient(0deg, $border-color 1px, transparent 4px);
+      }
+      @media screen and (min-width: 2560px) {
+        background-image: linear-gradient(
+            90deg,
+            $border-color 1px,
+            transparent 1px
+          ),
+          linear-gradient(
+            46deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(180deg, $border-color 1px, transparent 1px),
+          linear-gradient(
+            226deg,
+            $border-color var(--stopDiag),
+            transparent var(--stopDiag)
+          ),
+          linear-gradient(270deg, $border-color 1px, transparent 1px),
+          linear-gradient(0deg, $border-color 1px, transparent 4px);
+      }
+    }
+  }
+
+  .innerContent {
+    padding: 24px;
+    clip-path: polygon(0 0, 98% 0, 100% 6%, 100% 100%, 2% 100%, 0 94%);
+    background: radial-gradient(
+      88.23% 576.81% at 9.31% 19.67%,
+      rgba(255, 255, 255, 0.51) 0%,
+      rgba(255, 255, 255, 0.252) 100%
+    );
+    text-align: center;
+  }
+
+  .image3dInner {
+    background-color: $white;
+    z-index: 2;
+    position: relative;
+  }
+
+  .image {
+    height: 750px;
+    max-width: 1000px;
+    width: 100%;
+  }
+
+  map {
+    cursor: pointer;
+
+    area {
+      touch-action: manipulation;
+    }
+  }
+
+  .pinContainer {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 16px;
+    right: 0;
+    left: 50%;
+    top: 50%;
+    width: fit-content;
+
+    &.motor-0 {
+      top: 37%;
+      left: 47%;
+    }
+
+    &.motor-180 {
+      top: 37%;
+      left: 47%;
+    }
+
+    &.uad-0 {
+      top: 50%;
+      left: 45%;
+    }
+
+    &.uad-180 {
+      top: 27%;
+      left: 49%;
+    }
+
+    &.flare-0 {
+      top: 47%;
+      left: 19%;
+    }
+
+    &.flare-180 {
+      top: 26%;
+      left: 72%;
+    }
+
+    &.flare-2-0 {
+      top: 46%;
+      left: 39%;
+    }
+
+    &.flare-2-180 {
+      top: 58%;
+      left: 58%;
+    }
+
+    &.ucg-0 {
+      top: 37%;
+      left: 47%;
+    }
+
+    &.ucg-2-0 {
+      top: 39%;
+      left: 30%;
+    }
+
+    &.ucg-3-0 {
+      top: 53%;
+      left: 50%;
+    }
+
+    &.ucg-180 {
+      top: 43%;
+      left: 45%;
+    }
+
+    &.ucg-2-180 {
+      top: 21%;
+      left: 55%;
+    }
+
+    &.ucg-3-180 {
+      top: 47%;
+      left: 31%;
+    }
+
+    &.solidwaste {
+      top: 40%;
+      left: 67%;
+    }
+
+    &.liquidwaste {
+      top: 60%;
+      left: 53%;
+    }
+
+    &.agriculturalwaste {
+      top: 48%;
+      left: 46%;
+    }
+
+    &.pressuresensor {
+      top: 61%;
+      left: 67%;
+    }
+
+    &.pressuresensor-2 {
+      top: 60%;
+      left: 39%;
+    }
+
+    &.flowsensor {
+      top: 56%;
+      left: 59%;
+    }
+
+    &.flowsensor-2 {
+      top: 56%;
+      left: 43%;
+    }
+  }
+
+  .pin {
+    line-height: 0;
+    cursor: pointer;
+  }
+
+  .sensorInfo {
+    padding: 24px;
+    width: 448px;
+    background-color: $white;
+    border: 2px solid $border-color;
+    filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0.3));
+    clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%, 0 20%);
+    position: relative;
+    opacity: 0;
+    visibility: hidden;
+    transition: ease 0.3s all;
+    z-index: -1;
+
+    &.visible {
+      opacity: 1;
+      z-index: 1;
+      visibility: visible;
+    }
+  }
+
+  .sensorTitleContainer {
+    text-align: center;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $light-gray;
+
+    h3 {
+      @extend .font-20-26-500;
+    }
+  }
+
+  .infoContainer {
+    display: grid;
+    grid-template-columns: auto auto;
+    text-align: left;
+    justify-content: space-between;
+    row-gap: 12px;
+    margin: 16px 0 28px;
+  }
+
+  .singleItem {
+    min-width: 160px;
+
+    h4 {
+      @extend .font-12-16-400;
+      color: $grey2;
+      margin-bottom: 4px;
+    }
+    p {
+      @extend .font-14-18-400;
+      color: $black;
+    }
+  }
+
+  .sensorLink {
+    @extend .font-14-18-500;
+    padding: 12px 16px;
+    background-color: $green;
+    border-radius: 8px;
+    color: $white;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .backButton {
+    @extend .font-16-21-500;
+    position: absolute;
+    left: 12px;
+    top: 12px;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  .buttons {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 12px;
+    padding: 12px 8px;
+    width: fit-content;
+    margin: 0 auto;
+    background-color: $light-gray;
+    display: flex;
+    align-items: center;
+
+    span {
+      width: 1px;
+      background-color: $white;
+      margin: 0 8px;
+      height: 20px;
+    }
+
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+  }
+
+  .icon {
+    line-height: 0;
+  }
+}
+
+// .marker {
+//   position: absolute;
+//   cursor: pointer;
+
+//   &.motor-0 {
+//     top: 37%;
+//     left: 47%;
+//   }
+
+//   &.motor-180 {
+//     top: 37%;
+//     left: 47%;
+//   }
+
+//   &.uad-0 {
+//     top: 50%;
+//     left: 45%;
+//   }
+
+//   &.uad-180 {
+//     top: 27%;
+//     left: 49%;
+//   }
+
+//   &.flare-0 {
+//     top: 47%;
+//     left: 19%;
+//   }
+
+//   &.flare-2-0 {
+//     top: 46%;
+//     left: 39%;
+//   }
+
+//   &.flare-180 {
+//     top: 26%;
+//     left: 72%;
+//   }
+
+//   &.flare-2-180 {
+//     top: 58%;
+//     left: 58%;
+//   }
+
+//   &.ucg-0 {
+//     top: 37%;
+//     left: 47%;
+//   }
+
+//   &.ucg-2-0 {
+//     top: 39%;
+//     left: 30%;
+//   }
+
+//   &.ucg-3-0 {
+//     top: 53%;
+//     left: 50%;
+//   }
+
+//   &.ucg-180 {
+//     top: 43%;
+//     left: 45%;
+//   }
+
+//   &.ucg-2-180 {
+//     top: 21%;
+//     left: 55%;
+//   }
+
+//   &.ucg-3-180 {
+//     top: 47%;
+//     left: 31%;
+//   }
+
+//   &.solidwaste {
+//     top: 40%;
+//     left: 67%;
+//   }
+
+//   &.liquidwaste {
+//     top: 60%;
+//     left: 53%;
+//   }
+
+//   &.agriculturalwaste {
+//     top: 48%;
+//     left: 46%;
+//   }
+
+//   &.pressuresensor {
+//     top: 61%;
+//     left: 67%;
+//   }
+
+//   &.pressuresensor-2 {
+//     top: 60%;
+//     left: 39%;
+//   }
+
+//   &.flowsensor {
+//     top: 56%;
+//     left: 59%;
+//   }
+
+//   &.flowsensor-2 {
+//     top: 56%;
+//     left: 43%;
+//   }
+// }

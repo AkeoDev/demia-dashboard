@@ -38,6 +38,10 @@ import hamburgerIcon from "./svg/hamburger-icon.svg";
 import arrowRightIcon from "./svg/arrow-right-icon.svg";
 import eyeIconOff from "./svg/eye-icon-off.svg";
 import eyeIconOn from "./svg/eye-icon-on.svg";
+import greyArrowLeft from "./svg/grey-arrow-left.svg";
+import greyArrowRight from "./svg/grey-arrow-right.svg";
+import pinIcon from "./svg/pin-icon.svg";
+import triangle from "./svg/triangle.svg";
 
 //png
 import signIn from "./images/sign-in.png";
@@ -49,6 +53,18 @@ import flowmeter from "./images/flowmeter.png";
 import statusConnected from "./images/connected.png";
 import statusDisconnected from "./images/disconnected.png";
 import formula from "./images/formula.png";
+import V1 from "./images/V1_Default_0deg.png";
+import V2 from "./images/V2_Default_90deg.png";
+import V3 from "./images/V3_Default_180deg.png";
+import V4 from "./images/V4_Default_270deg.png";
+import M1Back from "./images/M1_back.png";
+import M1Front from "./images/M1_front.png";
+import N1Back from "./images/N1_back.png";
+import N1Front from "./images/N1_front.png";
+import F1Back from "./images/F1_back.png";
+import F1Front from "./images/F1_front.png";
+import Y1Back from "./images/Y1_back.png";
+import Y1Front from "./images/Y1_front.png";
 
 export {
   logo,
@@ -99,4 +115,20 @@ export {
   arrowRightIcon,
   eyeIconOff,
   eyeIconOn,
+  V1,
+  V2,
+  V3,
+  V4,
+  greyArrowLeft,
+  greyArrowRight,
+  M1Back,
+  M1Front,
+  N1Back,
+  N1Front,
+  F1Back,
+  F1Front,
+  Y1Back,
+  Y1Front,
+  pinIcon,
+  triangle
 };
