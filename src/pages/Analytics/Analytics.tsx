@@ -1,6 +1,7 @@
 import { Link, useParams } from "react-router-dom";
 import { Layout } from "../../components/Layout/Layout";
 import classes from "./Analytics.module.scss";
+import "./CalendarStyle.scss";
 import { ReactSVG } from "react-svg";
 import {
   arrowRightIcon,
@@ -16,7 +17,6 @@ import {
 } from "../../components/Graphs/Graphs";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
 
 const graphDataFirst = [
   {
@@ -493,6 +493,8 @@ export const Analytics = () => {
             <div className={classes.datePickerContainer}>
               <div className={classes.datepicker}>
                 <DatePicker
+                  calendarClassName='calendarStyle'
+                  popperClassName="pooperStyle"
                   selected={startDate}
                   onChange={(date) => date && setStartDate(date)}
                   selectsStart
@@ -502,6 +504,8 @@ export const Analytics = () => {
                 />
                 <span>-</span>
                 <DatePicker
+                  calendarClassName='calendarStyle'
+                  popperClassName="pooperStyle"
                   selected={endDate}
                   onChange={(date) => date && setEndDate(date)}
                   selectsEnd

@@ -7,11 +7,16 @@ import {
   cargoAverage,
   cargoCondidence,
   cargoCurrent,
+  exportIconBlack,
+  hamburgerIcon,
 } from "../../assets";
 import { useState } from "react";
 import { BarChart } from "../../components/Graphs/Graphs";
 import { Cell } from "@table-library/react-table-library/table";
 import { TableSorting } from "../../components/Table/Table";
+import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
+import "../Analytics/CalendarStyle.scss";
 
 const graphData = [
   {
@@ -165,19 +170,95 @@ export const Feedstock = () => {
   const [activeTab, setActiveTab] = useState(1);
 
   const handleTabClick = (tabIndex: number) => {
+    if (tabIndex == 1) {
+      setIsVisible(false);
+    }
     setActiveTab(tabIndex);
+  };
+
+  const [isVisible, setIsVisible] = useState(false);
+
+  const exportButtonHandler = () => {
+    setIsVisible((prev) => !prev);
   };
 
   const { slug } = useParams();
   const url = `/projects/${slug}/data-sources`;
 
+  const thirtyDaysAgo = new Date();
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+  const [startDate, setStartDate] = useState(thirtyDaysAgo);
+  const [endDate, setEndDate] = useState(new Date());
+
   return (
     <Layout>
       <div className={classes.feedstock}>
-        <Link to={url} className={classes.backLink}>
-          <ReactSVG src={arrowLeft} className={classes.arrowIcon}></ReactSVG>
-          Feedstock
-        </Link>
+        <div className={classes.titleContainer}>
+          <Link to={url} className={classes.backLink}>
+            <ReactSVG src={arrowLeft} className={classes.arrowIcon}></ReactSVG>
+            Feedstock
+          </Link>
+          {activeTab === 2 && (
+            <div className={classes.datePickerContainer}>
+              <div className={classes.datepicker}>
+                <DatePicker
+                  calendarClassName="calendarStyle"
+                  popperClassName="pooperStyle"
+                  selected={startDate}
+                  onChange={(date) => date && setStartDate(date)}
+                  selectsStart
+                  startDate={startDate}
+                  endDate={endDate}
+                  dateFormat="MMMM d, yyyy"
+                />
+                <span>-</span>
+                <DatePicker
+                  calendarClassName="calendarStyle"
+                  popperClassName="pooperStyle"
+                  selected={endDate}
+                  onChange={(date) => date && setEndDate(date)}
+                  selectsEnd
+                  startDate={startDate}
+                  endDate={endDate}
+                  minDate={startDate}
+                  dateFormat="MMMM d, yyyy"
+                />
+              </div>
+              <span className={classes.divider}></span>
+              <div
+                className={classes.moreOptions}
+                onClick={exportButtonHandler}
+              >
+                <ReactSVG
+                  src={hamburgerIcon}
+                  className={classes.hamburgerIcon}
+                ></ReactSVG>
+              </div>
+            </div>
+          )}
+          {isVisible && (
+            <div className={classes.export}>
+              <div className={classes.exportWrapper}>
+                <h4>Export</h4>
+                <button type="button">
+                  <ReactSVG
+                    src={exportIconBlack}
+                    className={classes.exportIcon}
+                  ></ReactSVG>
+                  Export to CSV
+                </button>
+                <button type="button">
+                  <ReactSVG
+                    src={exportIconBlack}
+                    className={classes.exportIcon}
+                  ></ReactSVG>
+                  Export to XLSV
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
         <div className={classes.tabs}>
           <div
             className={

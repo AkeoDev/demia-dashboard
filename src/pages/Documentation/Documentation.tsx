@@ -19,10 +19,10 @@ const DocumentationRowTemplate: React.FC<{ item: any }> = () => {
       <Cell></Cell>
       <Cell></Cell>
       <Cell></Cell>
-      <div className={classes.noData}>
+      <Cell className={classes.noData}>
         <ReactSVG src={fileIconBig}></ReactSVG>
         <p>NO DATA</p>
-      </div>
+      </Cell>
     </>
   );
 };
@@ -43,10 +43,10 @@ const reportsCertificationRowTemplate: React.FC<{ item: any }> = () => {
       <Cell></Cell>
       <Cell></Cell>
       <Cell></Cell>
-      <div className={classes.noData}>
+      <Cell className={classes.noData}>
         <ReactSVG src={fileIconBig}></ReactSVG>
         <p>NO DATA</p>
-      </div>
+      </Cell>
     </>
   );
 };

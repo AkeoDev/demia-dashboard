@@ -17,6 +17,7 @@ import { TableSorting } from "../../components/Table/Table";
 import { Cell } from "@table-library/react-table-library/table";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import "../Analytics/CalendarStyle.scss";
 
 const graphData = [
   {
@@ -191,6 +192,8 @@ export const CargoSensor = () => {
             <div className={classes.datePickerContainer}>
               <div className={classes.datepicker}>
                 <DatePicker
+                  calendarClassName="calendarStyle"
+                  popperClassName="pooperStyle"
                   selected={startDate}
                   onChange={(date) => date && setStartDate(date)}
                   selectsStart
@@ -200,6 +203,8 @@ export const CargoSensor = () => {
                 />
                 <span>-</span>
                 <DatePicker
+                  calendarClassName="calendarStyle"
+                  popperClassName="pooperStyle"
                   selected={endDate}
                   onChange={(date) => date && setEndDate(date)}
                   selectsEnd
@@ -226,11 +231,17 @@ export const CargoSensor = () => {
               <div className={classes.exportWrapper}>
                 <h4>Export</h4>
                 <button type="button">
-                  <ReactSVG src={exportIconBlack} className={classes.exportIcon}></ReactSVG>
+                  <ReactSVG
+                    src={exportIconBlack}
+                    className={classes.exportIcon}
+                  ></ReactSVG>
                   Export to CSV
                 </button>
                 <button type="button">
-                  <ReactSVG src={exportIconBlack} className={classes.exportIcon}></ReactSVG>
+                  <ReactSVG
+                    src={exportIconBlack}
+                    className={classes.exportIcon}
+                  ></ReactSVG>
                   Export to XLSV
                 </button>
               </div>
