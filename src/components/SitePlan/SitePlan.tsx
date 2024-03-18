@@ -25,6 +25,7 @@ interface Pin {
   sensorID: string;
   sensorSlug: string;
   class: string;
+  class2: string;
   title: string;
   model?: string;
   flow?: string;
@@ -35,6 +36,7 @@ export const SitePlan = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [images, setImages] = useState([V1, V2, V3, V4]);
   const [isCloserViewActive, setIsCloserViewActive] = useState(false);
+  const [isBackImageActive, setIsBackImageActive] = useState(false);
   const [pins, setPins] = useState<Pin[]>([]);
 
   const area1handler = () => {
@@ -47,6 +49,7 @@ export const SitePlan = () => {
         sensorID: "124124124",
         sensorSlug: "Motor",
         class: "motor-0",
+        class2: "motor-180",
         title: "Motor 1",
         model: "Motor 2-cil",
         flow: "185.71 Nm3/h",
@@ -64,7 +67,8 @@ export const SitePlan = () => {
       {
         sensorID: "124124124",
         sensorSlug: "Motor",
-        class: "motor-0",
+        class: "uad-0",
+        class2: "uad-180",
         title: "Motor 1",
         model: "Motor 2-cil",
         flow: "185.71 Nm3/h",
@@ -83,6 +87,7 @@ export const SitePlan = () => {
         sensorID: "124124124",
         sensorSlug: "Motor",
         class: "ucg-0",
+        class2: "ucg-180",
         title: "Motor 1",
         model: "Motor 2-cil",
         flow: "185.71 Nm3/h",
@@ -92,6 +97,7 @@ export const SitePlan = () => {
         sensorID: "124124124",
         sensorSlug: "Motor",
         class: "ucg-2-0",
+        class2: "ucg-2-180",
         title: "Motor 1",
         model: "Motor 2-cil",
         flow: "185.71 Nm3/h",
@@ -101,6 +107,7 @@ export const SitePlan = () => {
         sensorID: "124124124",
         sensorSlug: "Motor",
         class: "ucg-3-0",
+        class2: "ucg-3-180",
         title: "Motor 1",
         model: "Motor 2-cil",
         flow: "185.71 Nm3/h",
@@ -119,6 +126,7 @@ export const SitePlan = () => {
         sensorID: "FT1",
         sensorSlug: "GHG",
         class: "flare-0",
+        class2: "flare-180",
         title: "Gasflow FT1",
         model: "Prosonic B300",
         flow: "185.71 Nm3/h",
@@ -128,6 +136,7 @@ export const SitePlan = () => {
         sensorID: "FT2",
         sensorSlug: "HGH",
         class: "flare-2-0",
+        class2: "flare-2-180",
         title: "Gasflow FT2",
         model: "Prosonic B300",
         flow: "385.71 Nm3/h",
@@ -277,18 +286,29 @@ export const SitePlan = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
+    if(isCloserViewActive && currentImageIndex == 0) {
+      setIsBackImageActive(true);
+    } else {
+      setIsBackImageActive(false);
+    }
   };
 
   const goToNextImage = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
+    if(isCloserViewActive && currentImageIndex == 0) {
+      setIsBackImageActive(true);
+    } else {
+      setIsBackImageActive(false);
+    }
   };
 
   const backButtonClickHandler = () => {
     setIsCloserViewActive(false);
     setImages([V1, V2, V3, V4]);
     setIsVisibleSensorInfo(false);
+    setIsBackImageActive(false);
   };
 
   const [openDivId, setOpenDivId] = useState(null);
@@ -323,7 +343,7 @@ export const SitePlan = () => {
                 />
                 {pins.map((pin, index) => (
                   <div
-                    className={`${classes.pinContainer} ${classes[pin.class]}`}
+                    className={`${classes.pinContainer} ${classes[pin.class]} ${isBackImageActive ? classes[pin.class2] : '' }`}
                     key={index}
                   >
                     <ReactSVG
@@ -332,7 +352,7 @@ export const SitePlan = () => {
                       onClick={() => showSensorInfo(index)}
                     />
                     {openDivId === index && (
-                      <div
+                      <div 
                         className={`${classes.sensorInfo} ${
                           isVisibleSensorInfo ? classes.visible : ""
                         }`}
