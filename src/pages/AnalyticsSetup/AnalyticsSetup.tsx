@@ -3,7 +3,8 @@ import { arrowRight, infoIcon, plusIcon } from "../../assets";
 import { Button } from "../../components/Buttons/Button";
 import { Layout } from "../../components/Layout/Layout";
 import classes from "./AnalyticsSetup.module.scss";
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 const analyticsData = [
   {
@@ -47,6 +48,11 @@ export const AnalyticsSetup = () => {
 
   const { slug } = useParams();
   const url = `/projects/${slug}/analytics-setup/`;
+
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, [location]);
   
   return (
     <Layout>

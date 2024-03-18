@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { Layout } from "../../components/Layout/Layout";
 import classes from "./AnalyticsDetails.module.scss";
 import { ReactSVG } from "react-svg";
@@ -7,6 +7,7 @@ import {
   GreenAreaAnalyticsChart,
   PinkLineChart,
 } from "../../components/Graphs/Graphs";
+import { useEffect } from "react";
 
 const graphData = [
   {
@@ -114,6 +115,11 @@ const parametersData = [
 export const AnalyticsDetails = () => {
   const { analyticsSlug, slug } = useParams();
   const url = `/projects/${slug}/analytics`;
+
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, [location]);
 
   return (
     <Layout>

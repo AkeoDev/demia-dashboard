@@ -19,7 +19,7 @@ import {
 } from "../../assets";
 import classes from "./SitePlan.module.scss";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 interface Pin {
   sensorID: string;
@@ -47,7 +47,7 @@ export const SitePlan = () => {
     const data: Pin[] = [
       {
         sensorID: "124124124",
-        sensorSlug: "Motor",
+        sensorSlug: "cargo-sensor",
         class: "motor-0",
         class2: "motor-180",
         title: "Motor 1",
@@ -66,7 +66,7 @@ export const SitePlan = () => {
     const data: Pin[] = [
       {
         sensorID: "124124124",
-        sensorSlug: "Motor",
+        sensorSlug: "flowmeter-1",
         class: "uad-0",
         class2: "uad-180",
         title: "Motor 1",
@@ -85,7 +85,7 @@ export const SitePlan = () => {
     const data: Pin[] = [
       {
         sensorID: "124124124",
-        sensorSlug: "Motor",
+        sensorSlug: "flowmeter-1",
         class: "ucg-0",
         class2: "ucg-180",
         title: "Motor 1",
@@ -95,7 +95,7 @@ export const SitePlan = () => {
       },
       {
         sensorID: "124124124",
-        sensorSlug: "Motor",
+        sensorSlug: "cargo-sensor",
         class: "ucg-2-0",
         class2: "ucg-2-180",
         title: "Motor 1",
@@ -105,7 +105,7 @@ export const SitePlan = () => {
       },
       {
         sensorID: "124124124",
-        sensorSlug: "Motor",
+        sensorSlug: "feedstock",
         class: "ucg-3-0",
         class2: "ucg-3-180",
         title: "Motor 1",
@@ -124,7 +124,7 @@ export const SitePlan = () => {
     const data: Pin[] = [
       {
         sensorID: "FT1",
-        sensorSlug: "GHG",
+        sensorSlug: "feedstock",
         class: "flare-0",
         class2: "flare-180",
         title: "Gasflow FT1",
@@ -134,7 +134,7 @@ export const SitePlan = () => {
       },
       {
         sensorID: "FT2",
-        sensorSlug: "HGH",
+        sensorSlug: "cargo-sensor",
         class: "flare-2-0",
         class2: "flare-2-180",
         title: "Gasflow FT2",
@@ -319,6 +319,9 @@ export const SitePlan = () => {
     setOpenDivId(openDivId === index ? null : index);
   };
 
+  const { slug } = useParams();
+  const url = `/projects/${slug}/data-sources`;
+
   return (
     <article className={classes.sitePlan}>
       <div className={classes.content}>
@@ -378,7 +381,7 @@ export const SitePlan = () => {
                             <p>{pin.average}</p>
                           </div>
                         </div>
-                        <Link to={"#"} className={classes.sensorLink}>
+                        <Link to={`${url}/${pin.sensorSlug}`} className={classes.sensorLink}>
                           View sensor
                         </Link>
                       </div>

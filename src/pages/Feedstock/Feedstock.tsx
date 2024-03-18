@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { Layout } from "../../components/Layout/Layout";
 import { ReactSVG } from "react-svg";
 import classes from "./Feedstock.module.scss";
@@ -10,7 +10,7 @@ import {
   exportIconBlack,
   hamburgerIcon,
 } from "../../assets";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BarChart } from "../../components/Graphs/Graphs";
 import { Cell } from "@table-library/react-table-library/table";
 import { TableSorting } from "../../components/Table/Table";
@@ -184,6 +184,11 @@ export const Feedstock = () => {
 
   const { slug } = useParams();
   const url = `/projects/${slug}/data-sources`;
+
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, [location]);
 
   const thirtyDaysAgo = new Date();
   thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);

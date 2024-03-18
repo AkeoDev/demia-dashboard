@@ -1,8 +1,9 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { formula } from "../../assets";
 import { Button } from "../../components/Buttons/Button";
 import { Layout } from "../../components/Layout/Layout";
 import classes from "./Parameters.module.scss";
+import { useEffect } from "react";
 
 const parametersData = [
   {
@@ -36,6 +37,11 @@ export const Parameters = () => {
 
   const { slug } = useParams();
   const url = `/projects/${slug}/analytics-setup`;
+
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, [location]);
 
   return (
     <Layout>

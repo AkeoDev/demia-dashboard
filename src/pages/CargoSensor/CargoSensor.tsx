@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import classes from "./CargoSensor.module.scss";
 import { ReactSVG } from "react-svg";
 import {
@@ -11,7 +11,7 @@ import {
   hamburgerIcon,
 } from "../../assets";
 import { Layout } from "../../components/Layout/Layout";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { BarChart } from "../../components/Graphs/Graphs";
 import { TableSorting } from "../../components/Table/Table";
 import { Cell } from "@table-library/react-table-library/table";
@@ -167,6 +167,11 @@ export const CargoSensor = () => {
 
   const { slug } = useParams();
   const url = `/projects/${slug}/data-sources`;
+
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+  }, [location]);
 
   const [isVisible, setIsVisible] = useState(false);
 
