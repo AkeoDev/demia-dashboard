@@ -123,6 +123,10 @@
     &.motor-0 {
       top: 37%;
       left: 47%;
+
+      @media screen and (min-width: 2560px) {
+        top: 43%;
+      }
     }
 
     &.motor-180 {
@@ -143,31 +147,74 @@
     &.flare-0 {
       top: 30%;
       left: 27%;
+
+      @media screen and (min-width: 1920px) {
+        left: 33%;
+      }
+      @media screen and (min-width: 2560px) {
+        left: 38%;
+      }
     }
 
     &.flare-180 {
       top: 26%;
       left: 72%;
+
+      @media screen and (min-width: 1920px) {
+        top: 23%;
+        left: 65%;
+      }
+      @media screen and (min-width: 2560px) {
+        top: 20%;
+        left: 60%;
+      }
     }
 
     &.flare-2-0 {
       top: 46%;
       left: 39%;
+
+      @media screen and (min-width: 1920px) {
+        top: 48%;
+        left: 44%;
+      }
+      @media screen and (min-width: 2560px) {
+        left: 45%;
+      }
     }
 
     &.flare-2-180 {
       top: 58%;
       left: 58%;
+
+      @media screen and (min-width: 1920px) {
+        top: 56%;
+        left: 59%;
+      }
+      @media screen and (min-width: 2560px) {
+        left: 54%;
+      }
     }
 
     &.ucg-0 {
       top: 37%;
       left: 47%;
+
+      @media screen and (min-width: 1920px) {
+        left: 49%;
+      }
     }
 
     &.ucg-2-0 {
       top: 39%;
       left: 33%;
+
+      @media screen and (min-width: 1920px) {
+        left: 39%;
+      }
+      @media screen and (min-width: 2560px) {
+        left: 42%;
+      }
     }
 
     &.ucg-3-0 {
@@ -178,16 +225,37 @@
     &.ucg-180 {
       top: 43%;
       left: 45%;
+
+      @media screen and (min-width: 1920px) {
+        top: 47%;
+        left: 48%;
+      }
     }
 
     &.ucg-2-180 {
       top: 21%;
       left: 55%;
+
+      @media screen and (min-width: 1920px) {
+        left: 54%;
+        top: 22%;
+      }
+      @media screen and (min-width: 2560px) {
+        left: 53%;
+      }
     }
 
     &.ucg-3-180 {
       top: 47%;
       left: 31%;
+
+      @media screen and (min-width: 1920px) {
+        top: 51%;
+        left: 37%;
+      }
+      @media screen and (min-width: 2560px) {
+        left: 41%;
+      }
     }
 
     &.solidwaste {
@@ -236,13 +304,24 @@
     width: 448px;
     background-color: $white;
     border: 2px solid $border-color;
-    filter: drop-shadow(-1px 3px 3px rgba(0, 0, 0, 0.3));
+    filter: drop-shadow(-1px 1px 3px rgba(0, 0, 0, 0.3));
     clip-path: polygon(12% 0, 100% 0, 100% 100%, 0 100%, 0 20%);
     position: relative;
     opacity: 0;
     visibility: hidden;
     transition: ease 0.3s all;
     z-index: -1;
+
+    &::before {
+      content: "";
+      border: 2px solid $border-color;
+      position: absolute;
+      width: 13px;
+      height: 69px;
+      left: 12px;
+      top: -20px;
+      transform: rotate(49deg);
+    }
 
     &.visible {
       opacity: 1;
