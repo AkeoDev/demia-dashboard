@@ -345,7 +345,11 @@ export const SitePlan: React.FC<PinPropsType> = () => {
                   >
                     <ReactSVG
                       src={pinIcon}
-                      className={`${classes.pin} ${openDivId !== index && pointerEventNone ? classes.pointerEvent : ""}`}
+                      className={`${classes.pin} ${
+                        openDivId !== index && pointerEventNone
+                          ? classes.pointerEvent
+                          : ""
+                      }`}
                       onClick={() => showSensorInfo(index)}
                     />
                     {openDivId === index && (
