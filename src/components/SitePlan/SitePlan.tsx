@@ -20,21 +20,31 @@ import {
 import classes from "./SitePlan.module.scss";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { PinPropsType } from "../../utils/types";
 
-export const SitePlan: React.FC<PinPropsType> = () => {
+interface Pin {
+  sensorID: string;
+  sensorSlug: string;
+  class: string;
+  class2: string;
+  title: string;
+  model?: string;
+  flow?: string;
+  average?: string;
+}
+
+export const SitePlan = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [images, setImages] = useState([V1, V2, V3, V4]);
   const [isCloserViewActive, setIsCloserViewActive] = useState(false);
   const [isBackImageActive, setIsBackImageActive] = useState(false);
-  const [pins, setPins] = useState<PinPropsType[]>([]);
+  const [pins, setPins] = useState<Pin[]>([]);
 
   const area1handler = () => {
     setImages([M1Front, M1Back]);
     setIsCloserViewActive(true);
     setCurrentImageIndex(0);
 
-    const data: PinPropsType[] = [
+    const data: Pin[] = [
       {
         sensorID: "124124124",
         sensorSlug: "cargo-sensor",
@@ -53,7 +63,7 @@ export const SitePlan: React.FC<PinPropsType> = () => {
     setIsCloserViewActive(true);
     setCurrentImageIndex(0);
 
-    const data: PinPropsType[] = [
+    const data: Pin[] = [
       {
         sensorID: "124124124",
         sensorSlug: "flowmeter-1",
@@ -72,7 +82,7 @@ export const SitePlan: React.FC<PinPropsType> = () => {
     setIsCloserViewActive(true);
     setCurrentImageIndex(0);
 
-    const data: PinPropsType[] = [
+    const data: Pin[] = [
       {
         sensorID: "124124124",
         sensorSlug: "flowmeter-1",
@@ -111,7 +121,7 @@ export const SitePlan: React.FC<PinPropsType> = () => {
     setIsCloserViewActive(true);
     setCurrentImageIndex(0);
 
-    const data: PinPropsType[] = [
+    const data: Pin[] = [
       {
         sensorID: "FT1",
         sensorSlug: "feedstock",
