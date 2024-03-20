@@ -20,31 +20,21 @@ import {
 import classes from "./SitePlan.module.scss";
 import { useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { PinPropsType } from "../../utils/types";
 
-interface Pin {
-  sensorID: string;
-  sensorSlug: string;
-  class: string;
-  class2: string;
-  title: string;
-  model?: string;
-  flow?: string;
-  average?: string;
-}
-
-export const SitePlan = () => {
+export const SitePlan: React.FC<PinPropsType> = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [images, setImages] = useState([V1, V2, V3, V4]);
   const [isCloserViewActive, setIsCloserViewActive] = useState(false);
   const [isBackImageActive, setIsBackImageActive] = useState(false);
-  const [pins, setPins] = useState<Pin[]>([]);
+  const [pins, setPins] = useState<PinPropsType[]>([]);
 
   const area1handler = () => {
     setImages([M1Front, M1Back]);
     setIsCloserViewActive(true);
     setCurrentImageIndex(0);
 
-    const data: Pin[] = [
+    const data: PinPropsType[] = [
       {
         sensorID: "124124124",
         sensorSlug: "cargo-sensor",
@@ -63,7 +53,7 @@ export const SitePlan = () => {
     setIsCloserViewActive(true);
     setCurrentImageIndex(0);
 
-    const data: Pin[] = [
+    const data: PinPropsType[] = [
       {
         sensorID: "124124124",
         sensorSlug: "flowmeter-1",
@@ -82,7 +72,7 @@ export const SitePlan = () => {
     setIsCloserViewActive(true);
     setCurrentImageIndex(0);
 
-    const data: Pin[] = [
+    const data: PinPropsType[] = [
       {
         sensorID: "124124124",
         sensorSlug: "flowmeter-1",
@@ -121,7 +111,7 @@ export const SitePlan = () => {
     setIsCloserViewActive(true);
     setCurrentImageIndex(0);
 
-    const data: Pin[] = [
+    const data: PinPropsType[] = [
       {
         sensorID: "FT1",
         sensorSlug: "feedstock",
@@ -286,7 +276,7 @@ export const SitePlan = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === 0 ? images.length - 1 : prevIndex - 1
     );
-    if(isCloserViewActive && currentImageIndex == 0) {
+    if (isCloserViewActive && currentImageIndex == 0) {
       setIsBackImageActive(true);
     } else {
       setIsBackImageActive(false);
@@ -297,7 +287,7 @@ export const SitePlan = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex === images.length - 1 ? 0 : prevIndex + 1
     );
-    if(isCloserViewActive && currentImageIndex == 0) {
+    if (isCloserViewActive && currentImageIndex == 0) {
       setIsBackImageActive(true);
     } else {
       setIsBackImageActive(false);
@@ -312,11 +302,13 @@ export const SitePlan = () => {
   };
 
   const [openDivId, setOpenDivId] = useState(null);
+  const [pointerEventNone, setPointerEventNone] = useState(false);
 
   const [isVisibleSensorInfo, setIsVisibleSensorInfo] = useState(false);
   const showSensorInfo = (index: any) => {
     setIsVisibleSensorInfo((prev) => !prev);
     setOpenDivId(openDivId === index ? null : index);
+    setPointerEventNone((prev) => !prev);
   };
 
   const { slug } = useParams();
@@ -346,16 +338,18 @@ export const SitePlan = () => {
                 />
                 {pins.map((pin, index) => (
                   <div
-                    className={`${classes.pinContainer} ${classes[pin.class]} ${isBackImageActive ? classes[pin.class2] : '' }`}
+                    className={`${classes.pinContainer} ${classes[pin.class]} ${
+                      isBackImageActive ? classes[pin.class2] : ""
+                    }`}
                     key={index}
                   >
                     <ReactSVG
                       src={pinIcon}
-                      className={classes.pin}
+                      className={`${classes.pin} ${openDivId !== index && pointerEventNone ? classes.pointerEvent : ""}`}
                       onClick={() => showSensorInfo(index)}
                     />
                     {openDivId === index && (
-                      <div 
+                      <div
                         className={`${classes.sensorInfo} ${
                           isVisibleSensorInfo ? classes.visible : ""
                         }`}
@@ -381,7 +375,10 @@ export const SitePlan = () => {
                             <p>{pin.average}</p>
                           </div>
                         </div>
-                        <Link to={`${url}/${pin.sensorSlug}`} className={classes.sensorLink}>
+                        <Link
+                          to={`${url}/${pin.sensorSlug}`}
+                          className={classes.sensorLink}
+                        >
                           View sensor
                         </Link>
                       </div>
