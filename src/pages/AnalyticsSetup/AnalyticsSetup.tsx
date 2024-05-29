@@ -10,37 +10,42 @@ const analyticsData = [
   {
     active: true,
     slug: "GHG",
-    text: "Baseline scenario GHG emissions",
+    text: "Total Project GHG emissions",
   },
   {
     active: true,
     slug: "GHG",
-    text: "Baseline scenario GHG emissions",
+    text: "Total methane emissions destroyed",
   },
   {
     active: false,
     slug: "HGH",
-    text: "Baseline scenario GHG emissions",
+    text: "Net methane destroyed by flare",
   },
   {
     active: true,
     slug: "GHG",
-    text: "Baseline scenario GHG emissions",
+    text: "Net methane destroyed by flare",
   },
   {
     active: true,
     slug: "GHG",
-    text: "Baseline scenario GHG emissions",
+    text: "Total methane sent to flare",
   },
   {
     active: false,
     slug: "GHG",
-    text: "Baseline scenario GHG emissions",
+    text: "Total methane sent to flare",
   },
   {
     active: false,
     slug: "GHG",
-    text: "Baseline scenario GHG emissions",
+    text: "Total GHG emissions from electricity generation and delivery",
+  },
+  {
+    active: false,
+    slug: "GHG",
+    text: "Total GHG emissions from supplemental fossil fuel",
   },
 ];
 
@@ -81,7 +86,7 @@ export const AnalyticsSetup = () => {
                     />
                     <p>{item.text}</p>
                   </div>
-                  <Link to={`${url}${item.slug}`} className={classes.right}>
+                  <Link to={`${url}${item.text}`} className={classes.right}>
                     {item.active ? (
                       "Edit parameters"
                     ) : (
@@ -96,7 +101,7 @@ export const AnalyticsSetup = () => {
               ))}
             </div>
             <div className={classes.buttonContainer}>
-              <Button className={classes.button}>Activate Analitics</Button>
+              <Button className={classes.button}>Activate Analytics</Button>
             </div>
           </div>
         </div>

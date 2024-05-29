@@ -12,9 +12,9 @@ export const SidebarNavigation: FunctionComponent = () => {
     return (
         <aside className={classes['sidebar']}>
             <div className={classes['logo-and-projects']}>
-                <div className={classes['logo']}>
+                <NavLink to={"/"} className={classes['logo']}>
                     <img src={logo} alt="" />
-                </div>
+                </NavLink>
                 <SidebarAcccordion></SidebarAcccordion>
             </div>
             <nav className={classes['navigation']}>

@@ -1,9 +1,10 @@
 import { Link, useLocation, useParams } from "react-router-dom";
-import { formula } from "../../assets";
+import { arrowLeft, formula } from "../../assets";
 import { Button } from "../../components/Buttons/Button";
 import { Layout } from "../../components/Layout/Layout";
 import classes from "./Parameters.module.scss";
 import { useEffect } from "react";
+import { ReactSVG } from "react-svg";
 
 const parametersData = [
   {
@@ -34,19 +35,25 @@ const parametersData = [
 ];
 
 export const Parameters = () => {
-
-  const { slug } = useParams();
+  const { analyticsSetupSlug, slug } = useParams();
   const url = `/projects/${slug}/analytics-setup`;
+  const graphUrl = `/projects/${slug}/analytics/${analyticsSetupSlug}`;
 
   const location = useLocation();
   useEffect(() => {
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [location]);
 
   return (
     <Layout>
       <>
-        <h1 className={classes.title}>Customise Parameters</h1>
+        <div className={classes.titleContainer}>
+          <h1 className={classes.title}>Customise Parameters</h1>
+          <Link to={graphUrl} className={classes.button}>
+            <ReactSVG src={arrowLeft} className={classes.icon}></ReactSVG>
+            Back to graph
+          </Link>
+        </div>
         <figure className={classes.imageContainer}>
           <img src={formula} alt="Formula" />
         </figure>
@@ -64,13 +71,17 @@ export const Parameters = () => {
                       <span>Value</span>
                       <input type="text" name="value" />
                     </div>
-                  ) : ""}
+                  ) : (
+                    ""
+                  )}
                 </div>
               ))}
             </div>
             <div className={classes.buttons}>
-                <Link to={url} className={classes.cancel}>Cancel</Link>
-                <Button className={classes.save}>Save</Button>
+              <Link to={url} className={classes.cancel}>
+                Cancel
+              </Link>
+              <Button className={classes.save}>Save</Button>
             </div>
           </div>
         </div>

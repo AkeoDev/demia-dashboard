@@ -2,7 +2,7 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import { Layout } from "../../components/Layout/Layout";
 import classes from "./AnalyticsDetails.module.scss";
 import { ReactSVG } from "react-svg";
-import { arrowLeft, formula } from "../../assets";
+import { arrowLeft, formula, settingsIcon } from "../../assets";
 import {
   GreenAreaAnalyticsChart,
   PinkLineChart,
@@ -115,10 +115,11 @@ const parametersData = [
 export const AnalyticsDetails = () => {
   const { analyticsSlug, slug } = useParams();
   const url = `/projects/${slug}/analytics`;
+  const parametersUrl = `/projects/${slug}/analytics-setup/${analyticsSlug}`;
 
   const location = useLocation();
   useEffect(() => {
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [location]);
 
   return (
@@ -127,6 +128,10 @@ export const AnalyticsDetails = () => {
         <Link to={url} className={classes.backLink}>
           <ReactSVG src={arrowLeft} className={classes.arrowIcon}></ReactSVG>
           {analyticsSlug}
+        </Link>
+        <Link to={parametersUrl} className={classes.button}>
+          <ReactSVG src={settingsIcon} className={classes.icon}></ReactSVG>
+          Settings
         </Link>
       </div>
       <div className={classes.content}>
@@ -158,7 +163,12 @@ export const AnalyticsDetails = () => {
                 {item.input ? (
                   <div className={classes.right}>
                     <span>Value</span>
-                    <input type="text" name="value" value={item.value} disabled/>
+                    <input
+                      type="text"
+                      name="value"
+                      value={item.value}
+                      disabled
+                    />
                   </div>
                 ) : (
                   ""

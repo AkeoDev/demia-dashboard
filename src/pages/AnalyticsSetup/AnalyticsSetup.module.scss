@@ -11,6 +11,7 @@
       @extend .font-24-31-500;
     }
     .button {
+      display: none;
       padding: 9.5px 12px;
     }
   }
@@ -35,13 +36,13 @@
           transparent 1px
         ),
         linear-gradient(
-          54deg,
+          57deg,
           $border-color var(--stopDiag),
           transparent var(--stopDiag)
         ),
         linear-gradient(180deg, $border-color 1px, transparent 1px),
         linear-gradient(
-          233.5deg,
+          236.5deg,
           $border-color var(--stopDiag),
           transparent var(--stopDiag)
         ),
@@ -55,13 +56,13 @@
             transparent 1px
           ),
           linear-gradient(
-            44deg,
+            47deg,
             $border-color var(--stopDiag),
             transparent var(--stopDiag)
           ),
           linear-gradient(180deg, $border-color 1px, transparent 1px),
           linear-gradient(
-            224deg,
+            227deg,
             $border-color var(--stopDiag),
             transparent var(--stopDiag)
           ),
@@ -75,13 +76,13 @@
             transparent 1px
           ),
           linear-gradient(
-            34.5deg,
+            37.5deg,
             $border-color var(--stopDiag),
             transparent var(--stopDiag)
           ),
           linear-gradient(180deg, $border-color 1px, transparent 1px),
           linear-gradient(
-            214deg,
+            217deg,
             $border-color var(--stopDiag),
             transparent var(--stopDiag)
           ),

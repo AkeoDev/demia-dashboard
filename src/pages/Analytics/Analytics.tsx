@@ -1,4 +1,4 @@
-import { Link, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { Layout } from "../../components/Layout/Layout";
 import classes from "./Analytics.module.scss";
 import "./CalendarStyle.scss";
@@ -15,8 +15,9 @@ import {
   GreenAreaAnalyticsChart,
   PinkLineChart,
 } from "../../components/Graphs/Graphs";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
+import { CSVLink } from "react-csv";
 
 const graphDataFirst = [
   {
@@ -192,7 +193,7 @@ const chartsData = [
     ],
   },
   {
-    title: "Net methane destroyed by flare",
+    title: "Net methane destroyed by flare2",
     value: "126,841",
     unit: "m3 CH4",
     url: "net-methane-destroyed",
@@ -292,7 +293,7 @@ const chartsData = [
     ],
   },
   {
-    title: "Total methane sent to flare",
+    title: "Total methane sent to flare2",
     value: "134,538",
     unit: "m3 CH4",
     url: "total-methane-sent",
@@ -464,6 +465,29 @@ const statisticsData = [
   },
 ];
 
+const flattenedData = chartsData.flatMap(item =>
+  item.data.map(subItem => ({
+    title: item.title,
+    value: item.value,
+    unit: item.unit,
+    url: item.url,
+    date: subItem.name,
+    uv: subItem.uv,
+    pv: subItem.pv,
+    amt: subItem.amt,
+  }))
+);
+
+const CSVHeaders = [
+  { label: "Title", key: "title" },
+  { label: "Value", key: "value" },
+  { label: "Unit", key: "unit" },
+  { label: "Date", key: "date" },
+  { label: "UV", key: "uv" },
+  { label: "PV", key: "pv" },
+  { label: "Amount", key: "amt" },
+];
+
 export const Analytics = () => {
   const { slug } = useParams();
   const url = `/projects/${slug}/analytics-setup/`;
@@ -480,6 +504,11 @@ export const Analytics = () => {
   const [startDate, setStartDate] = useState(thirtyDaysAgo);
   const [endDate, setEndDate] = useState(new Date());
 
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }, [location]);
+
   return (
     <Layout>
       <div className={classes.analytics}>
@@ -493,7 +522,7 @@ export const Analytics = () => {
             <div className={classes.datePickerContainer}>
               <div className={classes.datepicker}>
                 <DatePicker
-                  calendarClassName='calendarStyle'
+                  calendarClassName="calendarStyle"
                   popperClassName="pooperStyle"
                   selected={startDate}
                   onChange={(date) => date && setStartDate(date)}
@@ -504,7 +533,7 @@ export const Analytics = () => {
                 />
                 <span>-</span>
                 <DatePicker
-                  calendarClassName='calendarStyle'
+                  calendarClassName="calendarStyle"
                   popperClassName="pooperStyle"
                   selected={endDate}
                   onChange={(date) => date && setEndDate(date)}
@@ -531,20 +560,18 @@ export const Analytics = () => {
             <div className={classes.export}>
               <div className={classes.exportWrapper}>
                 <h4>Export</h4>
-                <button type="button">
+                <CSVLink
+                  data={flattenedData}
+                  className={classes.csvDownload}
+                  filename={"analytics.csv"}
+                  headers={CSVHeaders}
+                >
                   <ReactSVG
                     src={exportIconBlack}
                     className={classes.icon}
                   ></ReactSVG>
                   Export to CSV
-                </button>
-                <button type="button">
-                  <ReactSVG
-                    src={exportIconBlack}
-                    className={classes.icon}
-                  ></ReactSVG>
-                  Export to XLSV
-                </button>
+                </CSVLink>
               </div>
             </div>
           )}
