@@ -20,6 +20,7 @@ import { Cell } from "@table-library/react-table-library/table";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../Analytics/CalendarStyle.scss";
+import { CSVLink } from "react-csv";
 
 const graphData = [
   {
@@ -29,37 +30,37 @@ const graphData = [
     amt: 0,
   },
   {
-    name: "Oct 21",
+    name: "May 12",
     uv: 3000,
     pv: 1398,
     amt: 2210,
   },
   {
-    name: "Oct 22",
+    name: "May 13",
     uv: 2000,
     pv: 9800,
     amt: 2290,
   },
   {
-    name: "Oct 23",
+    name: "May 14",
     uv: 2780,
     pv: 3908,
     amt: 2000,
   },
   {
-    name: "Oct 24",
+    name: "May 15",
     uv: 1890,
     pv: 4800,
     amt: 2181,
   },
   {
-    name: "Oct 25",
+    name: "May 16",
     uv: 2390,
     pv: 3800,
     amt: 2500,
   },
   {
-    name: "Oct 26",
+    name: "May 17",
     uv: 3490,
     pv: 4300,
     amt: 2100,
@@ -196,6 +197,11 @@ const cargoData = [
   },
 ];
 
+const CSVHeaders = [
+  { label: "Date", key: "timestamp" },
+  { label: "Value", key: "quality" },
+];
+
 export const Flowmeter = () => {
   const [activeTab, setActiveTab] = useState(1);
 
@@ -276,20 +282,18 @@ export const Flowmeter = () => {
             <div className={classes.export}>
               <div className={classes.exportWrapper}>
                 <h4>Export</h4>
-                <button type="button">
+                <CSVLink
+                  data={tableList}
+                  className={classes.csvDownload}
+                  filename={"Flowmeter.csv"}
+                  headers={CSVHeaders}
+                >
                   <ReactSVG
                     src={exportIconBlack}
-                    className={classes.exportIcon}
+                    className={classes.icon}
                   ></ReactSVG>
                   Export to CSV
-                </button>
-                <button type="button">
-                  <ReactSVG
-                    src={exportIconBlack}
-                    className={classes.exportIcon}
-                  ></ReactSVG>
-                  Export to XLSV
-                </button>
+                </CSVLink>
               </div>
             </div>
           )}

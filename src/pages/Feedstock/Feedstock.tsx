@@ -17,6 +17,7 @@ import { TableSorting } from "../../components/Table/Table";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../Analytics/CalendarStyle.scss";
+import { CSVLink } from "react-csv";
 
 const graphData = [
   {
@@ -166,6 +167,11 @@ const ActivityRowTemplate: React.FC<{ item: any }> = ({ item }) => (
   </>
 );
 
+const CSVHeaders = [
+  { label: "Date", key: "timestamp" },
+  { label: "Value", key: "quality" },
+];
+
 export const Feedstock = () => {
   const [activeTab, setActiveTab] = useState(1);
 
@@ -246,20 +252,18 @@ export const Feedstock = () => {
             <div className={classes.export}>
               <div className={classes.exportWrapper}>
                 <h4>Export</h4>
-                <button type="button">
+                <CSVLink
+                  data={tableList}
+                  className={classes.csvDownload}
+                  filename={"Feedstock.csv"}
+                  headers={CSVHeaders}
+                >
                   <ReactSVG
                     src={exportIconBlack}
-                    className={classes.exportIcon}
+                    className={classes.icon}
                   ></ReactSVG>
                   Export to CSV
-                </button>
-                <button type="button">
-                  <ReactSVG
-                    src={exportIconBlack}
-                    className={classes.exportIcon}
-                  ></ReactSVG>
-                  Export to XLSV
-                </button>
+                </CSVLink>
               </div>
             </div>
           )}

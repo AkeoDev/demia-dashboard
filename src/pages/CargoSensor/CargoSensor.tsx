@@ -18,6 +18,7 @@ import { Cell } from "@table-library/react-table-library/table";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../Analytics/CalendarStyle.scss";
+import { CSVLink } from "react-csv";
 
 const graphData = [
   {
@@ -87,39 +88,39 @@ const cargoData = [
 
 const tableList = [
   {
-    timestamp: "June 12, 09:43 AM",
+    timestamp: "May 3, 09:43 AM",
+    quality: "165965.00",
+  },
+  {
+    timestamp: "May 4, 09:43 AM",
+    quality: "365965.00",
+  },
+  {
+    timestamp: "May 5, 09:43 AM",
+    quality: "1465965.00",
+  },
+  {
+    timestamp: "May 6, 09:43 AM",
     quality: "1365965.00",
   },
   {
-    timestamp: "June 12, 09:43 AM",
-    quality: "1365965.00",
+    timestamp: "May 7, 09:43 AM",
+    quality: "1565965.00",
   },
   {
-    timestamp: "June 12, 09:43 AM",
-    quality: "1365965.00",
-  },
-  {
-    timestamp: "June 12, 09:43 AM",
-    quality: "1365965.00",
-  },
-  {
-    timestamp: "June 12, 09:43 AM",
-    quality: "1365965.00",
-  },
-  {
-    timestamp: "June 9, 09:43 AM",
+    timestamp: "May 8, 09:43 AM",
     quality: "1065965.00",
   },
   {
-    timestamp: "June 10, 09:43 AM",
+    timestamp: "May 9, 09:43 AM",
     quality: "1365965.00",
   },
   {
-    timestamp: "June 11, 09:43 AM",
+    timestamp: "May 10, 09:43 AM",
     quality: "1165965.00",
   },
   {
-    timestamp: "June 12, 09:43 AM",
+    timestamp: "May 11, 09:43 AM",
     quality: "1265965.00",
   },
 ];
@@ -155,6 +156,11 @@ const loadInfo = {
   unit: "2,4 kg",
 };
 
+const CSVHeaders = [
+  { label: "Date", key: "timestamp" },
+  { label: "Value", key: "quality" },
+];
+
 export const CargoSensor = () => {
   const [activeTab, setActiveTab] = useState(1);
 
@@ -170,7 +176,7 @@ export const CargoSensor = () => {
 
   const location = useLocation();
   useEffect(() => {
-    window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
+    window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [location]);
 
   const [isVisible, setIsVisible] = useState(false);
@@ -235,20 +241,18 @@ export const CargoSensor = () => {
             <div className={classes.export}>
               <div className={classes.exportWrapper}>
                 <h4>Export</h4>
-                <button type="button">
+                <CSVLink
+                  data={tableList}
+                  className={classes.csvDownload}
+                  filename={"Cargo Sensor.csv"}
+                  headers={CSVHeaders}
+                >
                   <ReactSVG
                     src={exportIconBlack}
-                    className={classes.exportIcon}
+                    className={classes.icon}
                   ></ReactSVG>
                   Export to CSV
-                </button>
-                <button type="button">
-                  <ReactSVG
-                    src={exportIconBlack}
-                    className={classes.exportIcon}
-                  ></ReactSVG>
-                  Export to XLSV
-                </button>
+                </CSVLink>
               </div>
             </div>
           )}

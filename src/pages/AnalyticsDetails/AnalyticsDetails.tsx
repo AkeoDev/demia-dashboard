@@ -2,12 +2,14 @@ import { Link, useLocation, useParams } from "react-router-dom";
 import { Layout } from "../../components/Layout/Layout";
 import classes from "./AnalyticsDetails.module.scss";
 import { ReactSVG } from "react-svg";
-import { arrowLeft, formula, settingsIcon } from "../../assets";
+import { arrowLeft, exportIconBlack, formula, hamburgerIcon, settingsIcon } from "../../assets";
 import {
   GreenAreaAnalyticsChart,
   PinkLineChart,
 } from "../../components/Graphs/Graphs";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import ReactDatePicker from "react-datepicker";
+import { CSVLink } from "react-csv";
 
 const graphData = [
   {
@@ -112,10 +114,26 @@ const parametersData = [
   },
 ];
 
+const CSVHeaders = [
+  { label: "Date", key: "name" },
+  { label: "Value", key: "pv" },
+];
+
 export const AnalyticsDetails = () => {
   const { analyticsSlug, slug } = useParams();
   const url = `/projects/${slug}/analytics`;
   const parametersUrl = `/projects/${slug}/analytics-setup/${analyticsSlug}`;
+
+  const [isVisible, setIsVisible] = useState(false);
+  const exportButtonHandler = () => {
+    setIsVisible((prev) => !prev);
+  };
+
+  const thirtyDaysAgo = new Date();
+  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+
+  const [startDate, setStartDate] = useState(thirtyDaysAgo);
+  const [endDate, setEndDate] = useState(new Date());
 
   const location = useLocation();
   useEffect(() => {
@@ -129,10 +147,64 @@ export const AnalyticsDetails = () => {
           <ReactSVG src={arrowLeft} className={classes.arrowIcon}></ReactSVG>
           {analyticsSlug}
         </Link>
-        <Link to={parametersUrl} className={classes.button}>
-          <ReactSVG src={settingsIcon} className={classes.icon}></ReactSVG>
-          Settings
-        </Link>
+        <div className={classes.rightButtons}>
+          <Link to={parametersUrl} className={classes.button}>
+            <ReactSVG src={settingsIcon} className={classes.icon}></ReactSVG>
+            Settings
+          </Link>
+          <div className={classes.datePickerContainer}>
+            <div className={classes.datepicker}>
+              <ReactDatePicker
+                calendarClassName="calendarStyle"
+                popperClassName="pooperStyle"
+                selected={startDate}
+                onChange={(date) => date && setStartDate(date)}
+                selectsStart
+                startDate={startDate}
+                endDate={endDate}
+                dateFormat="MMMM d, yyyy"
+              />
+              <span>-</span>
+              <ReactDatePicker
+                calendarClassName="calendarStyle"
+                popperClassName="pooperStyle"
+                selected={endDate}
+                onChange={(date) => date && setEndDate(date)}
+                selectsEnd
+                startDate={startDate}
+                endDate={endDate}
+                minDate={startDate}
+                dateFormat="MMMM d, yyyy"
+              />
+            </div>
+            <span className={classes.divider}></span>
+            <div className={classes.moreOptions} onClick={exportButtonHandler}>
+              <ReactSVG
+                src={hamburgerIcon}
+                className={classes.hamburgerIcon}
+              ></ReactSVG>
+            </div>
+          </div>
+        </div>
+        {isVisible && (
+            <div className={classes.export}>
+              <div className={classes.exportWrapper}>
+                <h4>Export</h4>
+                <CSVLink
+                  data={graphData}
+                  className={classes.csvDownload}
+                  filename={analyticsSlug + ".csv"}
+                  headers={CSVHeaders}
+                >
+                  <ReactSVG
+                    src={exportIconBlack}
+                    className={classes.icon}
+                  ></ReactSVG>
+                  Export to CSV
+                </CSVLink>
+              </div>
+            </div>
+          )}
       </div>
       <div className={classes.content}>
         <div className={classes.innerContent}>

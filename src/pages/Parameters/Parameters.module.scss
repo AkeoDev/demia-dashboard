@@ -14,10 +14,9 @@
   .button {
     @extend .font-16-21-500;
     color: $black;
-    background-color: $white;
+    background-color: transparent;
     text-decoration: none;
     display: flex;
-    padding: 8px 12px;
     gap: 8px;
     border: none;
     align-items: center;
@@ -26,10 +25,27 @@
     width: fit-content;
     cursor: pointer;
     transition: ease 0.3s all;
-    box-shadow: 0px 0px 1px 0px rgba(9, 30, 66, 0.31);
 
     .icon {
       line-height: 0;
+
+      svg {
+        path {
+          transition: ease 0.3s all;
+        }
+      }
+    }
+
+    &:hover {
+      color: $pink;
+
+      .icon {
+        svg {
+          path {
+            stroke: $pink;
+          }
+        }
+      }
     }
   }
 }
