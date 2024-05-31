@@ -108,40 +108,40 @@ const flowData = {
 
 const tableList = [
   {
-    timestamp: "June 12, 09:43 AM",
-    quality: "1365965.00",
+    timestamp: "May 20 2024, 09:43 AM",
+    quality: "1000.00",
   },
   {
-    timestamp: "June 12, 09:43 AM",
-    quality: "1365965.00",
+    timestamp: "May 21 2024, 09:43 AM",
+    quality: "2000.00",
   },
   {
-    timestamp: "June 12, 09:43 AM",
-    quality: "1365965.00",
+    timestamp: "May 22 2024, 09:43 AM",
+    quality: "3000.00",
   },
   {
-    timestamp: "June 12, 09:43 AM",
-    quality: "1365965.00",
+    timestamp: "May 23 2024, 09:43 AM",
+    quality: "4000.00",
   },
   {
-    timestamp: "June 12, 09:43 AM",
-    quality: "1365965.00",
+    timestamp: "May 24 2024, 09:43 AM",
+    quality: "5000.00",
   },
   {
-    timestamp: "June 9, 09:43 AM",
-    quality: "1065965.00",
+    timestamp: "May 25 2024 09:43 AM",
+    quality: "6000.00",
   },
   {
-    timestamp: "June 10, 09:43 AM",
-    quality: "1365965.00",
+    timestamp: "May 26 2024, 09:43 AM",
+    quality: "7000.00",
   },
   {
-    timestamp: "June 11, 09:43 AM",
-    quality: "1165965.00",
+    timestamp: "May 27 2024, 09:43 AM",
+    quality: "8000.00",
   },
   {
-    timestamp: "June 12, 09:43 AM",
-    quality: "1265965.00",
+    timestamp: "May 28 2024, 09:43 AM",
+    quality: "9000.00",
   },
 ];
 
@@ -232,6 +232,35 @@ export const Flowmeter = () => {
   const [startDate, setStartDate] = useState(thirtyDaysAgo);
   const [endDate, setEndDate] = useState(new Date());
 
+  const [CSVData, setCSVData] = useState(tableList);
+
+  const dateFormat = (date: any) => {
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let finalDate = new Date(`${year}-${month}-${day}`);
+
+    return finalDate.valueOf();
+  };
+
+  const csvButtonHandler = () => {
+    let finalCSV: any[] = [];
+
+    let startDateVal = dateFormat(startDate);
+    let endDateVal = dateFormat(endDate);
+
+    tableList.map((item, index) => {
+      let date = new Date(item.timestamp);
+      let fullDate = dateFormat(date);
+
+      if (startDateVal <= fullDate && endDateVal >= fullDate) {
+        finalCSV[index] = item;
+      }
+    });
+
+    setCSVData(finalCSV);
+  };
+
   return (
     <Layout>
       <div className={classes.flowmeter}>
@@ -283,10 +312,11 @@ export const Flowmeter = () => {
               <div className={classes.exportWrapper}>
                 <h4>Export</h4>
                 <CSVLink
-                  data={tableList}
+                  data={CSVData}
                   className={classes.csvDownload}
                   filename={"Flowmeter.csv"}
                   headers={CSVHeaders}
+                  onClick={csvButtonHandler}
                 >
                   <ReactSVG
                     src={exportIconBlack}

@@ -13,61 +13,61 @@ import { CSVLink } from "react-csv";
 
 const graphData = [
   {
-    name: "Oct 20",
+    name: "May 20 2024",
     uv: 0,
     pv: 0,
     amt: 0,
   },
   {
-    name: "Oct 21",
+    name: "May 21 2024",
     uv: 3000,
     pv: 1398,
     amt: 2210,
   },
   {
-    name: "Oct 22",
+    name: "May 22 2024",
     uv: 2000,
     pv: 9800,
     amt: 2290,
   },
   {
-    name: "Oct 23",
+    name: "May 23 2024",
     uv: 2780,
     pv: 3908,
     amt: 2000,
   },
   {
-    name: "Oct 24",
+    name: "May 24 2024",
     uv: 1890,
     pv: 4800,
     amt: 2181,
   },
   {
-    name: "Oct 25",
+    name: "May 25 2024",
     uv: 2390,
     pv: 3800,
     amt: 2500,
   },
   {
-    name: "Oct 26",
+    name: "May 26 2024",
     uv: 3490,
     pv: 4300,
     amt: 2100,
   },
   {
-    name: "Oct 27",
+    name: "May 27 2024",
     uv: 1890,
     pv: 4800,
     amt: 2181,
   },
   {
-    name: "Oct 28",
+    name: "May 28 2024",
     uv: 2390,
     pv: 3800,
     amt: 2500,
   },
   {
-    name: "Oct 29",
+    name: "May 29 2024",
     uv: 3490,
     pv: 4300,
     amt: 2100,
@@ -140,6 +140,35 @@ export const AnalyticsDetails = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [location]);
 
+  const [CSVData, setCSVData] = useState(graphData);
+
+  const dateFormat = (date: any) => {
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let finalDate = new Date(`${year}-${month}-${day}`);
+
+    return finalDate.valueOf();
+  };
+
+  const csvButtonHandler = () => {
+    let finalCSV: any[] = [];
+
+    let startDateVal = dateFormat(startDate);
+    let endDateVal = dateFormat(endDate);
+
+    graphData.map((item, index) => {
+      let date = new Date(item.name);
+      let fullDate = dateFormat(date);
+
+      if (startDateVal <= fullDate && endDateVal >= fullDate) {
+        finalCSV[index] = item;
+      }
+    });
+
+    setCSVData(finalCSV);
+  };
+
   return (
     <Layout>
       <div className={classes.titleContainer}>
@@ -191,10 +220,11 @@ export const AnalyticsDetails = () => {
               <div className={classes.exportWrapper}>
                 <h4>Export</h4>
                 <CSVLink
-                  data={graphData}
+                  data={CSVData}
                   className={classes.csvDownload}
                   filename={analyticsSlug + ".csv"}
                   headers={CSVHeaders}
+                  onClick={csvButtonHandler}
                 >
                   <ReactSVG
                     src={exportIconBlack}

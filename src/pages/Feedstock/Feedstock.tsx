@@ -105,39 +105,59 @@ const feedstockData = [
 
 const tableList = [
   {
-    timestamp: "June 12, 09:43 AM",
+    timestamp: "May 4 2024, 09:43 AM",
     quality: "1365965.00",
   },
   {
-    timestamp: "June 12, 09:43 AM",
+    timestamp: "May 5 2024, 09:43 AM",
     quality: "1365965.00",
   },
   {
-    timestamp: "June 12, 09:43 AM",
+    timestamp: "May 6 2024, 09:43 AM",
     quality: "1365965.00",
   },
   {
-    timestamp: "June 12, 09:43 AM",
+    timestamp: "May 7 2024, 09:43 AM",
     quality: "1365965.00",
   },
   {
-    timestamp: "June 12, 09:43 AM",
+    timestamp: "May 8 2024, 09:43 AM",
     quality: "1365965.00",
   },
   {
-    timestamp: "June 9, 09:43 AM",
+    timestamp: "May 9 2024, 09:43 AM",
     quality: "1065965.00",
   },
   {
-    timestamp: "June 10, 09:43 AM",
+    timestamp: "May 10 2024, 09:43 AM",
     quality: "1365965.00",
   },
   {
-    timestamp: "June 11, 09:43 AM",
+    timestamp: "May 11 2024, 09:43 AM",
     quality: "1165965.00",
   },
   {
-    timestamp: "June 12, 09:43 AM",
+    timestamp: "May 12 2024, 09:43 AM",
+    quality: "1265965.00",
+  },
+  {
+    timestamp: "May 13 2024, 09:43 AM",
+    quality: "1365965.00",
+  },
+  {
+    timestamp: "May 14 2024, 09:43 AM",
+    quality: "1065965.00",
+  },
+  {
+    timestamp: "May 15 2024, 09:43 AM",
+    quality: "1365965.00",
+  },
+  {
+    timestamp: "May 16 2024, 09:43 AM",
+    quality: "1165965.00",
+  },
+  {
+    timestamp: "May 17 2024, 09:43 AM",
     quality: "1265965.00",
   },
 ];
@@ -202,6 +222,35 @@ export const Feedstock = () => {
   const [startDate, setStartDate] = useState(thirtyDaysAgo);
   const [endDate, setEndDate] = useState(new Date());
 
+  const [CSVData, setCSVData] = useState(tableList);
+
+  const dateFormat = (date: any) => {
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let finalDate = new Date(`${year}-${month}-${day}`);
+
+    return finalDate.valueOf();
+  };
+
+  const csvButtonHandler = () => {
+    let finalCSV: any[] = [];
+
+    let startDateVal = dateFormat(startDate);
+    let endDateVal = dateFormat(endDate);
+
+    tableList.map((item, index) => {
+      let date = new Date(item.timestamp);
+      let fullDate = dateFormat(date);
+
+      if (startDateVal <= fullDate && endDateVal >= fullDate) {
+        finalCSV[index] = item;
+      }
+    });
+
+    setCSVData(finalCSV);
+  };
+
   return (
     <Layout>
       <div className={classes.feedstock}>
@@ -253,10 +302,11 @@ export const Feedstock = () => {
               <div className={classes.exportWrapper}>
                 <h4>Export</h4>
                 <CSVLink
-                  data={tableList}
+                  data={CSVData}
                   className={classes.csvDownload}
                   filename={"Feedstock.csv"}
                   headers={CSVHeaders}
+                  onClick={csvButtonHandler}
                 >
                   <ReactSVG
                     src={exportIconBlack}

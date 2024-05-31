@@ -88,39 +88,39 @@ const cargoData = [
 
 const tableList = [
   {
-    timestamp: "May 3, 09:43 AM",
+    timestamp: "May 3 2024, 09:43 AM",
     quality: "165965.00",
   },
   {
-    timestamp: "May 4, 09:43 AM",
+    timestamp: "May 4 2024, 09:43 AM",
     quality: "365965.00",
   },
   {
-    timestamp: "May 5, 09:43 AM",
+    timestamp: "May 5 2024, 09:43 AM",
     quality: "1465965.00",
   },
   {
-    timestamp: "May 6, 09:43 AM",
+    timestamp: "May 6 2024, 09:43 AM",
     quality: "1365965.00",
   },
   {
-    timestamp: "May 7, 09:43 AM",
+    timestamp: "May 7 2024, 09:43 AM",
     quality: "1565965.00",
   },
   {
-    timestamp: "May 8, 09:43 AM",
+    timestamp: "May 8 2024, 09:43 AM",
     quality: "1065965.00",
   },
   {
-    timestamp: "May 9, 09:43 AM",
+    timestamp: "May 9 2024, 09:43 AM",
     quality: "1365965.00",
   },
   {
-    timestamp: "May 10, 09:43 AM",
+    timestamp: "May 10 2024, 09:43 AM",
     quality: "1165965.00",
   },
   {
-    timestamp: "May 11, 09:43 AM",
+    timestamp: "May 11 2024, 09:43 AM",
     quality: "1265965.00",
   },
 ];
@@ -162,6 +162,9 @@ const CSVHeaders = [
 ];
 
 export const CargoSensor = () => {
+  const { slug } = useParams();
+  const url = `/projects/${slug}/data-sources`;
+
   const [activeTab, setActiveTab] = useState(1);
 
   const handleTabClick = (tabIndex: number) => {
@@ -170,9 +173,6 @@ export const CargoSensor = () => {
     }
     setActiveTab(tabIndex);
   };
-
-  const { slug } = useParams();
-  const url = `/projects/${slug}/data-sources`;
 
   const location = useLocation();
   useEffect(() => {
@@ -190,6 +190,35 @@ export const CargoSensor = () => {
 
   const [startDate, setStartDate] = useState(thirtyDaysAgo);
   const [endDate, setEndDate] = useState(new Date());
+
+  const [CSVData, setCSVData] = useState(tableList);
+
+  const dateFormat = (date: any) => {
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let finalDate = new Date(`${year}-${month}-${day}`);
+
+    return finalDate.valueOf();
+  };
+
+  const csvButtonHandler = () => {
+    let finalCSV: any[] = [];
+
+    let startDateVal = dateFormat(startDate);
+    let endDateVal = dateFormat(endDate);
+
+    tableList.map((item, index) => {
+      let date = new Date(item.timestamp);
+      let fullDate = dateFormat(date);
+
+      if (startDateVal <= fullDate && endDateVal >= fullDate) {
+        finalCSV[index] = item;
+      }
+    });
+
+    setCSVData(finalCSV);
+  };
 
   return (
     <Layout>
@@ -242,10 +271,11 @@ export const CargoSensor = () => {
               <div className={classes.exportWrapper}>
                 <h4>Export</h4>
                 <CSVLink
-                  data={tableList}
+                  data={CSVData}
                   className={classes.csvDownload}
                   filename={"Cargo Sensor.csv"}
                   headers={CSVHeaders}
+                  onClick={csvButtonHandler}
                 >
                   <ReactSVG
                     src={exportIconBlack}

@@ -19,129 +19,125 @@ import { useEffect, useState } from "react";
 import DatePicker from "react-datepicker";
 import { CSVLink } from "react-csv";
 
-const graphDataFirst = [
-  {
-    name: "Oct 20",
-    uv: 0,
-    pv: 0,
-    amt: 0,
-  },
-  {
-    name: "Oct 21",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: "Oct 22",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "Oct 23",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: "Oct 24",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "Oct 25",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "Oct 26",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-  {
-    name: "Oct 27",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "Oct 28",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "Oct 29",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
-
-const secondGraphData = [
-  {
-    name: "Oct 20",
-    uv: 20000,
-    pv: 0,
-    amt: 0,
-  },
-  {
-    name: "Oct 21",
-    uv: 45000,
-    pv: 0,
-    amt: 0,
-  },
-  {
-    name: "Oct 22",
-    uv: 65000,
-    pv: 0,
-    amt: 0,
-  },
-  {
-    name: "Oct 23",
-    uv: 98000,
-    pv: 0,
-    amt: 0,
-  },
-  {
-    name: "Oct 24",
-    uv: 120000,
-    pv: 0,
-    amt: 0,
-  },
-  {
-    name: "Oct 25",
-    uv: 145000,
-    pv: 0,
-    amt: 0,
-  },
-  {
-    name: "Oct 26",
-    uv: 160000,
-    pv: 0,
-    amt: 0,
-  },
-];
-
-const firstChartData = {
-  title: "Total Project GHG emissions",
-  value: "172,642",
-  unit: "t CH4",
-  url: "total-ghg-emission",
-};
-
-const secondChartData = {
-  title: "Total methane emissions destroyed",
-  value: "172,642",
-  unit: "t CH4",
-  url: "total-methane-emission",
-};
-
 const chartsData = [
+  {
+    title: "Total Project GHG emissions",
+    value: "172,642",
+    unit: "t CH4",
+    url: "total-ghg-emission",
+    data: [
+      {
+        name: "May 20 2024",
+        uv: 0,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "May 21 2024",
+        uv: 3000,
+        pv: 1398,
+        amt: 2210,
+      },
+      {
+        name: "May 22 2024",
+        uv: 2000,
+        pv: 9800,
+        amt: 2290,
+      },
+      {
+        name: "May 23 2024",
+        uv: 2780,
+        pv: 3908,
+        amt: 2000,
+      },
+      {
+        name: "May 24 2024",
+        uv: 1890,
+        pv: 4800,
+        amt: 2181,
+      },
+      {
+        name: "May 25 2024",
+        uv: 2390,
+        pv: 3800,
+        amt: 2500,
+      },
+      {
+        name: "May 26 2024",
+        uv: 3490,
+        pv: 4300,
+        amt: 2100,
+      },
+      {
+        name: "May 27 2024",
+        uv: 1890,
+        pv: 4800,
+        amt: 2181,
+      },
+      {
+        name: "May 28 2024",
+        uv: 2390,
+        pv: 3800,
+        amt: 2500,
+      },
+      {
+        name: "May 29 2024",
+        uv: 3490,
+        pv: 4300,
+        amt: 2100,
+      },
+    ],
+  },
+  {
+    title: "Total methane emissions destroyed",
+    value: "172,642",
+    unit: "t CH4",
+    url: "total-methane-emission",
+    data: [
+      {
+        name: "May 20 2024",
+        uv: 20000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "May 21 2024",
+        uv: 45000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "May 22 2024",
+        uv: 65000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "May 23 2024",
+        uv: 98000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "May 24 2024",
+        uv: 120000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "May 25 2024",
+        uv: 145000,
+        pv: 0,
+        amt: 0,
+      },
+      {
+        name: "May 26 2024",
+        uv: 160000,
+        pv: 0,
+        amt: 0,
+      },
+    ],
+  },
   {
     title: "Net methane destroyed by flare",
     value: "134,538",
@@ -149,43 +145,43 @@ const chartsData = [
     url: "total-methane-destroyed",
     data: [
       {
-        name: "Oct 20",
+        name: "May 20 2024",
         uv: 8000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 21",
+        name: "May 21 2024",
         uv: 4500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 22",
+        name: "May 22 2024",
         uv: 6500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 23",
+        name: "May 23 2024",
         uv: 9800,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 24",
+        name: "May 24 2024",
         uv: 1000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 25",
+        name: "May 25 2024",
         uv: 14500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 26",
+        name: "May 26 2024",
         uv: 16000,
         pv: 0,
         amt: 0,
@@ -199,43 +195,43 @@ const chartsData = [
     url: "net-methane-destroyed",
     data: [
       {
-        name: "Oct 20",
+        name: "May 20 2024",
         uv: 4000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 21",
+        name: "May 21 2024",
         uv: 5500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 22",
+        name: "May 22 2024",
         uv: 6500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 23",
+        name: "May 23 2024",
         uv: 2800,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 24",
+        name: "May 24 2024",
         uv: 12000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 25",
+        name: "May 25 2024",
         uv: 14500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 26",
+        name: "May 26 2024",
         uv: 19000,
         pv: 0,
         amt: 0,
@@ -249,43 +245,43 @@ const chartsData = [
     url: "total-methane-destroyed",
     data: [
       {
-        name: "Oct 20",
+        name: "May 20 2024",
         uv: 2000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 21",
+        name: "May 21 2024",
         uv: 4500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 22",
+        name: "May 22 2024",
         uv: 6500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 23",
+        name: "May 23 2024",
         uv: 9800,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 24",
+        name: "May 24 2024",
         uv: 12000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 25",
+        name: "May 25 2024",
         uv: 14500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 26",
+        name: "May 26 2024",
         uv: 16000,
         pv: 0,
         amt: 0,
@@ -299,43 +295,43 @@ const chartsData = [
     url: "total-methane-sent",
     data: [
       {
-        name: "Oct 20",
+        name: "May 20 2024",
         uv: 2000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 21",
+        name: "May 21 2024",
         uv: 4500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 22",
+        name: "May 22 2024",
         uv: 6500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 23",
+        name: "May 23 2024",
         uv: 9800,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 24",
+        name: "May 24 2024",
         uv: 12000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 25",
+        name: "May 25 2024",
         uv: 14500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 26",
+        name: "May 26 2024",
         uv: 16000,
         pv: 0,
         amt: 0,
@@ -349,43 +345,43 @@ const chartsData = [
     url: "total-ghg-emission",
     data: [
       {
-        name: "Oct 20",
+        name: "May 20 2024",
         uv: 1000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 21",
+        name: "May 21 2024",
         uv: 1500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 22",
+        name: "May 22 2024",
         uv: 6500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 23",
+        name: "May 23 2024",
         uv: 9800,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 24",
+        name: "May 24 2024",
         uv: 7000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 25",
+        name: "May 25 2024",
         uv: 14500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 26",
+        name: "May 26 2024",
         uv: 16000,
         pv: 0,
         amt: 0,
@@ -399,43 +395,43 @@ const chartsData = [
     url: "total-methane-destroyed",
     data: [
       {
-        name: "Oct 20",
+        name: "May 20 2024",
         uv: 2000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 21",
+        name: "May 21 2024",
         uv: 4500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 22",
+        name: "May 22 2024",
         uv: 6500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 23",
+        name: "May 23 2024",
         uv: 9800,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 24",
+        name: "May 24 2024",
         uv: 12000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 25",
+        name: "May 25 2024",
         uv: 1400,
         pv: 0,
         amt: 0,
       },
       {
-        name: "Oct 26",
+        name: "May 26 2024",
         uv: 16000,
         pv: 0,
         amt: 0,
@@ -465,8 +461,8 @@ const statisticsData = [
   },
 ];
 
-const flattenedData = chartsData.flatMap(item =>
-  item.data.map(subItem => ({
+const flattenedData = chartsData.flatMap((item) =>
+  item.data.map((subItem) => ({
     title: item.title,
     value: item.value,
     unit: item.unit,
@@ -508,6 +504,35 @@ export const Analytics = () => {
   useEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [location]);
+
+  const [CSVData, setCSVData] = useState(flattenedData);
+
+  const dateFormat = (date: any) => {
+    let day = date.getDate();
+    let month = date.getMonth() + 1;
+    let year = date.getFullYear();
+    let finalDate = new Date(`${year}-${month}-${day}`);
+
+    return finalDate.valueOf();
+  };
+
+  const csvButtonHandler = () => {
+    let finalCSV: any[] = [];
+
+    let startDateVal = dateFormat(startDate);
+    let endDateVal = dateFormat(endDate);
+
+    flattenedData.map((item, index) => {
+      let date = new Date(item.date);
+      let fullDate = dateFormat(date);
+
+      if (startDateVal <= fullDate && endDateVal >= fullDate) {
+        finalCSV[index] = item;
+      }
+    });
+
+    setCSVData(finalCSV);
+  };
 
   return (
     <Layout>
@@ -561,10 +586,11 @@ export const Analytics = () => {
               <div className={classes.exportWrapper}>
                 <h4>Export</h4>
                 <CSVLink
-                  data={flattenedData}
+                  data={CSVData}
                   className={classes.csvDownload}
                   filename={"analytics.csv"}
                   headers={CSVHeaders}
+                  onClick={csvButtonHandler}
                 >
                   <ReactSVG
                     src={exportIconBlack}
@@ -582,15 +608,15 @@ export const Analytics = () => {
             <div className={classes.analyticsGreenChart}>
               <div className={classes.heading}>
                 <div className={classes.projectLink}>
-                  <Link to={firstChartData.title}>{firstChartData.title}</Link>
+                  <Link to={chartsData[0].title}>{chartsData[0].title}</Link>
                   <ReactSVG src={arrowRightIcon} className={classes.icon} />
                 </div>
                 <div>
-                  <h2>{firstChartData.value}</h2>
-                  <span>{firstChartData.unit}</span>
+                  <h2>{chartsData[0].value}</h2>
+                  <span>{chartsData[0].unit}</span>
                 </div>
               </div>
-              <PinkLineChart graphData={graphDataFirst} height={245} />
+              <PinkLineChart graphData={chartsData[0].data} height={245} />
             </div>
             {/* 3 elements */}
             <div className={classes.statisticWrapper}>
@@ -602,38 +628,47 @@ export const Analytics = () => {
             <div className={classes.analyticsGreenChart}>
               <div className={classes.heading}>
                 <div className={classes.projectLink}>
-                  <Link to={secondChartData.title}>
-                    {secondChartData.title}
-                  </Link>
+                  <Link to={chartsData[1].title}>{chartsData[1].title}</Link>
                   <ReactSVG src={arrowRightIcon} className={classes.icon} />
                 </div>
                 <div>
-                  <h2>{secondChartData.value}</h2>
-                  <span>{secondChartData.unit}</span>
+                  <h2>{chartsData[1].value}</h2>
+                  <span>{chartsData[1].unit}</span>
                 </div>
               </div>
               <GreenAreaAnalyticsChart
-                graphData={secondGraphData}
+                graphData={chartsData[1].data}
                 height={245}
               />
             </div>
             {/* chart grid */}
             <div className={classes.grid}>
-              {chartsData.map((item, index) => (
-                <div className={classes.analyticsGreenChart} key={index}>
-                  <div className={classes.heading}>
-                    <div className={classes.projectLink}>
-                      <Link to={item.title}>{item.title}</Link>
-                      <ReactSVG src={arrowRightIcon} className={classes.icon} />
+              {chartsData.map((item, index) => {
+                if (index === 0 || index === 1) {
+                  return null;
+                }
+                return (
+                  <div className={classes.analyticsGreenChart} key={index}>
+                    <div className={classes.heading}>
+                      <div className={classes.projectLink}>
+                        <Link to={item.title}>{item.title}</Link>
+                        <ReactSVG
+                          src={arrowRightIcon}
+                          className={classes.icon}
+                        />
+                      </div>
+                      <div>
+                        <h2>{item.value}</h2>
+                        <span>{item.unit}</span>
+                      </div>
                     </div>
-                    <div>
-                      <h2>{item.value}</h2>
-                      <span>{item.unit}</span>
-                    </div>
+                    <GreenAreaAnalyticsChart
+                      graphData={item.data}
+                      height={197}
+                    />
                   </div>
-                  <GreenAreaAnalyticsChart graphData={item.data} height={197} />
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
