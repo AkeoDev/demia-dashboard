@@ -280,7 +280,7 @@ export const Flowmeter = () => {
                   selectsStart
                   startDate={startDate}
                   endDate={endDate}
-                  dateFormat="MMMM d, yyyy"
+                  dateFormat="MMM d, yyyy"
                 />
                 <span>-</span>
                 <DatePicker
@@ -292,7 +292,7 @@ export const Flowmeter = () => {
                   startDate={startDate}
                   endDate={endDate}
                   minDate={startDate}
-                  dateFormat="MMMM d, yyyy"
+                  dateFormat="MMM d, yyyy"
                 />
               </div>
               <span className={classes.divider}></span>

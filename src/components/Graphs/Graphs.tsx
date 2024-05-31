@@ -188,7 +188,7 @@ export const PinkLineChart: FunctionComponent<{
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10}/>
+          <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10} height={40}/>
           <YAxis fontFamily="SpaceGrotesk" dx={-5}/>
           <ReferenceLine
             y={7000}
@@ -231,7 +231,7 @@ export const GreenAreaAnalyticsChart: FunctionComponent<{
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10}/>
+          <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10} height={40}/>
           <YAxis fontFamily="SpaceGrotesk" dx={-5}/>
           <Area
             type="monotone"

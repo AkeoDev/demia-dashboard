@@ -554,7 +554,7 @@ export const Analytics = () => {
                   selectsStart
                   startDate={startDate}
                   endDate={endDate}
-                  dateFormat="MMMM d, yyyy"
+                  dateFormat="MMM d, yyyy"
                 />
                 <span>-</span>
                 <DatePicker
@@ -566,7 +566,7 @@ export const Analytics = () => {
                   startDate={startDate}
                   endDate={endDate}
                   minDate={startDate}
-                  dateFormat="MMMM d, yyyy"
+                  dateFormat="MMM d, yyyy"
                 />
               </div>
               <span className={classes.divider}></span>
@@ -588,7 +588,7 @@ export const Analytics = () => {
                 <CSVLink
                   data={CSVData}
                   className={classes.csvDownload}
-                  filename={"analytics.csv"}
+                  filename={"Analytics.csv"}
                   headers={CSVHeaders}
                   onClick={csvButtonHandler}
                 >
@@ -616,7 +616,7 @@ export const Analytics = () => {
                   <span>{chartsData[0].unit}</span>
                 </div>
               </div>
-              <PinkLineChart graphData={chartsData[0].data} height={245} />
+              <PinkLineChart graphData={chartsData[0].data} height={265} />
             </div>
             {/* 3 elements */}
             <div className={classes.statisticWrapper}>
@@ -638,7 +638,7 @@ export const Analytics = () => {
               </div>
               <GreenAreaAnalyticsChart
                 graphData={chartsData[1].data}
-                height={245}
+                height={265}
               />
             </div>
             {/* chart grid */}
