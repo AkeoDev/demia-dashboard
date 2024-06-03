@@ -171,7 +171,8 @@ export const GreenAreaChart: FunctionComponent<{
 export const PinkLineChart: FunctionComponent<{
   graphData?: Array<{ name: string; pv: number; uv: number; amt: number }>;
   height?: number;
-}> = ({ graphData = data, height = 500 }) => {
+  baseline?: number;
+}> = ({ graphData = data, height = 500, baseline }) => {
   return (
     <div className={classes["sensor-load-container"]}>
       <div className={classes["heading"]}>
@@ -191,7 +192,7 @@ export const PinkLineChart: FunctionComponent<{
           <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10} height={40}/>
           <YAxis fontFamily="SpaceGrotesk" dx={-5}/>
           <ReferenceLine
-            y={7000}
+            y={baseline}
             label={{
               position: "left",
               value: "Baseline",

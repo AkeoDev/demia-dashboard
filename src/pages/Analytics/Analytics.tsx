@@ -25,63 +25,46 @@ const chartsData = [
     value: "172,642",
     unit: "t CH4",
     url: "total-ghg-emission",
+    baseline: 7000,
     data: [
       {
-        name: "May 20 2024",
-        uv: 0,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "May 21 2024",
-        uv: 3000,
-        pv: 1398,
-        amt: 2210,
-      },
-      {
-        name: "May 22 2024",
-        uv: 2000,
-        pv: 9800,
-        amt: 2290,
-      },
-      {
-        name: "May 23 2024",
+        name: "June 1 2024",
         uv: 2780,
         pv: 3908,
         amt: 2000,
       },
       {
-        name: "May 24 2024",
+        name: "June 2 2024",
         uv: 1890,
-        pv: 4800,
+        pv: 8000,
         amt: 2181,
       },
       {
-        name: "May 25 2024",
+        name: "June 3 2024",
         uv: 2390,
         pv: 3800,
         amt: 2500,
       },
       {
-        name: "May 26 2024",
+        name: "June 4 2024",
         uv: 3490,
-        pv: 4300,
+        pv: 11100,
         amt: 2100,
       },
       {
-        name: "May 27 2024",
+        name: "June 5 2024",
         uv: 1890,
         pv: 4800,
         amt: 2181,
       },
       {
-        name: "May 28 2024",
+        name: "June 6 2024",
         uv: 2390,
         pv: 3800,
         amt: 2500,
       },
       {
-        name: "May 29 2024",
+        name: "June 7 2024",
         uv: 3490,
         pv: 4300,
         amt: 2100,
@@ -95,43 +78,43 @@ const chartsData = [
     url: "total-methane-emission",
     data: [
       {
-        name: "May 20 2024",
+        name: "June 1 2024",
         uv: 20000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 21 2024",
+        name: "June 2 2024",
         uv: 45000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 22 2024",
+        name: "June 3 2024",
         uv: 65000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 23 2024",
+        name: "June 4 2024",
         uv: 98000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 24 2024",
+        name: "June 5 2024",
         uv: 120000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 25 2024",
+        name: "June 6 2024",
         uv: 145000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 26 2024",
+        name: "June 7 2024",
         uv: 160000,
         pv: 0,
         amt: 0,
@@ -145,43 +128,43 @@ const chartsData = [
     url: "total-methane-destroyed",
     data: [
       {
-        name: "May 20 2024",
+        name: "June 1 2024",
         uv: 8000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 21 2024",
+        name: "June 2 2024",
         uv: 4500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 22 2024",
+        name: "June 3 2024",
         uv: 6500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 23 2024",
+        name: "June 4 2024",
         uv: 9800,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 24 2024",
+        name: "June 5 2024",
         uv: 1000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 25 2024",
+        name: "June 6 2024",
         uv: 14500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 26 2024",
+        name: "June 7 2024",
         uv: 16000,
         pv: 0,
         amt: 0,
@@ -195,43 +178,43 @@ const chartsData = [
     url: "net-methane-destroyed",
     data: [
       {
-        name: "May 20 2024",
+        name: "June 1 2024",
         uv: 4000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 21 2024",
+        name: "June 2 2024",
         uv: 5500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 22 2024",
+        name: "June 3 2024",
         uv: 6500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 23 2024",
+        name: "June 4 2024",
         uv: 2800,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 24 2024",
+        name: "June 5 2024",
         uv: 12000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 25 2024",
+        name: "June 6 2024",
         uv: 14500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 26 2024",
+        name: "June 7 2024",
         uv: 19000,
         pv: 0,
         amt: 0,
@@ -245,43 +228,43 @@ const chartsData = [
     url: "total-methane-destroyed",
     data: [
       {
-        name: "May 20 2024",
+        name: "June 1 2024",
         uv: 2000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 21 2024",
+        name: "June 2 2024",
         uv: 4500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 22 2024",
+        name: "June 3 2024",
         uv: 6500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 23 2024",
+        name: "June 4 2024",
         uv: 9800,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 24 2024",
+        name: "June 5 2024",
         uv: 12000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 25 2024",
+        name: "June 6 2024",
         uv: 14500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 26 2024",
+        name: "June 7 2024",
         uv: 16000,
         pv: 0,
         amt: 0,
@@ -295,43 +278,43 @@ const chartsData = [
     url: "total-methane-sent",
     data: [
       {
-        name: "May 20 2024",
+        name: "June 1 2024",
         uv: 2000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 21 2024",
+        name: "June 2 2024",
         uv: 4500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 22 2024",
+        name: "June 3 2024",
         uv: 6500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 23 2024",
+        name: "June 4 2024",
         uv: 9800,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 24 2024",
+        name: "June 5 2024",
         uv: 12000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 25 2024",
+        name: "June 6 2024",
         uv: 14500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 26 2024",
+        name: "June 7 2024",
         uv: 16000,
         pv: 0,
         amt: 0,
@@ -345,43 +328,43 @@ const chartsData = [
     url: "total-ghg-emission",
     data: [
       {
-        name: "May 20 2024",
+        name: "June 1 2024",
         uv: 1000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 21 2024",
+        name: "June 2 2024",
         uv: 1500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 22 2024",
+        name: "June 3 2024",
         uv: 6500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 23 2024",
+        name: "June 4 2024",
         uv: 9800,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 24 2024",
+        name: "June 5 2024",
         uv: 7000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 25 2024",
+        name: "June 6 2024",
         uv: 14500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 26 2024",
+        name: "June 7 2024",
         uv: 16000,
         pv: 0,
         amt: 0,
@@ -395,43 +378,43 @@ const chartsData = [
     url: "total-methane-destroyed",
     data: [
       {
-        name: "May 20 2024",
+        name: "June 1 2024",
         uv: 2000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 21 2024",
+        name: "June 2 2024",
         uv: 4500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 22 2024",
+        name: "June 3 2024",
         uv: 6500,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 23 2024",
+        name: "June 4 2024",
         uv: 9800,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 24 2024",
+        name: "June 5 2024",
         uv: 12000,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 25 2024",
+        name: "June 6 2024",
         uv: 1400,
         pv: 0,
         amt: 0,
       },
       {
-        name: "May 26 2024",
+        name: "June 7 2024",
         uv: 16000,
         pv: 0,
         amt: 0,
@@ -534,12 +517,56 @@ export const Analytics = () => {
     setCSVData(finalCSV);
   };
 
+  const [graphData, setGraphData] = useState(chartsData);
+
+  const changeGraphHandler = (event: any) => {
+    const endDateValue = dateFormat(new Date());
+
+    const daysAgo = new Date();
+    daysAgo.setDate(thirtyDaysAgo.getDate() - event.target.value);
+    const daysAgoValue = dateFormat(daysAgo);
+
+    let finalData: any[] = [];
+
+    chartsData.map((item, index) => {
+      finalData[index] = {
+        title: item.title,
+        value: item.value,
+        unit: item.unit,
+        url: item.url,
+        baseline: item.baseline,
+        data: []
+      };
+
+      item.data.forEach((element) => {
+        let date = new Date(element.name);
+        let fullDate = dateFormat(date);
+
+        if (daysAgoValue <= fullDate && endDateValue >= fullDate) {
+          finalData[index].data.push(element);
+        }
+      })
+    });
+    setGraphData(finalData);
+  };
+
   return (
     <Layout>
       <div className={classes.analytics}>
         <div className={classes.titleContainer}>
           <h1 className={classes.title}>Analytics</h1>
           <div className={classes.rightButtons}>
+            <select
+              name="range"
+              id=""
+              defaultValue="7"
+              onChange={changeGraphHandler}
+              className={classes.selectRange}
+            >
+              <option value="3">3 days</option>
+              <option value="7">7 days</option>
+              <option value="30">30 days</option>
+            </select>
             <Link to={url} className={classes.button}>
               <ReactSVG src={settingsIcon} className={classes.icon}></ReactSVG>
               Settings
@@ -608,15 +635,15 @@ export const Analytics = () => {
             <div className={classes.analyticsGreenChart}>
               <div className={classes.heading}>
                 <div className={classes.projectLink}>
-                  <Link to={chartsData[0].title}>{chartsData[0].title}</Link>
+                  <Link to={graphData[0].title}>{graphData[0].title}</Link>
                   <ReactSVG src={arrowRightIcon} className={classes.icon} />
                 </div>
                 <div>
-                  <h2>{chartsData[0].value}</h2>
-                  <span>{chartsData[0].unit}</span>
+                  <h2>{graphData[0].value}</h2>
+                  <span>{graphData[0].unit}</span>
                 </div>
               </div>
-              <PinkLineChart graphData={chartsData[0].data} height={265} />
+              <PinkLineChart graphData={graphData[0].data} height={265} baseline={graphData[0].baseline} />
             </div>
             {/* 3 elements */}
             <div className={classes.statisticWrapper}>
@@ -628,22 +655,22 @@ export const Analytics = () => {
             <div className={classes.analyticsGreenChart}>
               <div className={classes.heading}>
                 <div className={classes.projectLink}>
-                  <Link to={chartsData[1].title}>{chartsData[1].title}</Link>
+                  <Link to={graphData[1].title}>{graphData[1].title}</Link>
                   <ReactSVG src={arrowRightIcon} className={classes.icon} />
                 </div>
                 <div>
-                  <h2>{chartsData[1].value}</h2>
-                  <span>{chartsData[1].unit}</span>
+                  <h2>{graphData[1].value}</h2>
+                  <span>{graphData[1].unit}</span>
                 </div>
               </div>
               <GreenAreaAnalyticsChart
-                graphData={chartsData[1].data}
+                graphData={graphData[1].data}
                 height={265}
               />
             </div>
             {/* chart grid */}
             <div className={classes.grid}>
-              {chartsData.map((item, index) => {
+              {graphData.map((item, index) => {
                 if (index === 0 || index === 1) {
                   return null;
                 }

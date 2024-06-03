@@ -17,6 +17,16 @@
       gap: 16px;
     }
 
+    .selectRange {
+      @extend .font-16-21-500;
+      padding: 9px;
+      border: none;
+      box-shadow: 0px 0px 1px 0px rgba(9, 30, 66, 0.31);
+      color: $black;
+      background-color: $white;
+      appearance: none;
+    }
+
     .datePickerContainer {
       display: flex;
       align-items: center;
