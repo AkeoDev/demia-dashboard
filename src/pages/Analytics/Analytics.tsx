@@ -519,12 +519,11 @@ export const Analytics = () => {
 
   const [graphData, setGraphData] = useState(chartsData);
 
-  const changeGraphHandler = (event: any) => {
-    const endDateValue = dateFormat(new Date());
+  const startDateHandler = (date: any) => {
+    date && setStartDate(date);
 
-    const daysAgo = new Date();
-    daysAgo.setDate(thirtyDaysAgo.getDate() - event.target.value);
-    const daysAgoValue = dateFormat(daysAgo);
+    const endDateValue = dateFormat(endDate);
+    const startDateValue = dateFormat(date);
 
     let finalData: any[] = [];
 
@@ -535,17 +534,46 @@ export const Analytics = () => {
         unit: item.unit,
         url: item.url,
         baseline: item.baseline,
-        data: []
+        data: [],
       };
 
       item.data.forEach((element) => {
         let date = new Date(element.name);
         let fullDate = dateFormat(date);
 
-        if (daysAgoValue <= fullDate && endDateValue >= fullDate) {
+        if (startDateValue <= fullDate && endDateValue >= fullDate) {
           finalData[index].data.push(element);
         }
-      })
+      });
+    });
+    setGraphData(finalData);
+  };
+  const endDateHandler = (date: any) => {
+    date && setEndDate(date);
+
+    const endDateValue = dateFormat(date);
+    const startDateValue = dateFormat(startDate);
+
+    let finalData: any[] = [];
+
+    chartsData.map((item, index) => {
+      finalData[index] = {
+        title: item.title,
+        value: item.value,
+        unit: item.unit,
+        url: item.url,
+        baseline: item.baseline,
+        data: [],
+      };
+
+      item.data.forEach((element) => {
+        let date = new Date(element.name);
+        let fullDate = dateFormat(date);
+
+        if (startDateValue <= fullDate && endDateValue >= fullDate) {
+          finalData[index].data.push(element);
+        }
+      });
     });
     setGraphData(finalData);
   };
@@ -556,17 +584,6 @@ export const Analytics = () => {
         <div className={classes.titleContainer}>
           <h1 className={classes.title}>Analytics</h1>
           <div className={classes.rightButtons}>
-            <select
-              name="range"
-              id=""
-              defaultValue="7"
-              onChange={changeGraphHandler}
-              className={classes.selectRange}
-            >
-              <option value="3">3 days</option>
-              <option value="7">7 days</option>
-              <option value="30">30 days</option>
-            </select>
             <Link to={url} className={classes.button}>
               <ReactSVG src={settingsIcon} className={classes.icon}></ReactSVG>
               Settings
@@ -577,7 +594,7 @@ export const Analytics = () => {
                   calendarClassName="calendarStyle"
                   popperClassName="pooperStyle"
                   selected={startDate}
-                  onChange={(date) => date && setStartDate(date)}
+                  onChange={startDateHandler}
                   selectsStart
                   startDate={startDate}
                   endDate={endDate}
@@ -588,7 +605,7 @@ export const Analytics = () => {
                   calendarClassName="calendarStyle"
                   popperClassName="pooperStyle"
                   selected={endDate}
-                  onChange={(date) => date && setEndDate(date)}
+                  onChange={endDateHandler}
                   selectsEnd
                   startDate={startDate}
                   endDate={endDate}
@@ -643,7 +660,11 @@ export const Analytics = () => {
                   <span>{graphData[0].unit}</span>
                 </div>
               </div>
-              <PinkLineChart graphData={graphData[0].data} height={265} baseline={graphData[0].baseline} />
+              <PinkLineChart
+                graphData={graphData[0].data}
+                height={265}
+                baseline={graphData[0].baseline}
+              />
             </div>
             {/* 3 elements */}
             <div className={classes.statisticWrapper}>
