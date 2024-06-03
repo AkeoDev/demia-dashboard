@@ -226,10 +226,10 @@ export const Flowmeter = () => {
     window.scrollTo({top: 0, left: 0, behavior: 'smooth'});
   }, [location]);
 
-  const thirtyDaysAgo = new Date();
-  thirtyDaysAgo.setDate(thirtyDaysAgo.getDate() - 30);
+  const sevenDaysAgo = new Date();
+  sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
 
-  const [startDate, setStartDate] = useState(thirtyDaysAgo);
+  const [startDate, setStartDate] = useState(sevenDaysAgo);
   const [endDate, setEndDate] = useState(new Date());
 
   const [CSVData, setCSVData] = useState(tableList);
