@@ -40,12 +40,15 @@
     border-radius: 0;
     background-color: $hover-pink;
   }
-  .react-datepicker__day--keyboard-selected,
   .react-datepicker__month-text--keyboard-selected,
   .react-datepicker__quarter-text--keyboard-selected,
   .react-datepicker__year-text--keyboard-selected {
     border-radius: 0;
     background-color: $hover-pink;
+  }
+
+  .react-datepicker__day--keyboard-selected {
+    background-color: transparent;
   }
 
   .react-datepicker__time-container

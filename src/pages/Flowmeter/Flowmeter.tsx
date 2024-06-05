@@ -13,7 +13,7 @@ import {
 import { Layout } from "../../components/Layout/Layout";
 import classes from "./Flowmeter.module.scss";
 import { ReactSVG } from "react-svg";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BarChart } from "../../components/Graphs/Graphs";
 import { TableSorting } from "../../components/Table/Table";
 import { Cell } from "@table-library/react-table-library/table";
@@ -213,10 +213,26 @@ export const Flowmeter = () => {
   };
 
   const [isVisible, setIsVisible] = useState(false);
-
   const exportButtonHandler = () => {
     setIsVisible((prev) => !prev);
   };
+
+  const popupRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const handleClickOutside = (event: any) => {
+    if (popupRef.current && !popupRef.current.contains(event.target as Node) &&
+    buttonRef.current && !buttonRef.current.contains(event.target as Node)) {
+      setIsVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
 
   const { slug } = useParams();
   const url = `/projects/${slug}/data-sources`;
@@ -296,19 +312,20 @@ export const Flowmeter = () => {
                 />
               </div>
               <span className={classes.divider}></span>
-              <div
+              <button
                 className={classes.moreOptions}
                 onClick={exportButtonHandler}
+                ref={buttonRef}
               >
                 <ReactSVG
                   src={hamburgerIcon}
                   className={classes.hamburgerIcon}
                 ></ReactSVG>
-              </div>
+              </button>
             </div>
           )}
           {isVisible && (
-            <div className={classes.export}>
+            <div className={classes.export} ref={popupRef}>
               <div className={classes.exportWrapper}>
                 <h4>Export</h4>
                 <CSVLink

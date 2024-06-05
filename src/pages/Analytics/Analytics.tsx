@@ -15,7 +15,7 @@ import {
   GreenAreaAnalyticsChart,
   PinkLineChart,
 } from "../../components/Graphs/Graphs";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import DatePicker from "react-datepicker";
 import { CSVLink } from "react-csv";
 
@@ -477,6 +477,23 @@ export const Analytics = () => {
     setIsVisible((prev) => !prev);
   };
 
+  const popupRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
+
+  const handleClickOutside = (event: any) => {
+    if (popupRef.current && !popupRef.current.contains(event.target as Node) &&
+    buttonRef.current && !buttonRef.current.contains(event.target as Node)) {
+      setIsVisible(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
   const sevenDaysAgo = new Date();
   sevenDaysAgo.setDate(sevenDaysAgo.getDate() - 7);
 
@@ -614,19 +631,20 @@ export const Analytics = () => {
                 />
               </div>
               <span className={classes.divider}></span>
-              <div
+              <button
                 className={classes.moreOptions}
                 onClick={exportButtonHandler}
+                ref={buttonRef}
               >
                 <ReactSVG
                   src={hamburgerIcon}
                   className={classes.hamburgerIcon}
                 ></ReactSVG>
-              </div>
+              </button>
             </div>
           </div>
           {isVisible && (
-            <div className={classes.export}>
+            <div className={classes.export} ref={popupRef}>
               <div className={classes.exportWrapper}>
                 <h4>Export</h4>
                 <CSVLink
