@@ -481,16 +481,20 @@ export const Analytics = () => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
   const handleClickOutside = (event: any) => {
-    if (popupRef.current && !popupRef.current.contains(event.target as Node) &&
-    buttonRef.current && !buttonRef.current.contains(event.target as Node)) {
+    if (
+      popupRef.current &&
+      !popupRef.current.contains(event.target as Node) &&
+      buttonRef.current &&
+      !buttonRef.current.contains(event.target as Node)
+    ) {
       setIsVisible(false);
     }
   };
 
   useEffect(() => {
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -535,6 +539,33 @@ export const Analytics = () => {
   };
 
   const [graphData, setGraphData] = useState(chartsData);
+  useEffect(() => {
+    const startDateValue = dateFormat(startDate);
+    const endDateValue = dateFormat(endDate);
+
+    let finalData: any[] = [];
+
+    chartsData.map((item, index) => {
+      finalData[index] = {
+        title: item.title,
+        value: item.value,
+        unit: item.unit,
+        url: item.url,
+        baseline: item.baseline,
+        data: [],
+      };
+
+      item.data.forEach((element) => {
+        let date = new Date(element.name);
+        let fullDate = dateFormat(date);
+
+        if (startDateValue <= fullDate && endDateValue >= fullDate) {
+          finalData[index].data.push(element);
+        }
+      });
+    });
+    setGraphData(finalData);
+  }, []);
 
   const startDateHandler = (date: any) => {
     date && setStartDate(date);
@@ -565,6 +596,7 @@ export const Analytics = () => {
     });
     setGraphData(finalData);
   };
+  
   const endDateHandler = (date: any) => {
     date && setEndDate(date);
 
@@ -709,7 +741,7 @@ export const Analytics = () => {
             </div>
             {/* chart grid */}
             <div className={classes.grid}>
-              {graphData.map((item, index) => {
+              {graphData.map((item: any, index: any) => {
                 if (index === 0 || index === 1) {
                   return null;
                 }

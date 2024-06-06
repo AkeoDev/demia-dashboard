@@ -15,72 +15,33 @@ import {
   ReferenceLine,
 } from "recharts";
 
-const data = [
-  {
-    name: "",
-    uv: 0,
-    pv: 0,
-    amt: 0,
-  },
-  {
-    name: "Oct 21",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: "Oct 22",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: "Oct 23",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: "Oct 24",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: "Oct 25",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: "Oct 26",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
-
 function CustomTooltipGreen({ payload, label, active }: any) {
   if (active) {
-    return (
-      <div className={classes.customTooltip}>
-        <p>{label}</p>
-        <h4>{payload[0].value}</h4>
-      </div>
-    );
+    if (payload && payload != "") {
+      return (
+        <div className={classes.customTooltip}>
+          <p>{label}</p>
+          <h4>{payload[0].value}</h4>
+        </div>
+      );
+    }
+    return null;
   }
   return null;
 }
 
 function CustomTooltipBar({ payload, label, active }: any) {
   if (active) {
-    return (
-      <div className={classes.customTooltip}>
-        <p>{label}</p>
-        {payload[0].value ? <h4>{payload[0].value}</h4> : ""}
-        <h4>{payload[1].value}</h4>
-      </div>
-    );
+    if (payload && payload != "") {
+      return (
+        <div className={classes.customTooltip}>
+          <p>{label}</p>
+          {payload[0].value ? <h4>{payload[0].value}</h4> : ""}
+          <h4>{payload[1].value}</h4>
+        </div>
+      );
+    }
+    return null;
   }
   return null;
 }
@@ -113,7 +74,7 @@ const CustomizedRectangle: FunctionComponent<any> = ({
 
 export const BarChart: FunctionComponent<{
   graphData?: Array<{ name: string; pv: number; uv: number; amt: number }>;
-}> = ({ graphData = data }) => {
+}> = ({ graphData }) => {
   return (
     <div className={classes["sensor-load-container"]}>
       <div className={classes["heading"]}>
@@ -130,8 +91,8 @@ export const BarChart: FunctionComponent<{
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10}/>
-          <YAxis fontFamily="SpaceGrotesk" dx={-5}/>
+          <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10} />
+          <YAxis fontFamily="SpaceGrotesk" dx={-5} />
           <Line type="monotone" dataKey="pv" stroke="transparent" />
           <Line type="monotone" dataKey="uv" stroke="transparent" />
           <Customized component={CustomizedRectangle} />
@@ -144,17 +105,22 @@ export const BarChart: FunctionComponent<{
 
 export const GreenAreaChart: FunctionComponent<{
   graphData?: Array<{ name: string; pv: number; uv: number; amt: number }>;
-}> = ({ graphData = data }) => {
+}> = ({ graphData }) => {
   return (
     <div className={classes["sensor-load-container"]}>
       <div className={classes["heading"]}>
         <h3>Load</h3>
       </div>
       <ResponsiveContainer width="100%" height={500}>
-        <AreaChart data={graphData} width={500} height={300} margin={{ right: 30}}>
+        <AreaChart
+          data={graphData}
+          width={500}
+          height={300}
+          margin={{ right: 30 }}
+        >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10}/>
-          <YAxis fontFamily="SpaceGrotesk" dx={-5}/>
+          <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10} />
+          <YAxis fontFamily="SpaceGrotesk" dx={-5} />
           <Area
             type="monotone"
             dataKey="uv"
@@ -172,7 +138,7 @@ export const PinkLineChart: FunctionComponent<{
   graphData?: Array<{ name: string; pv: number; uv: number; amt: number }>;
   height?: number;
   baseline?: number;
-}> = ({ graphData = data, height = 500, baseline }) => {
+}> = ({ graphData, height = 500, baseline }) => {
   return (
     <div className={classes["sensor-load-container"]}>
       <div className={classes["heading"]}>
@@ -189,8 +155,8 @@ export const PinkLineChart: FunctionComponent<{
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10} height={40}/>
-          <YAxis fontFamily="SpaceGrotesk" dx={-5}/>
+          <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10} height={40} />
+          <YAxis fontFamily="SpaceGrotesk" dx={-5} />
           <ReferenceLine
             y={baseline}
             label={{
@@ -206,7 +172,13 @@ export const PinkLineChart: FunctionComponent<{
             strokeWidth={2}
             strokeDasharray="10"
           />
-          <Line type="monotone" dataKey="pv" stroke="#FF00A8" strokeWidth={2} activeDot={{ r: 6 }} />
+          <Line
+            type="monotone"
+            dataKey="pv"
+            stroke="#FF00A8"
+            strokeWidth={2}
+            activeDot={{ r: 6 }}
+          />
           <Tooltip content={<CustomTooltipGreen />} />
         </LineChart>
       </ResponsiveContainer>
@@ -217,7 +189,7 @@ export const PinkLineChart: FunctionComponent<{
 export const GreenAreaAnalyticsChart: FunctionComponent<{
   graphData?: Array<{ name: string; pv: number; uv: number; amt: number }>;
   height?: number;
-}> = ({ graphData = data, height = 500 }) => {
+}> = ({ graphData, height = 500 }) => {
   return (
     <div className={classes.chartContainer}>
       <ResponsiveContainer width="100%" height={height}>
@@ -232,8 +204,8 @@ export const GreenAreaAnalyticsChart: FunctionComponent<{
           }}
         >
           <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10} height={40}/>
-          <YAxis fontFamily="SpaceGrotesk" dx={-5}/>
+          <XAxis dataKey="name" fontFamily="SpaceGrotesk" dy={10} height={40} />
+          <YAxis fontFamily="SpaceGrotesk" dx={-5} />
           <Area
             type="monotone"
             dataKey="uv"

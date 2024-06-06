@@ -175,6 +175,31 @@ export const AnalyticsDetails = () => {
   };
 
   const [graphData, setGraphData] = useState(chartData);
+  useEffect(() => {
+    const startDateValue = dateFormat(startDate);
+    const endDateValue = dateFormat(endDate);
+
+    let finalData: any;
+
+    finalData = {
+      title: chartData.title,
+      value: chartData.value,
+      unit: chartData.unit,
+      url: chartData.url,
+      baseline: chartData.baseline,
+      data: [],
+    };
+
+    chartData.data.map((item) => {
+      let date = new Date(item.name);
+      let fullDate = dateFormat(date);
+
+      if (startDateValue <= fullDate && endDateValue >= fullDate) {
+        finalData.data.push(item);
+      }
+    });
+    setGraphData(finalData);
+  }, []);
 
   const startDateHandler = (date: any) => {
     date && setStartDate(date);
