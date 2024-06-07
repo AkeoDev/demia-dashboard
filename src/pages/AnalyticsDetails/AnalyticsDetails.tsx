@@ -23,50 +23,7 @@ const chartData = {
   unit: "t CH4",
   url: "total-ghg-emission",
   baseline: 6000,
-  data: [
-    {
-      name: "June 1 2024",
-      uv: 0,
-      pv: 0,
-      amt: 0,
-    },
-    {
-      name: "June 2 2024",
-      uv: 3000,
-      pv: 1398,
-      amt: 2210,
-    },
-    {
-      name: "June 3 2024",
-      uv: 2000,
-      pv: 9800,
-      amt: 2290,
-    },
-    {
-      name: "June 4 2024",
-      uv: 2780,
-      pv: 3908,
-      amt: 2000,
-    },
-    {
-      name: "June 5 2024",
-      uv: 1890,
-      pv: 4800,
-      amt: 2181,
-    },
-    {
-      name: "June 6 2024",
-      uv: 2390,
-      pv: 3800,
-      amt: 2500,
-    },
-    {
-      name: "June 7 2024",
-      uv: 3490,
-      pv: 4300,
-      amt: 2100,
-    },
-  ],
+  data: [],
 };
 
 const parametersData = [
@@ -103,7 +60,7 @@ const parametersData = [
 ];
 
 const CSVHeaders = [
-  { label: "Date", key: "name" },
+  { label: "Date", key: "date" },
   { label: "Value", key: "pv" },
 ];
 
@@ -145,99 +102,56 @@ export const AnalyticsDetails = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [location]);
 
-  const [CSVData, setCSVData] = useState(chartData.data);
+  const [CSVData, setCSVData] = useState([]);
 
-  const dateFormat = (date: any) => {
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-    let finalDate = new Date(`${year}-${month}-${day}`);
+  const dateFormatter = new Intl.DateTimeFormat('en-US', {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 
-    return finalDate.valueOf();
+  const dateFormat = (date: Date) => {
+    return dateFormatter.format(date);
   };
 
   const csvButtonHandler = () => {
-    let finalCSV: any[] = [];
-
-    let startDateVal = dateFormat(startDate);
-    let endDateVal = dateFormat(endDate);
-
-    chartData.data.map((item, index) => {
-      let date = new Date(item.name);
-      let fullDate = dateFormat(date);
-
-      if (startDateVal <= fullDate && endDateVal >= fullDate) {
-        finalCSV[index] = item;
-      }
-    });
-
-    setCSVData(finalCSV);
+    setCSVData(generateCSV());
   };
 
   const [graphData, setGraphData] = useState(chartData);
   useEffect(() => {
-    const startDateValue = dateFormat(startDate);
-    const endDateValue = dateFormat(endDate);
-
-    let finalData: any;
-
-    finalData = {
-      title: chartData.title,
-      value: chartData.value,
-      unit: chartData.unit,
-      url: chartData.url,
-      baseline: chartData.baseline,
-      data: [],
-    };
-
-    chartData.data.map((item) => {
-      let date = new Date(item.name);
-      let fullDate = dateFormat(date);
-
-      if (startDateValue <= fullDate && endDateValue >= fullDate) {
-        finalData.data.push(item);
-      }
-    });
-    setGraphData(finalData);
+    setGraphData(generateData(startDate, endDate));
   }, []);
 
-  const startDateHandler = (date: any) => {
+  const startDateHandler = (date: Date) => {
     date && setStartDate(date);
-
-    const endDateValue = dateFormat(endDate);
-    const startDateValue = dateFormat(date);
-
-    let finalData: any;
-
-    finalData = {
-      title: chartData.title,
-      value: chartData.value,
-      unit: chartData.unit,
-      url: chartData.url,
-      baseline: chartData.baseline,
-      data: [],
-    };
-
-    chartData.data.map((item) => {
-      let date = new Date(item.name);
-      let fullDate = dateFormat(date);
-
-      if (startDateValue <= fullDate && endDateValue >= fullDate) {
-        finalData.data.push(item);
-      }
-    });
-    setGraphData(finalData);
+    setGraphData(generateData(date, endDate));
   };
 
-  const endDateHandler = (date: any) => {
+  const endDateHandler = (date: Date) => {
     date && setEndDate(date);
+    setGraphData(generateData(startDate, date));
+  };
 
-    const startDateValue = dateFormat(startDate);
-    const endDateValue = dateFormat(date);
+  const generateCSV = () => {
+    return graphData.data.map((subItem) => ({
+      title: chartData.title,
+      value: chartData.value,
+      unit: chartData.unit,
+      url: chartData.url,
+      date: subItem.name,
+      uv: subItem.uv,
+      pv: subItem.pv,
+      amt: subItem.amt,
+    }));
+  }
 
-    let finalData: any;
+  const generateData = (start: Date, end: Date) => {
+    const lerp = (a, b, t ) => {
+      return Math.floor(a * ( 1 - t ) + b * t);
+    };
 
-    finalData = {
+    const finalData = {
       title: chartData.title,
       value: chartData.value,
       unit: chartData.unit,
@@ -246,16 +160,18 @@ export const AnalyticsDetails = () => {
       data: [],
     };
 
-    chartData.data.map((item) => {
-      let date = new Date(item.name);
-      let fullDate = dateFormat(date);
+    for (let d = new Date(start), i = 0; d <= end; d.setDate(d.getDate() + 1), i++) {
+      const name = dateFormat(d);
+      finalData.data.push({
+        name,
+        uv: lerp(i > 0 ? finalData.data[i - 1].uv : Math.random() * 20000, Math.random() * 20000, 0.5),
+        pv: lerp(i > 0 ? finalData.data[i - 1].pv : Math.random() * 20000, Math.random() * 20000, 0.5),
+        amt: lerp(i > 0 ? finalData.data[i - 1].amt : Math.random() * 20000, Math.random() * 20000, 0.5),
+      });
+    }
 
-      if (startDateValue <= fullDate && endDateValue >= fullDate) {
-        finalData.data.push(item);
-      }
-    });
-    setGraphData(finalData);
-  };
+    return finalData;
+  }
 
   return (
     <Layout>

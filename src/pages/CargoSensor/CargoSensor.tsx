@@ -256,6 +256,7 @@ export const CargoSensor = () => {
                   selectsStart
                   startDate={startDate}
                   endDate={endDate}
+                  minDate={null}
                   dateFormat="MMM d, yyyy"
                 />
                 <span>-</span>
@@ -268,6 +269,7 @@ export const CargoSensor = () => {
                   startDate={startDate}
                   endDate={endDate}
                   minDate={startDate}
+                  maxDate={null}
                   dateFormat="MMM d, yyyy"
                 />
               </div>

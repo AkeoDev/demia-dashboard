@@ -289,6 +289,7 @@ export const Flowmeter = () => {
             <div className={classes.datePickerContainer}>
               <div className={classes.datepicker}>
                 <DatePicker
+                  minDate={null}
                   calendarClassName="calendarStyle"
                   popperClassName="pooperStyle"
                   selected={startDate}
@@ -308,6 +309,7 @@ export const Flowmeter = () => {
                   startDate={startDate}
                   endDate={endDate}
                   minDate={startDate}
+                  maxDate={null}
                   dateFormat="MMM d, yyyy"
                 />
               </div>

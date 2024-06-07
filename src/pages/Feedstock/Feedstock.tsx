@@ -286,6 +286,7 @@ export const Feedstock = () => {
                   selectsStart
                   startDate={startDate}
                   endDate={endDate}
+                  minDate={null}
                   dateFormat="MMM d, yyyy"
                 />
                 <span>-</span>
@@ -298,6 +299,7 @@ export const Feedstock = () => {
                   startDate={startDate}
                   endDate={endDate}
                   minDate={startDate}
+                  maxDate={null}
                   dateFormat="MMM d, yyyy"
                 />
               </div>

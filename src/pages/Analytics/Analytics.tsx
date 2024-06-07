@@ -26,400 +26,56 @@ const chartsData = [
     unit: "t CH4",
     url: "total-ghg-emission",
     baseline: 7000,
-    data: [
-      {
-        name: "June 1 2024",
-        uv: 2780,
-        pv: 3908,
-        amt: 2000,
-      },
-      {
-        name: "June 2 2024",
-        uv: 1890,
-        pv: 8000,
-        amt: 2181,
-      },
-      {
-        name: "June 3 2024",
-        uv: 2390,
-        pv: 3800,
-        amt: 2500,
-      },
-      {
-        name: "June 4 2024",
-        uv: 3490,
-        pv: 11100,
-        amt: 2100,
-      },
-      {
-        name: "June 5 2024",
-        uv: 1890,
-        pv: 4800,
-        amt: 2181,
-      },
-      {
-        name: "June 6 2024",
-        uv: 2390,
-        pv: 3800,
-        amt: 2500,
-      },
-      {
-        name: "June 7 2024",
-        uv: 3490,
-        pv: 4300,
-        amt: 2100,
-      },
-    ],
+    data: [],
   },
   {
     title: "Total methane emissions destroyed",
     value: "172,642",
     unit: "t CH4",
     url: "total-methane-emission",
-    data: [
-      {
-        name: "June 1 2024",
-        uv: 20000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 2 2024",
-        uv: 45000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 3 2024",
-        uv: 65000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 4 2024",
-        uv: 98000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 5 2024",
-        uv: 120000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 6 2024",
-        uv: 145000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 7 2024",
-        uv: 160000,
-        pv: 0,
-        amt: 0,
-      },
-    ],
+    data: [],
   },
   {
     title: "Net methane destroyed by flare",
     value: "134,538",
     unit: "m3 CH4",
     url: "total-methane-destroyed",
-    data: [
-      {
-        name: "June 1 2024",
-        uv: 8000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 2 2024",
-        uv: 4500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 3 2024",
-        uv: 6500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 4 2024",
-        uv: 9800,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 5 2024",
-        uv: 1000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 6 2024",
-        uv: 14500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 7 2024",
-        uv: 16000,
-        pv: 0,
-        amt: 0,
-      },
-    ],
+    data: [],
   },
   {
     title: "Net methane destroyed by flare2",
     value: "126,841",
     unit: "m3 CH4",
     url: "net-methane-destroyed",
-    data: [
-      {
-        name: "June 1 2024",
-        uv: 4000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 2 2024",
-        uv: 5500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 3 2024",
-        uv: 6500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 4 2024",
-        uv: 2800,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 5 2024",
-        uv: 12000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 6 2024",
-        uv: 14500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 7 2024",
-        uv: 19000,
-        pv: 0,
-        amt: 0,
-      },
-    ],
+    data: [],
   },
   {
     title: "Total methane sent to flare",
     value: "126,841",
     unit: "m3 CH4",
     url: "total-methane-destroyed",
-    data: [
-      {
-        name: "June 1 2024",
-        uv: 2000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 2 2024",
-        uv: 4500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 3 2024",
-        uv: 6500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 4 2024",
-        uv: 9800,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 5 2024",
-        uv: 12000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 6 2024",
-        uv: 14500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 7 2024",
-        uv: 16000,
-        pv: 0,
-        amt: 0,
-      },
-    ],
+    data: [],
   },
   {
     title: "Total methane sent to flare2",
     value: "134,538",
     unit: "m3 CH4",
     url: "total-methane-sent",
-    data: [
-      {
-        name: "June 1 2024",
-        uv: 2000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 2 2024",
-        uv: 4500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 3 2024",
-        uv: 6500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 4 2024",
-        uv: 9800,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 5 2024",
-        uv: 12000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 6 2024",
-        uv: 14500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 7 2024",
-        uv: 16000,
-        pv: 0,
-        amt: 0,
-      },
-    ],
+    data: [],
   },
   {
     title: "Total GHG emissions from electricity generation and delivery",
     value: "112,5388",
     unit: "t CO2e",
     url: "total-ghg-emission",
-    data: [
-      {
-        name: "June 1 2024",
-        uv: 1000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 2 2024",
-        uv: 1500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 3 2024",
-        uv: 6500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 4 2024",
-        uv: 9800,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 5 2024",
-        uv: 7000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 6 2024",
-        uv: 14500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 7 2024",
-        uv: 16000,
-        pv: 0,
-        amt: 0,
-      },
-    ],
+    data: [],
   },
   {
     title: "Total GHG emissions from supplemental fossil fuel",
     value: "96,841",
     unit: "t CO2e",
     url: "total-methane-destroyed",
-    data: [
-      {
-        name: "June 1 2024",
-        uv: 2000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 2 2024",
-        uv: 4500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 3 2024",
-        uv: 6500,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 4 2024",
-        uv: 9800,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 5 2024",
-        uv: 12000,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 6 2024",
-        uv: 1400,
-        pv: 0,
-        amt: 0,
-      },
-      {
-        name: "June 7 2024",
-        uv: 16000,
-        pv: 0,
-        amt: 0,
-      },
-    ],
+    data: [],
   },
 ];
 
@@ -443,19 +99,6 @@ const statisticsData = [
     text: "GHG emissions annu. est.",
   },
 ];
-
-const flattenedData = chartsData.flatMap((item) =>
-  item.data.map((subItem) => ({
-    title: item.title,
-    value: item.value,
-    unit: item.unit,
-    url: item.url,
-    date: subItem.name,
-    uv: subItem.uv,
-    pv: subItem.pv,
-    amt: subItem.amt,
-  }))
-);
 
 const CSVHeaders = [
   { label: "Title", key: "title" },
@@ -509,101 +152,58 @@ export const Analytics = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [location]);
 
-  const [CSVData, setCSVData] = useState(flattenedData);
+  const [CSVData, setCSVData] = useState([]);
 
-  const dateFormat = (date: any) => {
-    let day = date.getDate();
-    let month = date.getMonth() + 1;
-    let year = date.getFullYear();
-    let finalDate = new Date(`${year}-${month}-${day}`);
+  const dateFormatter = new Intl.DateTimeFormat('en-US', {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  });
 
-    return finalDate.valueOf();
+  const dateFormat = (date: Date) => {
+    return dateFormatter.format(date);
   };
 
   const csvButtonHandler = () => {
-    let finalCSV: any[] = [];
-
-    let startDateVal = dateFormat(startDate);
-    let endDateVal = dateFormat(endDate);
-
-    flattenedData.map((item, index) => {
-      let date = new Date(item.date);
-      let fullDate = dateFormat(date);
-
-      if (startDateVal <= fullDate && endDateVal >= fullDate) {
-        finalCSV[index] = item;
-      }
-    });
-
-    setCSVData(finalCSV);
+    setCSVData(generateCSV());
   };
 
   const [graphData, setGraphData] = useState(chartsData);
   useEffect(() => {
-    const startDateValue = dateFormat(startDate);
-    const endDateValue = dateFormat(endDate);
-
-    let finalData: any[] = [];
-
-    chartsData.map((item, index) => {
-      finalData[index] = {
-        title: item.title,
-        value: item.value,
-        unit: item.unit,
-        url: item.url,
-        baseline: item.baseline,
-        data: [],
-      };
-
-      item.data.forEach((element) => {
-        let date = new Date(element.name);
-        let fullDate = dateFormat(date);
-
-        if (startDateValue <= fullDate && endDateValue >= fullDate) {
-          finalData[index].data.push(element);
-        }
-      });
-    });
-    setGraphData(finalData);
+    setGraphData(generateData(startDate, endDate));
   }, []);
 
-  const startDateHandler = (date: any) => {
+  const startDateHandler = (date: Date) => {
     date && setStartDate(date);
-
-    const endDateValue = dateFormat(endDate);
-    const startDateValue = dateFormat(date);
-
-    let finalData: any[] = [];
-
-    chartsData.map((item, index) => {
-      finalData[index] = {
-        title: item.title,
-        value: item.value,
-        unit: item.unit,
-        url: item.url,
-        baseline: item.baseline,
-        data: [],
-      };
-
-      item.data.forEach((element) => {
-        let date = new Date(element.name);
-        let fullDate = dateFormat(date);
-
-        if (startDateValue <= fullDate && endDateValue >= fullDate) {
-          finalData[index].data.push(element);
-        }
-      });
-    });
-    setGraphData(finalData);
+    setGraphData(generateData(date, endDate));
   };
   
-  const endDateHandler = (date: any) => {
+  const endDateHandler = (date: Date) => {
     date && setEndDate(date);
+    setGraphData(generateData(startDate, date));
+  };
 
-    const endDateValue = dateFormat(date);
-    const startDateValue = dateFormat(startDate);
+  const generateCSV = () => {
+    return graphData.flatMap((item) =>
+      item.data.map((subItem) => ({
+        title: item.title,
+        value: item.value,
+        unit: item.unit,
+        url: item.url,
+        date: subItem.name,
+        uv: subItem.uv,
+        pv: subItem.pv,
+        amt: subItem.amt,
+      }))
+    );
+  }
 
-    let finalData: any[] = [];
+  const generateData = (start: Date, end: Date) => {
+    const lerp = (a, b, t ) => {
+      return Math.floor(a * ( 1 - t ) + b * t);
+    };
+
+    const finalData = [];
 
     chartsData.map((item, index) => {
       finalData[index] = {
@@ -615,17 +215,22 @@ export const Analytics = () => {
         data: [],
       };
 
-      item.data.forEach((element) => {
-        let date = new Date(element.name);
-        let fullDate = dateFormat(date);
+      const array = [];
+      for (let d = new Date(start), i = 0; d <= end; d.setDate(d.getDate() + 1), i++) {
+        const name = dateFormat(d);
+        array.push({
+          name,
+          uv: lerp(i > 0 ? array[i - 1].uv : Math.random() * 20000, Math.random() * 20000, 0.5),
+          pv: lerp(i > 0 ? array[i - 1].pv : Math.random() * 20000, Math.random() * 20000, 0.5),
+          amt: lerp(i > 0 ? array[i - 1].amt : Math.random() * 20000, Math.random() * 20000, 0.5),
+        });
+      }
 
-        if (startDateValue <= fullDate && endDateValue >= fullDate) {
-          finalData[index].data.push(element);
-        }
-      });
+      finalData[index].data = array;
     });
-    setGraphData(finalData);
-  };
+
+    return finalData;
+  }
 
   return (
     <Layout>
@@ -647,6 +252,7 @@ export const Analytics = () => {
                   selectsStart
                   startDate={startDate}
                   endDate={endDate}
+                  minDate={null}
                   dateFormat="MMM d, yyyy"
                 />
                 <span>-</span>
@@ -659,6 +265,7 @@ export const Analytics = () => {
                   startDate={startDate}
                   endDate={endDate}
                   minDate={startDate}
+                  maxDate={null}
                   dateFormat="MMM d, yyyy"
                 />
               </div>
