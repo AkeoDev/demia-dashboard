@@ -110,6 +110,33 @@ const CSVHeaders = [
   { label: "Amount", key: "amt" },
 ];
 
+interface ICSV {
+  title: string;
+  value: string;
+  unit: string;
+  url: string;
+  date: number;
+  uv: number;
+  pv: number;
+  amt: number;
+}
+
+interface IData {
+  name: string;
+  uv: number;
+  pv: number;
+  amt: number;
+}
+
+interface IGraphData {
+  title: string;
+  value: string;
+  unit: string;
+  url: string;
+  baseline?: number;
+  data: IData[]
+}
+
 export const Analytics = () => {
   const { slug } = useParams();
   const url = `/projects/${slug}/analytics-setup/`;
@@ -152,7 +179,7 @@ export const Analytics = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [location]);
 
-  const [CSVData, setCSVData] = useState([]);
+  const [CSVData, setCSVData] = useState<ICSV[]>([]);
 
   const dateFormatter = new Intl.DateTimeFormat('en-US', {
     year: "numeric",
@@ -168,7 +195,7 @@ export const Analytics = () => {
     setCSVData(generateCSV());
   };
 
-  const [graphData, setGraphData] = useState(chartsData);
+  const [graphData, setGraphData] = useState<IGraphData[]>(chartsData);
   useEffect(() => {
     setGraphData(generateData(startDate, endDate));
   }, []);
@@ -185,7 +212,7 @@ export const Analytics = () => {
 
   const generateCSV = () => {
     return graphData.flatMap((item) =>
-      item.data.map((subItem) => ({
+      item.data.map((subItem: ICSV|any) => ({
         title: item.title,
         value: item.value,
         unit: item.unit,
@@ -199,13 +226,13 @@ export const Analytics = () => {
   }
 
   const generateData = (start: Date, end: Date) => {
-    const lerp = (a, b, t ) => {
+    const lerp = (a: number, b: number, t: number ) => {
       return Math.floor(a * ( 1 - t ) + b * t);
     };
 
-    const finalData = [];
+    const finalData: IGraphData[] =[];
 
-    chartsData.map((item, index) => {
+    chartsData.map((item: any, index) => {
       finalData[index] = {
         title: item.title,
         value: item.value,
@@ -215,7 +242,7 @@ export const Analytics = () => {
         data: [],
       };
 
-      const array = [];
+      const array: IData[] = [];
       for (let d = new Date(start), i = 0; d <= end; d.setDate(d.getDate() + 1), i++) {
         const name = dateFormat(d);
         array.push({

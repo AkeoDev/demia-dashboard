@@ -64,6 +64,33 @@ const CSVHeaders = [
   { label: "Value", key: "pv" },
 ];
 
+interface ICSV {
+  title: string;
+  value: string;
+  unit: string;
+  url: string;
+  date: number;
+  uv: number;
+  pv: number;
+  amt: number;
+}
+
+interface IData {
+  name: string;
+  uv: number;
+  pv: number;
+  amt: number;
+}
+
+interface IGraphData {
+  title: string;
+  value: string;
+  unit: string;
+  url: string;
+  baseline?: number;
+  data: IData[]
+}
+
 export const AnalyticsDetails = () => {
   const { analyticsSlug, slug } = useParams();
   const url = `/projects/${slug}/analytics`;
@@ -102,7 +129,7 @@ export const AnalyticsDetails = () => {
     window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
   }, [location]);
 
-  const [CSVData, setCSVData] = useState([]);
+  const [CSVData, setCSVData] = useState<ICSV[]>([]);
 
   const dateFormatter = new Intl.DateTimeFormat('en-US', {
     year: "numeric",
@@ -118,7 +145,7 @@ export const AnalyticsDetails = () => {
     setCSVData(generateCSV());
   };
 
-  const [graphData, setGraphData] = useState(chartData);
+  const [graphData, setGraphData] = useState<IGraphData>(chartData);
   useEffect(() => {
     setGraphData(generateData(startDate, endDate));
   }, []);
@@ -134,7 +161,7 @@ export const AnalyticsDetails = () => {
   };
 
   const generateCSV = () => {
-    return graphData.data.map((subItem) => ({
+    return graphData.data.map((subItem: ICSV|any) => ({
       title: chartData.title,
       value: chartData.value,
       unit: chartData.unit,
@@ -147,11 +174,11 @@ export const AnalyticsDetails = () => {
   }
 
   const generateData = (start: Date, end: Date) => {
-    const lerp = (a, b, t ) => {
+    const lerp = (a: number, b: number, t: number ) => {
       return Math.floor(a * ( 1 - t ) + b * t);
     };
 
-    const finalData = {
+    const finalData: IGraphData = {
       title: chartData.title,
       value: chartData.value,
       unit: chartData.unit,
